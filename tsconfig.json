@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "strict": true,
+        "target": "ES2022",
+        "module": "ES2022",
+        "strictNullChecks": true,
+        "sourceMap": true,
+        "declaration": true,
+        "noImplicitReturns": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": true,
+        "forceConsistentCasingInFileNames": true,
+        "experimentalDecorators": true,
+        "alwaysStrict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "moduleResolution": "Node16",
+        "skipLibCheck": true,
+        "lib": [
+            "ES2021"
+        ]
+    }
+}
