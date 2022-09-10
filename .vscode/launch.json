@@ -7,15 +7,19 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Launch SwaggerGen",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "console": "integratedTerminal",
-            "program": "${file}",
+            "program": "${workspaceFolder}/scripts/swaggerGen.js",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
-            ]
+            ],
+            "preLaunchTask": {
+                "type": "npm",
+                "script": "watch"
+            }
         }
     ]
 }
