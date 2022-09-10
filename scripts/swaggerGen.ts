@@ -79,3 +79,4 @@ const swagger: OpenAPIV3.Document = {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 await fs.writeFile(path.join(__dirname, '../swagger.json'), JSON.stringify(swagger, null, 2))
+await fs.writeFile(path.join(__dirname, '../swagger.min.json'), JSON.stringify(swagger))
