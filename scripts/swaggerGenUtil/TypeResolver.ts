@@ -26,9 +26,6 @@ export class TypeResolver {
         this.#tableReader = tableReader;
         this.#typeReader = new TypeReader(this);
         this.#schemaCache = new Map();
-
-        for (const block of getCommonTypes(this, documentationResolver))
-            Object.assign(schemas, block)
     }
 
     public getSchema(schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject | string): OpenAPIV3.SchemaObject {
@@ -55,18 +52,14 @@ export class TypeResolver {
         return { $ref: `#/components/schemas/${realId}` };
     }
 
-    public getRef(typeId: string, field?: string): OpenAPIV3.ReferenceObject {
+    public getRef(typeId: string): OpenAPIV3.ReferenceObject {
         const details = this.#getTypeDetails(typeId);
 
         const current = this.#schemas[details.id] ??= details.schema;
         if (current !== details.schema)
             throw new Error(`Duplicate type for id ${details.id}`);
 
-        let ref = `#/components/schemas/${details.id}`
-        if (field !== undefined)
-            ref += `/properties/${field}`;
-
-        return { $ref: ref };
+        return { $ref: `#/components/schemas/${details.id}` };
     }
 
     #toId(id: string): string {
@@ -77,11 +70,13 @@ export class TypeResolver {
         while (typeId in typeIdRemappings)
             typeId = typeIdRemappings[typeId];
 
-        const realId = this.#toId(typeId);
-        if (realId in this.#schemas)
-            return { id: realId, schema: this.#schemas[realId] }
-        if (typeId in this.#schemas)
-            return { id: typeId, schema: this.#schemas[typeId] }
+        if (typeId in typeOverrides) {
+            const override = typeOverrides[typeId];
+            return {
+                id: override.id,
+                schema: this.#schemas[override.id] ??= this.#ensureDocumentation(override.schema(this), typeId)
+            };
+        }
 
         const [fileId, fragment = ''] = typeId.split('/');
         const file = this.#files.getFile(fileId);
@@ -114,15 +109,7 @@ export class TypeResolver {
             if (schema === undefined) {
                 schema = {};
                 Object.assign(schema, this.#tableReader.read(region, table, this.#typeReader));
-                schema.externalDocs ??= {
-                    url: this.#documentation.getDocumentationUri(`${region.file.id}/${region.fragments[0]}`)
-                }
-                if (schema.description !== undefined)
-                    schema.description = this.#documentation.resolveMarkdownLinks(schema.description);
-                for (const prop of Object.values(schema.properties ?? {}))
-                    if (!('$ref' in prop) && prop.description !== undefined)
-                        prop.description = this.#documentation.resolveMarkdownLinks(prop.description);
-
+                this.#ensureDocumentation(schema, `${region.file.id}/${region.fragments[0]}`);
             }
             return schema;
         }
@@ -135,6 +122,19 @@ export class TypeResolver {
                 }
             })
         };
+    }
+
+    #ensureDocumentation(schema: OpenAPIV3.SchemaObject, id: string): OpenAPIV3.SchemaObject {
+        schema.externalDocs ??= {
+            url: this.#documentation.getDocumentationUri(id)
+        }
+        if (schema.description !== undefined)
+            schema.description = this.#documentation.resolveMarkdownLinks(schema.description);
+        for (const prop of Object.values(schema.properties ?? {}))
+            if (!('$ref' in prop) && prop.description !== undefined)
+                prop.description = this.#documentation.resolveMarkdownLinks(prop.description);
+
+        return schema;
     }
 
     #findTable(region: IFileRegion): { region: IFileRegion, table: string[][] } | (() => Error) {
@@ -156,108 +156,81 @@ export class TypeResolver {
 const typeIdRemappings: Record<string, string> = {
     'DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up': 'DOCS_RESOURCES_APPLICATION/application-object',
     'DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object-interaction-data': 'DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object-application-command-data-structure',
-    'DOCS_INTERACTIONS_MESSAGE_COMPONENTS/component-object': 'ActionRowObject',
     'DOCS_TOPICS_PERMISSIONS': 'DOCS_TOPICS_PERMISSIONS/permissions-bitwise-permission-flags'
 }
 const postfixReplacements = {
     '-object': '-structure'
 }
 
-function* getCommonTypes(self: TypeResolver, docs: DocumentationResolver): Generator<Record<string, OpenAPIV3.SchemaObject>> {
-    yield {
-        Snowflake: {
+const typeOverrides: Record<string, { id: string, schema: (self: TypeResolver) => OpenAPIV3.SchemaObject }> = {
+    ['DOCS_REFERENCE/snowflakes']: {
+        id: 'Snowflake',
+        schema: () => ({
             type: 'string',
-            format: 'uint64',
-            externalDocs: {
-                url: docs.getDocumentationUri('DOCS_REFERENCE/snowflakes')
-            }
-        },
-        ISO8601DateTime: {
+            format: 'uint64'
+        })
+    },
+    ['DOCS_REFERENCE/iso8601-datetime']: {
+        id: 'ISO8601DateTime',
+        schema: () => ({
             type: 'string',
-            format: 'date-time',
-            externalDocs: {
-                url: docs.getDocumentationUri('DOCS_REFERENCE/iso8601-datetime')
-            }
-        },
-        DiscordUnauthorizedError: {
-            type: 'object',
-            allOf: [{ $ref: '#/components/schemas/DiscordApiError' }],
-            properties: {
-                code: { type: 'integer', enum: [401] }
-            },
-            externalDocs: {
-                url: docs.getDocumentationUri('DOCS_TOPICS_OPCODES_AND_STATUS_CODES/http')
-            }
-        },
-        DiscordForbiddenError: {
-            type: 'object',
-            allOf: [{ $ref: '#/components/schemas/DiscordApiError' }],
-            properties: {
-                code: { type: 'integer', enum: [403] }
-            },
-            externalDocs: {
-                url: docs.getDocumentationUri('DOCS_TOPICS_OPCODES_AND_STATUS_CODES/http')
-            }
-        },
-        DiscordNotFoundError: {
-            type: 'object',
-            allOf: [{ $ref: '#/components/schemas/DiscordApiError' }],
-            properties: {
-                code: { type: 'integer', enum: [404] }
-            },
-            externalDocs: {
-                url: docs.getDocumentationUri('DOCS_TOPICS_OPCODES_AND_STATUS_CODES/http')
-            }
-        },
-        DiscordRatelimitError: {
+            format: 'date-time'
+        })
+    },
+    ['DOCS_REFERENCE/error-messages']: {
+        id: 'DiscordApiError',
+        schema: (self) => ({
             type: 'object',
             properties: {
                 message: { type: 'string' },
-                retry_after: { type: 'number' },
-                global: { type: 'boolean' }
+                code: {
+                    oneOf: [
+                        self.getRef('DOCS_TOPICS_OPCODES_AND_STATUS_CODES/json-json-error-codes'),
+                        { type: 'number' }
+                    ]
+                },
+                errors: self.getRef('DOCS_REFERENCE/error-messages/errors')
             },
-            required: ['message', 'retry_after', 'global'],
-            externalDocs: {
-                url: docs.getDocumentationUri('DOCS_TOPICS_RATE_LIMITS/rate-limits')
-            }
-        },
-        DiscordApiError: {
+            required: ['message', 'code']
+        })
+    },
+    ['DOCS_REFERENCE/error-messages/errors']: {
+        id: 'DiscordErrorNode',
+        schema: (self) => ({
             type: 'object',
             properties: {
-                message: { type: 'string' },
-                code: { type: 'number' },
-                errors: { $ref: '#/components/schemas/DiscordErrorNode' }
+                _errors: self.getRef('DOCS_REFERENCE/error-messages/errors/details')
             },
-            required: ['message', 'code'],
-            externalDocs: {
-                url: docs.getDocumentationUri('DOCS_TOPICS_OPCODES_AND_STATUS_CODES/http')
-            }
-        },
-        DiscordErrorDetails: {
+            additionalProperties: { $ref: '#/components/schemas/DiscordErrorNode' }
+        })
+    },
+    ['DOCS_REFERENCE/error-messages/errors/details']: {
+        id: 'DiscordErrorDetails',
+        schema: () => ({
             type: 'object',
             properties: {
                 code: { type: 'string' },
                 message: { type: 'string' },
             },
             additionalProperties: false,
-            required: ['code', 'message'],
-            externalDocs: {
-                url: docs.getDocumentationUri('DOCS_REFERENCE/error-messages')
-            }
-        },
-        DiscordErrorNode: {
+            required: ['code', 'message']
+        })
+    },
+    ['DOCS_TOPICS_RATE_LIMITS/rate-limits']: {
+        id: 'DiscordRatelimitError',
+        schema: () => ({
             type: 'object',
             properties: {
-                _errors: { $ref: '#/components/schemas/DiscordErrorDetails' }
+                message: { type: 'string' },
+                retry_after: { type: 'number' },
+                global: { type: 'boolean' }
             },
-            additionalProperties: { $ref: '#/components/schemas/DiscordErrorNode' },
-            externalDocs: {
-                url: docs.getDocumentationUri('DOCS_REFERENCE/error-messages')
-            }
-        }
-    };
-    yield {
-        ActionRow: {
+            required: ['message', 'retry_after', 'global']
+        })
+    },
+    ['DOCS_INTERACTIONS_MESSAGE_COMPONENTS/component-object']: {
+        id: 'ActionRow',
+        schema: (self) => ({
             type: 'object',
             properties: {
                 type: {
@@ -266,17 +239,18 @@ function* getCommonTypes(self: TypeResolver, docs: DocumentationResolver): Gener
                 },
                 components: {
                     type: 'array',
-                    items: [
-                        self.getRef('DOCS_INTERACTIONS_MESSAGE_COMPONENTS/button-object'),
-                        self.getRef('DOCS_INTERACTIONS_MESSAGE_COMPONENTS/select-menu-object'),
-                        self.getRef('DOCS_INTERACTIONS_MESSAGE_COMPONENTS/text-inputs-text-input-structure')
-                    ]
+                    items: {
+                        oneOf: [
+                            self.getRef('DOCS_INTERACTIONS_MESSAGE_COMPONENTS/button-object'),
+                            self.getRef('DOCS_INTERACTIONS_MESSAGE_COMPONENTS/select-menu-object'),
+                            self.getRef('DOCS_INTERACTIONS_MESSAGE_COMPONENTS/text-inputs-text-input-structure')
+                        ]
+                    }
                 }
             }
-        } as OpenAPIV3.SchemaObject
+        })
     }
-};
-
+}
 
 function* getRegionsToSearch(root: IFileRegion): Iterable<IFileRegion> {
     yield root;

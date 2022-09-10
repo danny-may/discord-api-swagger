@@ -18,7 +18,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
         }
@@ -87,7 +87,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
         },
@@ -96,7 +96,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Achievement/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[achievement.id](https://discord.com/developers/docs/game-sdk/achievements#data-models-achievement-struct)"
         }
@@ -193,7 +193,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/User/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[user.id](https://discord.com/developers/docs/resources/user#user-object)"
         },
@@ -202,7 +202,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
         },
@@ -211,7 +211,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Achievement/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[achievement.id](https://discord.com/developers/docs/game-sdk/achievements#data-models-achievement-struct)"
         }
@@ -252,7 +252,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
         }
@@ -324,7 +324,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Lobby/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[lobby.id](https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobby-struct)"
         }
@@ -393,7 +393,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Lobby/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[lobby.id](https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobby-struct)"
         },
@@ -402,7 +402,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/User/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[user.id](https://discord.com/developers/docs/resources/user#user-object)"
         }
@@ -474,7 +474,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Lobby/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[lobby.id](https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobby-struct)"
         }
@@ -515,7 +515,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
         }
@@ -556,7 +556,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
         },
@@ -565,7 +565,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Entitlement/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[entitlement.id](https://discord.com/developers/docs/game-sdk/store#data-models-entitlement-struct)"
         }
@@ -634,7 +634,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
         }
@@ -675,7 +675,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
         },
@@ -684,7 +684,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Entitlement/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[entitlement.id](https://discord.com/developers/docs/game-sdk/store#data-models-entitlement-struct)"
         }
@@ -725,7 +725,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/SKU/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[sku.id](https://discord.com/developers/docs/game-sdk/store#data-models-sku-struct)"
         },
@@ -734,7 +734,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/User/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[user.id](https://discord.com/developers/docs/resources/user#user-object)"
         }
@@ -803,7 +803,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/resources/application#application-object)"
         }
@@ -900,7 +900,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/resources/application#application-object)"
         },
@@ -909,7 +909,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/ApplicationCommand/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[command.id](https://discord.com/developers/docs/interactions/application-commands#application-command-object)"
         }
@@ -1006,7 +1006,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/resources/application#application-object)"
         },
@@ -1015,7 +1015,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -1112,7 +1112,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/resources/application#application-object)"
         },
@@ -1121,7 +1121,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         },
@@ -1130,7 +1130,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/ApplicationCommand/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[command.id](https://discord.com/developers/docs/interactions/application-commands#application-command-object)"
         }
@@ -1227,7 +1227,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/resources/application#application-object)"
         },
@@ -1236,7 +1236,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -1305,7 +1305,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/resources/application#application-object)"
         },
@@ -1314,7 +1314,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         },
@@ -1323,7 +1323,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/ApplicationCommand/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[command.id](https://discord.com/developers/docs/interactions/application-commands#application-command-object)"
         }
@@ -1392,7 +1392,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Interaction/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[interaction.id](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)"
         },
@@ -1401,7 +1401,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Interaction/properties/token"
+            "type": "string",
+            "description": "Continuation token for responding to the interaction"
           },
           "description": "[interaction.token](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)"
         }
@@ -1442,7 +1443,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/resources/application#application-object)"
         },
@@ -1451,7 +1452,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Interaction/properties/token"
+            "type": "string",
+            "description": "Continuation token for responding to the interaction"
           },
           "description": "[interaction.token](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)"
         }
@@ -1548,7 +1550,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/resources/application#application-object)"
         },
@@ -1557,7 +1559,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Interaction/properties/token"
+            "type": "string",
+            "description": "Continuation token for responding to the interaction"
           },
           "description": "[interaction.token](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)"
         }
@@ -1598,7 +1601,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Application/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[application.id](https://discord.com/developers/docs/resources/application#application-object)"
         },
@@ -1607,7 +1610,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Interaction/properties/token"
+            "type": "string",
+            "description": "Continuation token for responding to the interaction"
           },
           "description": "[interaction.token](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)"
         },
@@ -1616,7 +1620,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Message/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[message.id](https://discord.com/developers/docs/resources/channel#message-object)"
         }
@@ -1713,7 +1717,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -1754,7 +1758,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -1823,7 +1827,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         },
@@ -1832,7 +1836,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/AutoModerationRule/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[auto_moderation_rule.id](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object)"
         }
@@ -1929,7 +1933,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         }
@@ -2026,7 +2030,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         }
@@ -2095,7 +2099,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         },
@@ -2104,7 +2108,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Message/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[message.id](https://discord.com/developers/docs/resources/channel#message-object)"
         }
@@ -2201,7 +2205,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         },
@@ -2210,7 +2214,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Message/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[message.id](https://discord.com/developers/docs/resources/channel#message-object)"
         }
@@ -2251,7 +2255,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         },
@@ -2260,7 +2264,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Message/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[message.id](https://discord.com/developers/docs/resources/channel#message-object)"
         },
@@ -2269,7 +2273,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Emoji/properties/emoji"
+            "$ref": "#/components/schemas/Emoji"
           },
           "description": "[emoji](https://discord.com/developers/docs/resources/emoji#emoji-object)"
         }
@@ -2338,7 +2342,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         },
@@ -2347,7 +2351,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Message/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[message.id](https://discord.com/developers/docs/resources/channel#message-object)"
         },
@@ -2356,7 +2360,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Emoji/properties/emoji"
+            "$ref": "#/components/schemas/Emoji"
           },
           "description": "[emoji](https://discord.com/developers/docs/resources/emoji#emoji-object)"
         },
@@ -2365,7 +2369,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/User/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[user.id](https://discord.com/developers/docs/resources/user#user-object)"
         }
@@ -2406,7 +2410,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         },
@@ -2415,7 +2419,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Message/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[message.id](https://discord.com/developers/docs/resources/channel#message-object)"
         },
@@ -2424,7 +2428,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Emoji/properties/emoji"
+            "$ref": "#/components/schemas/Emoji"
           },
           "description": "[emoji](https://discord.com/developers/docs/resources/emoji#emoji-object)"
         }
@@ -2493,7 +2497,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         },
@@ -2502,7 +2506,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Message/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[message.id](https://discord.com/developers/docs/resources/channel#message-object)"
         }
@@ -2543,7 +2547,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         }
@@ -2584,7 +2588,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         },
@@ -2593,7 +2597,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Overwrite/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[overwrite.id](https://discord.com/developers/docs/resources/channel#overwrite-object)"
         }
@@ -2662,7 +2666,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         }
@@ -2731,7 +2735,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         }
@@ -2772,7 +2776,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         }
@@ -2813,7 +2817,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         }
@@ -2854,7 +2858,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         },
@@ -2863,7 +2867,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Message/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[message.id](https://discord.com/developers/docs/resources/channel#message-object)"
         }
@@ -2932,7 +2936,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         },
@@ -2941,7 +2945,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/User/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[user.id](https://discord.com/developers/docs/resources/user#user-object)"
         }
@@ -3010,7 +3014,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         },
@@ -3019,7 +3023,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Message/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[message.id](https://discord.com/developers/docs/resources/channel#message-object)"
         }
@@ -3060,7 +3064,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         }
@@ -3101,7 +3105,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         }
@@ -3170,7 +3174,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         },
@@ -3179,7 +3183,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/User/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[user.id](https://discord.com/developers/docs/resources/user#user-object)"
         }
@@ -3276,7 +3280,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         }
@@ -3317,7 +3321,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         }
@@ -3358,7 +3362,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         }
@@ -3399,7 +3403,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         }
@@ -3440,7 +3444,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -3509,7 +3513,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         },
@@ -3518,7 +3522,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Emoji/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[emoji.id](https://discord.com/developers/docs/resources/emoji#emoji-object)"
         }
@@ -3646,7 +3650,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -3743,7 +3747,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -3784,7 +3788,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -3881,7 +3885,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -3922,7 +3926,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         },
@@ -3931,7 +3935,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/User/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[user.id](https://discord.com/developers/docs/resources/user#user-object)"
         }
@@ -4056,7 +4060,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -4097,7 +4101,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -4138,7 +4142,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -4179,7 +4183,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -4220,7 +4224,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         },
@@ -4229,7 +4233,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/User/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[user.id](https://discord.com/developers/docs/resources/user#user-object)"
         },
@@ -4238,7 +4242,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Role/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[role.id](https://discord.com/developers/docs/topics/permissions#role-object)"
         }
@@ -4307,7 +4311,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -4348,7 +4352,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         },
@@ -4357,7 +4361,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/User/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[user.id](https://discord.com/developers/docs/resources/user#user-object)"
         }
@@ -4454,7 +4458,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -4551,7 +4555,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         },
@@ -4560,7 +4564,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Role/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[role.id](https://discord.com/developers/docs/topics/permissions#role-object)"
         }
@@ -4629,7 +4633,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -4670,7 +4674,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -4739,7 +4743,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -4780,7 +4784,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -4821,7 +4825,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -4862,7 +4866,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         },
@@ -4871,7 +4875,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Integration/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[integration.id](https://discord.com/developers/docs/resources/guild#integration-object)"
         }
@@ -4912,7 +4916,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -4981,7 +4985,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -5022,7 +5026,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -5063,7 +5067,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -5104,7 +5108,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -5173,7 +5177,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -5214,7 +5218,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         },
@@ -5223,7 +5227,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/User/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[user.id](https://discord.com/developers/docs/resources/user#user-object)"
         }
@@ -5264,7 +5268,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -5333,7 +5337,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         },
@@ -5342,7 +5346,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/GuildScheduledEvent/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild_scheduled_event.id](https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object)"
         }
@@ -5439,7 +5443,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         },
@@ -5448,7 +5452,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/GuildScheduledEvent/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild_scheduled_event.id](https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object)"
         }
@@ -5489,7 +5493,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/GuildTemplate/properties/code"
+            "type": "string",
+            "description": "the template code (unique ID)"
           },
           "description": "[template.code](https://discord.com/developers/docs/resources/guild-template#guild-template-object)"
         }
@@ -5558,7 +5563,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -5627,7 +5632,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         },
@@ -5636,7 +5641,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/GuildTemplate/properties/code"
+            "type": "string",
+            "description": "the template code (unique ID)"
           },
           "description": "[template.code](https://discord.com/developers/docs/resources/guild-template#guild-template-object)"
         }
@@ -5733,7 +5739,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Invite/properties/code"
+            "type": "string",
+            "description": "the invite code (unique ID)"
           },
           "description": "[invite.code](https://discord.com/developers/docs/resources/invite#invite-object)"
         }
@@ -5833,7 +5840,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         }
@@ -5930,7 +5937,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Sticker/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[sticker.id](https://discord.com/developers/docs/resources/sticker#sticker-object)"
         }
@@ -6002,7 +6009,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -6071,7 +6078,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         },
@@ -6080,7 +6087,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Sticker/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[sticker.id](https://discord.com/developers/docs/resources/sticker#sticker-object)"
         }
@@ -6236,7 +6243,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/User/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[user.id](https://discord.com/developers/docs/resources/user#user-object)"
         }
@@ -6308,7 +6315,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -6349,7 +6356,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -6483,7 +6490,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Channel/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[channel.id](https://discord.com/developers/docs/resources/channel#channel-object)"
         }
@@ -6552,7 +6559,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Guild/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[guild.id](https://discord.com/developers/docs/resources/guild#guild-object)"
         }
@@ -6593,7 +6600,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Webhook/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[webhook.id](https://discord.com/developers/docs/resources/webhook#webhook-object)"
         }
@@ -6690,7 +6697,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Webhook/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[webhook.id](https://discord.com/developers/docs/resources/webhook#webhook-object)"
         },
@@ -6699,7 +6706,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Webhook/properties/token"
+            "type": "string",
+            "description": "the secure token of the webhook (returned for Incoming Webhooks)"
           },
           "description": "[webhook.token](https://discord.com/developers/docs/resources/webhook#webhook-object)"
         }
@@ -6824,7 +6832,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Webhook/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[webhook.id](https://discord.com/developers/docs/resources/webhook#webhook-object)"
         },
@@ -6833,7 +6841,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Webhook/properties/token"
+            "type": "string",
+            "description": "the secure token of the webhook (returned for Incoming Webhooks)"
           },
           "description": "[webhook.token](https://discord.com/developers/docs/resources/webhook#webhook-object)"
         }
@@ -6874,7 +6883,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Webhook/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[webhook.id](https://discord.com/developers/docs/resources/webhook#webhook-object)"
         },
@@ -6883,7 +6892,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Webhook/properties/token"
+            "type": "string",
+            "description": "the secure token of the webhook (returned for Incoming Webhooks)"
           },
           "description": "[webhook.token](https://discord.com/developers/docs/resources/webhook#webhook-object)"
         }
@@ -6924,7 +6934,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Webhook/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[webhook.id](https://discord.com/developers/docs/resources/webhook#webhook-object)"
         },
@@ -6933,7 +6943,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Webhook/properties/token"
+            "type": "string",
+            "description": "the secure token of the webhook (returned for Incoming Webhooks)"
           },
           "description": "[webhook.token](https://discord.com/developers/docs/resources/webhook#webhook-object)"
         },
@@ -6942,7 +6953,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/Message/properties/id"
+            "$ref": "#/components/schemas/Snowflake"
           },
           "description": "[message.id](https://discord.com/developers/docs/resources/channel#message-object)"
         }
@@ -7183,7 +7194,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/DiscordUnauthorizedError"
+              "$ref": "#/components/schemas/DiscordApiError"
             }
           }
         }
@@ -7193,7 +7204,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/DiscordForbiddenError"
+              "$ref": "#/components/schemas/DiscordApiError"
             }
           }
         },
@@ -7230,7 +7241,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/DiscordNotFoundError"
+              "$ref": "#/components/schemas/DiscordApiError"
             }
           }
         },
@@ -7356,118 +7367,191 @@
       }
     },
     "schemas": {
-      "Snowflake": {
-        "type": "string",
-        "format": "uint64",
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/reference#snowflakes"
-        }
-      },
-      "ISO8601DateTime": {
-        "type": "string",
-        "format": "date-time",
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/reference#iso8601-datetime"
-        }
-      },
-      "DiscordUnauthorizedError": {
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/DiscordApiError"
-          }
+      "JSONErrorCodes": {
+        "type": "integer",
+        "enum": [
+          0,
+          10001,
+          10002,
+          10003,
+          10004,
+          10005,
+          10006,
+          10007,
+          10008,
+          10009,
+          10010,
+          10011,
+          10012,
+          10013,
+          10014,
+          10015,
+          10016,
+          10020,
+          10026,
+          10027,
+          10028,
+          10029,
+          10030,
+          10031,
+          10032,
+          10033,
+          10036,
+          10038,
+          10049,
+          10050,
+          10057,
+          10059,
+          10060,
+          10062,
+          10063,
+          10065,
+          10066,
+          10067,
+          10068,
+          10069,
+          10070,
+          10071,
+          10087,
+          20001,
+          20002,
+          20009,
+          20012,
+          20016,
+          20018,
+          20022,
+          20024,
+          20028,
+          20029,
+          20031,
+          20035,
+          30001,
+          30002,
+          30003,
+          30004,
+          30005,
+          30007,
+          30008,
+          30010,
+          30013,
+          30015,
+          30016,
+          30018,
+          30019,
+          30030,
+          30031,
+          30032,
+          30033,
+          30034,
+          30035,
+          30037,
+          30038,
+          30039,
+          30040,
+          30042,
+          30046,
+          30047,
+          30048,
+          30052,
+          40001,
+          40002,
+          40003,
+          40004,
+          40005,
+          40006,
+          40007,
+          40012,
+          40032,
+          40033,
+          40041,
+          40043,
+          40058,
+          40060,
+          40061,
+          40066,
+          40067,
+          50001,
+          50002,
+          50003,
+          50004,
+          50005,
+          50006,
+          50007,
+          50008,
+          50009,
+          50010,
+          50011,
+          50012,
+          50013,
+          50014,
+          50015,
+          50016,
+          50017,
+          50019,
+          50020,
+          50021,
+          50024,
+          50025,
+          50026,
+          50027,
+          50028,
+          50033,
+          50034,
+          50035,
+          50036,
+          50041,
+          50045,
+          50046,
+          50054,
+          50055,
+          50068,
+          50070,
+          50074,
+          50080,
+          50081,
+          50083,
+          50084,
+          50085,
+          50086,
+          50095,
+          50097,
+          50101,
+          50109,
+          50132,
+          50138,
+          50146,
+          50600,
+          60003,
+          80004,
+          90001,
+          110001,
+          130000,
+          150006,
+          160002,
+          160004,
+          160005,
+          160006,
+          160007,
+          170001,
+          170002,
+          170003,
+          170004,
+          170005,
+          170006,
+          170007,
+          180000,
+          180002,
+          200000,
+          200001,
+          220001,
+          220002,
+          220003,
+          220004,
+          240000
         ],
-        "properties": {
-          "code": {
-            "type": "integer",
-            "enum": [
-              401
-            ]
-          }
-        },
+        "description": "- Generalerrorsuchasamalformedrequestbodyamongstotherthings (`0`)\n- Unknownaccount (`10001`)\n- Unknownapplication (`10002`)\n- Unknownchannel (`10003`)\n- Unknownguild (`10004`)\n- Unknownintegration (`10005`)\n- Unknowninvite (`10006`)\n- Unknownmember (`10007`)\n- Unknownmessage (`10008`)\n- Unknownpermissionoverwrite (`10009`)\n- Unknownprovider (`10010`)\n- Unknownrole (`10011`)\n- Unknowntoken (`10012`)\n- Unknownuser (`10013`)\n- Unknownemoji (`10014`)\n- Unknownwebhook (`10015`)\n- Unknownwebhookservice (`10016`)\n- Unknownsession (`10020`)\n- Unknownban (`10026`)\n- UnknownSKU (`10027`)\n- UnknownStoreListing (`10028`)\n- Unknownentitlement (`10029`)\n- Unknownbuild (`10030`)\n- Unknownlobby (`10031`)\n- Unknownbranch (`10032`)\n- Unknownstoredirectorylayout (`10033`)\n- Unknownredistributable (`10036`)\n- Unknowngiftcode (`10038`)\n- Unknownstream (`10049`)\n- Unknownpremiumserversubscribecooldown (`10050`)\n- Unknownguildtemplate (`10057`)\n- Unknowndiscoverableservercategory (`10059`)\n- Unknownsticker (`10060`)\n- Unknowninteraction (`10062`)\n- Unknownapplicationcommand (`10063`)\n- Unknownvoicestate (`10065`)\n- Unknownapplicationcommandpermissions (`10066`)\n- UnknownStageInstance (`10067`)\n- UnknownGuildMemberVerificationForm (`10068`)\n- UnknownGuildWelcomeScreen (`10069`)\n- UnknownGuildScheduledEvent (`10070`)\n- UnknownGuildScheduledEventUser (`10071`)\n- UnknownTag (`10087`)\n- Botscannotusethisendpoint (`20001`)\n- Onlybotscanusethisendpoint (`20002`)\n- Explicitcontentcannotbesenttothedesiredrecipients (`20009`)\n- Youarenotauthorizedtoperformthisactiononthisapplication (`20012`)\n- Thisactioncannotbeperformedduetoslowmoderatelimit (`20016`)\n- Onlytheownerofthisaccountcanperformthisaction (`20018`)\n- Thismessagecannotbeeditedduetoannouncementratelimits (`20022`)\n- Underminimumage (`20024`)\n- Thechannelyouarewritinghashitthewriteratelimit (`20028`)\n- Thewriteactionyouareperformingontheserverhashitthewriteratelimit (`20029`)\n- YourStagetopicservernameserverdescriptionorchannelnamescontainwordsthatarenotallowed (`20031`)\n- Guildpremiumsubscriptionleveltoolow (`20035`)\n- Maximumnumberofguildsreached100 (`30001`)\n- Maximumnumberoffriendsreached1000 (`30002`)\n- Maximumnumberofpinsreachedforthechannel50 (`30003`)\n- Maximumnumberofrecipientsreached10 (`30004`)\n- Maximumnumberofguildrolesreached250 (`30005`)\n- Maximumnumberofwebhooksreached10 (`30007`)\n- Maximumnumberofemojisreached (`30008`)\n- Maximumnumberofreactionsreached20 (`30010`)\n- Maximumnumberofguildchannelsreached500 (`30013`)\n- Maximumnumberofattachmentsinamessagereached10 (`30015`)\n- Maximumnumberofinvitesreached1000 (`30016`)\n- Maximumnumberofanimatedemojisreached (`30018`)\n- Maximumnumberofservermembersreached (`30019`)\n- Maximumnumberofservercategorieshasbeenreached5 (`30030`)\n- Guildalreadyhasatemplate (`30031`)\n- Maximumnumberofapplicationcommandsreached (`30032`)\n- Maxnumberofthreadparticipantshasbeenreached1000 (`30033`)\n- Maxnumberofdailyapplicationcommandcreateshasbeenreached200 (`30034`)\n- Maximumnumberofbansfornon_guildmembershavebeenexceeded (`30035`)\n- Maximumnumberofbansfetcheshasbeenreached (`30037`)\n- Maximumnumberofuncompletedguildscheduledeventsreached100 (`30038`)\n- Maximumnumberofstickersreached (`30039`)\n- MaximumnumberofprunerequestshasbeenreachedTryagainlater (`30040`)\n- MaximumnumberofguildwidgetsettingsupdateshasbeenreachedTryagainlater (`30042`)\n- Maximumnumberofeditstomessagesolderthan1hourreachedTryagainlater (`30046`)\n- Maximumnumberofpinnedthreadsinaforumchannelhasbeenreached (`30047`)\n- Maximumnumberoftagsinaforumchannelhasbeenreached (`30048`)\n- Bitrateistoohighforchannelofthistype (`30052`)\n- UnauthorizedProvideavalidtokenandtryagain (`40001`)\n- Youneedtoverifyyouraccountinordertoperformthisaction (`40002`)\n- Youareopeningdirectmessagestoofast (`40003`)\n- Sendmessageshasbeentemporarilydisabled (`40004`)\n- RequestentitytoolargeTrysendingsomethingsmallerinsize (`40005`)\n- Thisfeaturehasbeentemporarilydisabledserver_side (`40006`)\n- Theuserisbannedfromthisguild (`40007`)\n- Connectionhasbeenrevoked (`40012`)\n- Targetuserisnotconnectedtovoice (`40032`)\n- Thismessagehasalreadybeencrossposted (`40033`)\n- Anapplicationcommandwiththatnamealreadyexists (`40041`)\n- Applicationinteractionfailedtosend (`40043`)\n- Cannotsendamessageinaforumchannel (`40058`)\n- Interactionhasalreadybeenacknowledged (`40060`)\n- Tagnamesmustbeunique (`40061`)\n- Therearenotagsavailablethatcanbesetbynon_moderators (`40066`)\n- Atagisrequiredtocreateaforumpostinthischannel (`40067`)\n- Missingaccess (`50001`)\n- Invalidaccounttype (`50002`)\n- CannotexecuteactiononaDMchannel (`50003`)\n- Guildwidgetdisabled (`50004`)\n- Cannoteditamessageauthoredbyanotheruser (`50005`)\n- Cannotsendanemptymessage (`50006`)\n- Cannotsendmessagestothisuser (`50007`)\n- Cannotsendmessagesinanon_textchannel (`50008`)\n- Channelverificationlevelistoohighforyoutogainaccess (`50009`)\n- OAuth2applicationdoesnothaveabot (`50010`)\n- OAuth2applicationlimitreached (`50011`)\n- InvalidOAuth2state (`50012`)\n- Youlackpermissionstoperformthataction (`50013`)\n- Invalidauthenticationtokenprovided (`50014`)\n- Notewastoolong (`50015`)\n- ProvidedtoofewortoomanymessagestodeleteMustprovideatleast2andfewerthan100messagestodelete (`50016`)\n- InvalidMFALevel (`50017`)\n- Amessagecanonlybepinnedtothechannelitwassentin (`50019`)\n- Invitecodewaseitherinvalidortaken (`50020`)\n- Cannotexecuteactiononasystemmessage (`50021`)\n- Cannotexecuteactiononthischanneltype (`50024`)\n- InvalidOAuth2accesstokenprovided (`50025`)\n- MissingrequiredOAuth2scope (`50026`)\n- Invalidwebhooktokenprovided (`50027`)\n- Invalidrole (`50028`)\n- InvalidRecipients (`50033`)\n- Amessageprovidedwastoooldtobulkdelete (`50034`)\n- Invalidformbodyreturnedforbothapplicationjsonandmultipartform_databodiesorinvalidContent_Typeprovided (`50035`)\n- Aninvitewasacceptedtoaguildtheapplicationsbotisnotin (`50036`)\n- InvalidAPIversionprovided (`50041`)\n- Fileuploadedexceedsthemaximumsize (`50045`)\n- Invalidfileuploaded (`50046`)\n- Cannotself_redeemthisgift (`50054`)\n- InvalidGuild (`50055`)\n- Invalidmessagetype (`50068`)\n- Paymentsourcerequiredtoredeemgift (`50070`)\n- CannotdeleteachannelrequiredforCommunityguilds (`50074`)\n- Cannoteditstickerswithinamessage (`50080`)\n- Invalidstickersent (`50081`)\n- Triedtoperformanoperationonanarchivedthreadsuchaseditingamessageoraddingausertothethread (`50083`)\n- Invalidthreadnotificationsettings (`50084`)\n- beforevalueisearlierthanthethreadcreationdate (`50085`)\n- Communityserverchannelsmustbetextchannels (`50086`)\n- Thisserverisnotavailableinyourlocation (`50095`)\n- Thisserverneedsmonetizationenabledinordertoperformthisaction (`50097`)\n- Thisserverneedsmorebooststoperformthisaction (`50101`)\n- TherequestbodycontainsinvalidJSON (`50109`)\n- Ownershipcannotbetransferredtoabotuser (`50132`)\n- Failedtoresizeassetbelowthemaximumsize262144 (`50138`)\n- Uploadedfilenotfound (`50146`)\n- Youdonothavepermissiontosendthissticker (`50600`)\n- Twofactorisrequiredforthisoperation (`60003`)\n- NouserswithDiscordTagexist (`80004`)\n- Reactionwasblocked (`90001`)\n- ApplicationnotyetavailableTryagainlater (`110001`)\n- APIresourceiscurrentlyoverloadedTryagainalittlelater (`130000`)\n- TheStageisalreadyopen (`150006`)\n- Cannotreplywithoutpermissiontoreadmessagehistory (`160002`)\n- Athreadhasalreadybeencreatedforthismessage (`160004`)\n- Threadislocked (`160005`)\n- Maximumnumberofactivethreadsreached (`160006`)\n- Maximumnumberofactiveannouncementthreadsreached (`160007`)\n- InvalidJSONforuploadedLottiefile (`170001`)\n- UploadedLottiescannotcontainrasterizedimagessuchasPNGorJPEG (`170002`)\n- Stickermaximumframerateexceeded (`170003`)\n- Stickerframecountexceedsmaximumof1000frames (`170004`)\n- Lottieanimationmaximumdimensionsexceeded (`170005`)\n- Stickerframerateiseithertoosmallortoolarge (`170006`)\n- Stickeranimationdurationexceedsmaximumof5seconds (`170007`)\n- Cannotupdateafinishedevent (`180000`)\n- Failedtocreatestageneededforstageevent (`180002`)\n- Messagewasblockedbyautomaticmoderation (`200000`)\n- Titlewasblockedbyautomaticmoderation (`200001`)\n- Webhookspostedtoforumchannelsmusthaveathread_nameorthread_id (`220001`)\n- Webhookspostedtoforumchannelscannothavebothathread_nameandthread_id (`220002`)\n- Webhookscanonlycreatethreadsinforumchannels (`220003`)\n- Webhookservicescannotbeusedinforumchannels (`220004`)\n- Messageblockedbyharmfullinksfilter (`240000`)",
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/topics/opcodes-and-status-codes#http"
-        }
-      },
-      "DiscordForbiddenError": {
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/DiscordApiError"
-          }
-        ],
-        "properties": {
-          "code": {
-            "type": "integer",
-            "enum": [
-              403
-            ]
-          }
-        },
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/topics/opcodes-and-status-codes#http"
-        }
-      },
-      "DiscordNotFoundError": {
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/DiscordApiError"
-          }
-        ],
-        "properties": {
-          "code": {
-            "type": "integer",
-            "enum": [
-              404
-            ]
-          }
-        },
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/topics/opcodes-and-status-codes#http"
-        }
-      },
-      "DiscordRatelimitError": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string"
-          },
-          "retry_after": {
-            "type": "number"
-          },
-          "global": {
-            "type": "boolean"
-          }
-        },
-        "required": [
-          "message",
-          "retry_after",
-          "global"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/topics/rate-limits#rate-limits"
-        }
-      },
-      "DiscordApiError": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string"
-          },
-          "code": {
-            "type": "number"
-          },
-          "errors": {
-            "$ref": "#/components/schemas/DiscordErrorNode"
-          }
-        },
-        "required": [
-          "message",
-          "code"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/topics/opcodes-and-status-codes#http"
+          "url": "https://discord.com/developers/docs/topics/opcodes-and-status-codes#json-json-error-codes"
         }
       },
       "DiscordErrorDetails": {
@@ -7503,122 +7587,61 @@
           "url": "https://discord.com/developers/docs/reference#error-messages"
         }
       },
-      "ButtonStyles": {
-        "type": "integer",
-        "enum": [
-          1,
-          2,
-          3,
-          4,
-          5
-        ],
-        "description": "- Primary (`1`) - blurple\n- Secondary (`2`) - grey\n- Success (`3`) - green\n- Danger (`4`) - red\n- Link (`5`) - grey, navigates to a URL",
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/message-components#button-object-button-styles"
-        }
-      },
-      "RoleTags": {
+      "DiscordApiError": {
         "type": "object",
         "properties": {
-          "bot_id": {
-            "allOf": [
+          "message": {
+            "type": "string"
+          },
+          "code": {
+            "oneOf": [
               {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "the id of the bot this role belongs to"
-          },
-          "integration_id": {
-            "allOf": [
+                "$ref": "#/components/schemas/JSONErrorCodes"
+              },
               {
-                "$ref": "#/components/schemas/Snowflake"
+                "type": "number"
               }
-            ],
-            "description": "the id of the integration this role belongs to"
+            ]
           },
-          "premium_subscriber": {
-            "type": "object",
-            "enum": [
-              null
-            ],
-            "description": "whether this is the guild's premium subscriber role"
-          }
-        },
-        "required": [],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/topics/permissions#role-object-role-tags-structure"
-        }
-      },
-      "Role": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "role id"
-          },
-          "name": {
-            "type": "string",
-            "description": "role name"
-          },
-          "color": {
-            "type": "integer",
-            "description": "integer representation of hexadecimal color code"
-          },
-          "hoist": {
-            "type": "boolean",
-            "description": "if this role is pinned in the user listing"
-          },
-          "icon": {
-            "type": "string",
-            "nullable": true,
-            "description": "role [icon hash](https://discord.com/developers/docs/reference#image-formatting)"
-          },
-          "unicode_emoji": {
-            "type": "string",
-            "nullable": true,
-            "description": "role unicode emoji"
-          },
-          "position": {
-            "type": "integer",
-            "description": "position of this role"
-          },
-          "permissions": {
-            "type": "string",
-            "description": "permission bit set"
-          },
-          "managed": {
-            "type": "boolean",
-            "description": "whether this role is managed by an integration"
-          },
-          "mentionable": {
-            "type": "boolean",
-            "description": "whether this role is mentionable"
-          },
-          "tags": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/RoleTags"
-              }
-            ],
-            "description": "the tags this role has"
+          "errors": {
+            "$ref": "#/components/schemas/DiscordErrorNode"
           }
         },
         "required": [
-          "id",
-          "name",
-          "color",
-          "hoist",
-          "position",
-          "permissions",
-          "managed",
-          "mentionable"
+          "message",
+          "code"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/topics/permissions#role-structure"
+          "url": "https://discord.com/developers/docs/reference#error-messages"
+        }
+      },
+      "DiscordRatelimitError": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "retry_after": {
+            "type": "number"
+          },
+          "global": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "message",
+          "retry_after",
+          "global"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/topics/rate-limits#rate-limits"
+        }
+      },
+      "Snowflake": {
+        "type": "string",
+        "format": "uint64",
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/reference#snowflakes"
         }
       },
       "Locales": {
@@ -7783,333 +7806,6 @@
         ],
         "externalDocs": {
           "url": "https://discord.com/developers/docs/resources/user#user-structure"
-        }
-      },
-      "Emoji": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "nullable": true,
-            "description": "[emoji id](https://discord.com/developers/docs/reference#image-formatting)"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "description": "emoji name"
-          },
-          "roles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Role/properties/id"
-            },
-            "description": "roles allowed to use this emoji"
-          },
-          "user": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/User"
-              }
-            ],
-            "description": "user that created this emoji"
-          },
-          "require_colons": {
-            "type": "boolean",
-            "description": "whether this emoji must be wrapped in colons"
-          },
-          "managed": {
-            "type": "boolean",
-            "description": "whether this emoji is managed"
-          },
-          "animated": {
-            "type": "boolean",
-            "description": "whether this emoji is animated"
-          },
-          "available": {
-            "type": "boolean",
-            "description": "whether this emoji can be used, may be false due to loss of Server Boosts"
-          }
-        },
-        "required": [
-          "id",
-          "name"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/emoji#emoji-structure"
-        }
-      },
-      "ButtonEmoji": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "nullable": true,
-            "description": "[emoji id](https://discord.com/developers/docs/reference#image-formatting)"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "description": "emoji name"
-          },
-          "animated": {
-            "type": "boolean",
-            "description": "whether this emoji is animated"
-          }
-        },
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/message-components#button-structure"
-        }
-      },
-      "Button": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "integer",
-            "description": "`2` for a button"
-          },
-          "style": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ButtonStyles"
-              }
-            ],
-            "description": "one of [button styles](https://discord.com/developers/docs/interactions/message-components#button-object-button-styles)"
-          },
-          "label": {
-            "type": "string",
-            "description": "text that appears on the button, max 80 characters"
-          },
-          "emoji": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ButtonEmoji"
-              }
-            ],
-            "description": "`name`, `id`, and `animated`"
-          },
-          "custom_id": {
-            "type": "string",
-            "description": "a developer-defined identifier for the button, max 100 characters"
-          },
-          "url": {
-            "type": "string",
-            "description": "a url for link-style buttons"
-          },
-          "disabled": {
-            "type": "boolean",
-            "description": "whether the button is disabled (default `false`)"
-          }
-        },
-        "required": [
-          "type",
-          "style"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/message-components#button-structure"
-        }
-      },
-      "SelectOptionEmoji": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "nullable": true,
-            "description": "[emoji id](https://discord.com/developers/docs/reference#image-formatting)"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "description": "emoji name"
-          },
-          "animated": {
-            "type": "boolean",
-            "description": "whether this emoji is animated"
-          }
-        },
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-option-structure"
-        }
-      },
-      "SelectOption": {
-        "type": "object",
-        "properties": {
-          "label": {
-            "type": "string",
-            "description": "the user-facing name of the option, max 100 characters"
-          },
-          "value": {
-            "type": "string",
-            "description": "the dev-defined value of the option, max 100 characters"
-          },
-          "description": {
-            "type": "string",
-            "description": "an additional description of the option, max 100 characters"
-          },
-          "emoji": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/SelectOptionEmoji"
-              }
-            ],
-            "description": "`id`, `name`, and `animated`"
-          },
-          "default": {
-            "type": "boolean",
-            "description": "will render this option as selected by default"
-          }
-        },
-        "required": [
-          "label",
-          "value"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-option-structure"
-        }
-      },
-      "SelectMenu": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "integer",
-            "description": "`3` for a select menu"
-          },
-          "custom_id": {
-            "type": "string",
-            "description": "a developer-defined identifier for the select menu, max 100 characters"
-          },
-          "options": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SelectOption"
-            },
-            "description": "the choices in the select, max 25"
-          },
-          "placeholder": {
-            "type": "string",
-            "description": "custom placeholder text if nothing is selected, max 150 characters"
-          },
-          "min_values": {
-            "type": "integer",
-            "description": "the minimum number of items that must be chosen; default 1, min 0, max 25"
-          },
-          "max_values": {
-            "type": "integer",
-            "description": "the maximum number of items that can be chosen; default 1, max 25"
-          },
-          "disabled": {
-            "type": "boolean",
-            "description": "disable the select, default false"
-          }
-        },
-        "required": [
-          "type",
-          "custom_id",
-          "options"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/message-components#select-menu-structure"
-        }
-      },
-      "TextInputStyles": {
-        "type": "integer",
-        "enum": [
-          1,
-          2
-        ],
-        "description": "- Short (`1`) - A single-line input\n- Paragraph (`2`) - A multi-line input",
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/message-components#text-inputs-text-input-styles"
-        }
-      },
-      "TextInput": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "integer",
-            "description": "`4` for a text input"
-          },
-          "custom_id": {
-            "type": "string",
-            "description": "a developer-defined identifier for the input, max 100 characters"
-          },
-          "style": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/TextInputStyles"
-              }
-            ],
-            "description": "the [Text Input Style](https://discord.com/developers/docs/interactions/message-components#text-inputs-text-input-styles)"
-          },
-          "label": {
-            "type": "string",
-            "description": "the label for this component, max 45 characters"
-          },
-          "min_length": {
-            "type": "integer",
-            "description": "the minimum input length for a text input, min 0, max 4000"
-          },
-          "max_length": {
-            "type": "integer",
-            "description": "the maximum input length for a text input, min 1, max 4000"
-          },
-          "required": {
-            "type": "boolean",
-            "description": "whether this component is required to be filled, default true"
-          },
-          "value": {
-            "type": "string",
-            "description": "a pre-filled value for this component, max 4000 characters"
-          },
-          "placeholder": {
-            "type": "string",
-            "description": "custom placeholder text if the input is empty, max 100 characters"
-          }
-        },
-        "required": [
-          "type",
-          "custom_id",
-          "style",
-          "label"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/message-components#text-inputs-text-input-structure"
-        }
-      },
-      "ActionRow": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "integer",
-            "enum": [
-              1
-            ]
-          },
-          "components": {
-            "type": "array",
-            "items": [
-              {
-                "$ref": "#/components/schemas/Button"
-              },
-              {
-                "$ref": "#/components/schemas/SelectMenu"
-              },
-              {
-                "$ref": "#/components/schemas/TextInput"
-              }
-            ]
-          }
         }
       },
       "ApplicationOwner": {
@@ -9833,6 +9529,172 @@
           "url": "https://discord.com/developers/docs/resources/guild#guild-object-explicit-content-filter-level"
         }
       },
+      "RoleTags": {
+        "type": "object",
+        "properties": {
+          "bot_id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "the id of the bot this role belongs to"
+          },
+          "integration_id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "the id of the integration this role belongs to"
+          },
+          "premium_subscriber": {
+            "type": "object",
+            "enum": [
+              null
+            ],
+            "description": "whether this is the guild's premium subscriber role"
+          }
+        },
+        "required": [],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/topics/permissions#role-object-role-tags-structure"
+        }
+      },
+      "Role": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "role id"
+          },
+          "name": {
+            "type": "string",
+            "description": "role name"
+          },
+          "color": {
+            "type": "integer",
+            "description": "integer representation of hexadecimal color code"
+          },
+          "hoist": {
+            "type": "boolean",
+            "description": "if this role is pinned in the user listing"
+          },
+          "icon": {
+            "type": "string",
+            "nullable": true,
+            "description": "role [icon hash](https://discord.com/developers/docs/reference#image-formatting)"
+          },
+          "unicode_emoji": {
+            "type": "string",
+            "nullable": true,
+            "description": "role unicode emoji"
+          },
+          "position": {
+            "type": "integer",
+            "description": "position of this role"
+          },
+          "permissions": {
+            "type": "string",
+            "description": "permission bit set"
+          },
+          "managed": {
+            "type": "boolean",
+            "description": "whether this role is managed by an integration"
+          },
+          "mentionable": {
+            "type": "boolean",
+            "description": "whether this role is mentionable"
+          },
+          "tags": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RoleTags"
+              }
+            ],
+            "description": "the tags this role has"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "color",
+          "hoist",
+          "position",
+          "permissions",
+          "managed",
+          "mentionable"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/topics/permissions#role-structure"
+        }
+      },
+      "Emoji": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "nullable": true,
+            "description": "[emoji id](https://discord.com/developers/docs/reference#image-formatting)"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "description": "emoji name"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Snowflake"
+                }
+              ],
+              "description": "role id"
+            },
+            "description": "roles allowed to use this emoji"
+          },
+          "user": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ],
+            "description": "user that created this emoji"
+          },
+          "require_colons": {
+            "type": "boolean",
+            "description": "whether this emoji must be wrapped in colons"
+          },
+          "managed": {
+            "type": "boolean",
+            "description": "whether this emoji is managed"
+          },
+          "animated": {
+            "type": "boolean",
+            "description": "whether this emoji is animated"
+          },
+          "available": {
+            "type": "boolean",
+            "description": "whether this emoji can be used, may be false due to loss of Server Boosts"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/resources/emoji#emoji-structure"
+        }
+      },
       "GuildFeatures": {
         "type": "string",
         "enum": [
@@ -10395,6 +10257,13 @@
         "description": "- PING (`1`)\n- APPLICATION_COMMAND (`2`)\n- MESSAGE_COMPONENT (`3`)\n- APPLICATION_COMMAND_AUTOCOMPLETE (`4`)\n- MODAL_SUBMIT (`5`)",
         "externalDocs": {
           "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-type"
+        }
+      },
+      "ISO8601DateTime": {
+        "type": "string",
+        "format": "date-time",
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/reference#iso8601-datetime"
         }
       },
       "GuildMember": {
@@ -11302,7 +11171,12 @@
           "roles": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Role/properties/id"
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Snowflake"
+                }
+              ],
+              "description": "role id"
             },
             "description": "roles allowed to use this emoji"
           },
@@ -11679,7 +11553,12 @@
           "mention_roles": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Role/properties/id"
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Snowflake"
+                }
+              ],
+              "description": "role id"
             },
             "description": "roles specifically mentioned in this message"
           },
@@ -11897,6 +11776,295 @@
         ],
         "externalDocs": {
           "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#message-interaction-object-message-interaction-structure"
+        }
+      },
+      "ButtonStyles": {
+        "type": "integer",
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "description": "- Primary (`1`) - blurple\n- Secondary (`2`) - grey\n- Success (`3`) - green\n- Danger (`4`) - red\n- Link (`5`) - grey, navigates to a URL",
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/interactions/message-components#button-object-button-styles"
+        }
+      },
+      "ButtonEmoji": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "nullable": true,
+            "description": "[emoji id](https://discord.com/developers/docs/reference#image-formatting)"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "description": "emoji name"
+          },
+          "animated": {
+            "type": "boolean",
+            "description": "whether this emoji is animated"
+          }
+        },
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/interactions/message-components#button-structure"
+        }
+      },
+      "Button": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "description": "`2` for a button"
+          },
+          "style": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ButtonStyles"
+              }
+            ],
+            "description": "one of [button styles](https://discord.com/developers/docs/interactions/message-components#button-object-button-styles)"
+          },
+          "label": {
+            "type": "string",
+            "description": "text that appears on the button, max 80 characters"
+          },
+          "emoji": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ButtonEmoji"
+              }
+            ],
+            "description": "`name`, `id`, and `animated`"
+          },
+          "custom_id": {
+            "type": "string",
+            "description": "a developer-defined identifier for the button, max 100 characters"
+          },
+          "url": {
+            "type": "string",
+            "description": "a url for link-style buttons"
+          },
+          "disabled": {
+            "type": "boolean",
+            "description": "whether the button is disabled (default `false`)"
+          }
+        },
+        "required": [
+          "type",
+          "style"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/interactions/message-components#button-structure"
+        }
+      },
+      "SelectOptionEmoji": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "nullable": true,
+            "description": "[emoji id](https://discord.com/developers/docs/reference#image-formatting)"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "description": "emoji name"
+          },
+          "animated": {
+            "type": "boolean",
+            "description": "whether this emoji is animated"
+          }
+        },
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-option-structure"
+        }
+      },
+      "SelectOption": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "the user-facing name of the option, max 100 characters"
+          },
+          "value": {
+            "type": "string",
+            "description": "the dev-defined value of the option, max 100 characters"
+          },
+          "description": {
+            "type": "string",
+            "description": "an additional description of the option, max 100 characters"
+          },
+          "emoji": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SelectOptionEmoji"
+              }
+            ],
+            "description": "`id`, `name`, and `animated`"
+          },
+          "default": {
+            "type": "boolean",
+            "description": "will render this option as selected by default"
+          }
+        },
+        "required": [
+          "label",
+          "value"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-option-structure"
+        }
+      },
+      "SelectMenu": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "description": "`3` for a select menu"
+          },
+          "custom_id": {
+            "type": "string",
+            "description": "a developer-defined identifier for the select menu, max 100 characters"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SelectOption"
+            },
+            "description": "the choices in the select, max 25"
+          },
+          "placeholder": {
+            "type": "string",
+            "description": "custom placeholder text if nothing is selected, max 150 characters"
+          },
+          "min_values": {
+            "type": "integer",
+            "description": "the minimum number of items that must be chosen; default 1, min 0, max 25"
+          },
+          "max_values": {
+            "type": "integer",
+            "description": "the maximum number of items that can be chosen; default 1, max 25"
+          },
+          "disabled": {
+            "type": "boolean",
+            "description": "disable the select, default false"
+          }
+        },
+        "required": [
+          "type",
+          "custom_id",
+          "options"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/interactions/message-components#select-menu-structure"
+        }
+      },
+      "TextInputStyles": {
+        "type": "integer",
+        "enum": [
+          1,
+          2
+        ],
+        "description": "- Short (`1`) - A single-line input\n- Paragraph (`2`) - A multi-line input",
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/interactions/message-components#text-inputs-text-input-styles"
+        }
+      },
+      "TextInput": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "description": "`4` for a text input"
+          },
+          "custom_id": {
+            "type": "string",
+            "description": "a developer-defined identifier for the input, max 100 characters"
+          },
+          "style": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextInputStyles"
+              }
+            ],
+            "description": "the [Text Input Style](https://discord.com/developers/docs/interactions/message-components#text-inputs-text-input-styles)"
+          },
+          "label": {
+            "type": "string",
+            "description": "the label for this component, max 45 characters"
+          },
+          "min_length": {
+            "type": "integer",
+            "description": "the minimum input length for a text input, min 0, max 4000"
+          },
+          "max_length": {
+            "type": "integer",
+            "description": "the maximum input length for a text input, min 1, max 4000"
+          },
+          "required": {
+            "type": "boolean",
+            "description": "whether this component is required to be filled, default true"
+          },
+          "value": {
+            "type": "string",
+            "description": "a pre-filled value for this component, max 4000 characters"
+          },
+          "placeholder": {
+            "type": "string",
+            "description": "custom placeholder text if the input is empty, max 100 characters"
+          }
+        },
+        "required": [
+          "type",
+          "custom_id",
+          "style",
+          "label"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/interactions/message-components#text-inputs-text-input-structure"
+        }
+      },
+      "ActionRow": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "enum": [
+              1
+            ]
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Button"
+                },
+                {
+                  "$ref": "#/components/schemas/SelectMenu"
+                },
+                {
+                  "$ref": "#/components/schemas/TextInput"
+                }
+              ]
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/interactions/message-components#component-object"
         }
       },
       "StickerItem": {

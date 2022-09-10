@@ -71,13 +71,13 @@ const typePatterns: ITypePattern[] = [
     {
         filter: /^int64|snowflake$/i,
         readType(_, ctx) {
-            return ctx.resolver.getRef('Snowflake');
+            return ctx.resolver.getRef('DOCS_REFERENCE/snowflakes');
         }
     },
     {
         filter: /^iso8601 ?timestamp$/i,
         readType(_, ctx) {
-            return ctx.resolver.getRef('ISO8601DateTime');
+            return ctx.resolver.getRef('DOCS_REFERENCE/iso8601-datetime');
         }
     },
     {
@@ -238,7 +238,8 @@ const typePatterns: ITypePattern[] = [
     {
         filter: /^\[.*?\]\(#(.*?)\)(?: objects?)? ([\w\[\]]+)$/,
         readType(match, ctx) {
-            return { $ref: `${ctx.resolver.getRef(match[1]).$ref}/properties/${match[2]}` };
+            const type = ctx.resolver.getSchema(match[1]);
+            return { ...type.properties?.[match[2]] ?? {} };
         },
     }
 ]

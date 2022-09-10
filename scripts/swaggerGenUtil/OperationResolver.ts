@@ -29,11 +29,27 @@ export class OperationResolver {
                 parameters: [...route.matchAll(/(?<=\{)(?<name>.*?)(?:#(?<typeRef>.*?))?(?=\})/g)]
                     .map(match => {
                         const { groups: { name, typeRef = 'string' } = {} } = match;
+                        const type = this.#typeResolver.getRef(typeRef);
+                        let schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject = type;
+                        const path = name.split('.').slice(1);
+                        for (const element of path) {
+                            const currentSchema = this.#typeResolver.getSchema(schema)
+                            const nextSchemas = Object.entries(currentSchema.properties ?? {})
+                                .filter(e => e[0].toLowerCase() === element.toLowerCase())
+                                .map(e => e[1]);
+                            if (nextSchemas.length !== 1)
+                                throw new Error(`Failed to find property ${JSON.stringify(path.join('.'))} on type ${typeRef}`);
+                            schema = nextSchemas[0];
+                        }
+
+                        if (!('$ref' in schema) && schema.allOf?.length === 1)
+                            schema = schema.allOf[0];
+
                         return {
                             name: toCamelCase(name),
                             in: 'path',
                             required: true,
-                            schema: this.#typeResolver.getRef(typeRef, name.split('.').slice(-1)[0]),
+                            schema: schema,
                             description: `[${name}](${this.#documentationResolver.getDocumentationUri(typeRef)})`
                         }
                     })

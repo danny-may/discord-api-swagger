@@ -132,6 +132,7 @@ const nameValueDescEnumScheme: ITableReaderScheme = {
 const valueNameDescEnumScheme: ITableReaderScheme = {
     targets: [
         { headers: ['value', 'name'] },
+        { headers: ['code', 'meaning'] },
         { headers: ['value', 'name', 'description'] },
         { headers: ['locale', 'language name', 'native name'] },
     ],
