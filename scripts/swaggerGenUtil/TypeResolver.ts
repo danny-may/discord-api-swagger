@@ -133,12 +133,6 @@ export class TypeResolver {
         schema.externalDocs ??= {
             url: this.#documentation.getDocumentationUri(id)
         }
-        if (schema.description !== undefined)
-            schema.description = this.#documentation.resolveMarkdownLinks(schema.description);
-        for (const prop of Object.values(schema.properties ?? {}))
-            if (!('$ref' in prop) && prop.description !== undefined)
-                prop.description = this.#documentation.resolveMarkdownLinks(prop.description);
-
         return schema;
     }
 

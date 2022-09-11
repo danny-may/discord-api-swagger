@@ -42,8 +42,8 @@ paths:
         - [Get Global Application Commands](https://discord.com/developers/docs/interactions/application-commands#get-global-application-commands)
 
             > warn
-          > The objects returned by this endpoint may be augmented with [additional fields if localization is active](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/retrieving-localized-commands).
-          Fetch all of the global commands for your application. Returns an array of [application command](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object) objects.
+          > The objects returned by this endpoint may be augmented with [additional fields if localization is active](https://discord.com/developers/docs/interactions/application-commands#retrieving-localized-commands).
+          Fetch all of the global commands for your application. Returns an array of [application command](https://discord.com/developers/docs/interactions/application-commands#application-command-object) objects.
     post:
       responses:
         "401":
@@ -68,7 +68,7 @@ paths:
 
             > danger
           > Creating a command with the same name as an existing command for your application will overwrite the old command.
-          Create a new global command. Returns `201` and an [application command](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object) object.
+          Create a new global command. Returns `201` and an [application command](https://discord.com/developers/docs/interactions/application-commands#application-command-object) object.
     put:
       responses:
         "401":
@@ -91,7 +91,7 @@ paths:
       description: |-
         - [Bulk Overwrite Global Application Commands](https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-global-application-commands)
 
-            Takes a list of application commands, overwriting the existing global command list for this application. Returns `200` and a list of [application command](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object) objects. Commands that do not already exist will count toward daily application command create limits.
+            Takes a list of application commands, overwriting the existing global command list for this application. Returns `200` and a list of [application command](https://discord.com/developers/docs/interactions/application-commands#application-command-object) objects. Commands that do not already exist will count toward daily application command create limits.
           > danger
           > This will overwrite **all** types of application commands: slash commands, user commands, and message commands.
   "/applications/{applicationId}/commands/{commandId}":
@@ -130,7 +130,7 @@ paths:
       description: |-
         - [Get Global Application Command](https://discord.com/developers/docs/interactions/application-commands#get-global-application-command)
 
-            Fetch a global command for your application. Returns an [application command](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object) object.
+            Fetch a global command for your application. Returns an [application command](https://discord.com/developers/docs/interactions/application-commands#application-command-object) object.
     patch:
       responses:
         "401":
@@ -155,7 +155,7 @@ paths:
 
             > info
           > All parameters for this endpoint are optional.
-          Edit a global command. Returns `200` and an [application command](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object) object. All fields are optional, but any fields provided will entirely overwrite the existing values of those fields.
+          Edit a global command. Returns `200` and an [application command](https://discord.com/developers/docs/interactions/application-commands#application-command-object) object. All fields are optional, but any fields provided will entirely overwrite the existing values of those fields.
     delete:
       responses:
         "401":
@@ -221,8 +221,8 @@ paths:
         - [Get Guild Application Commands](https://discord.com/developers/docs/interactions/application-commands#get-guild-application-commands)
 
             > warn
-          > The objects returned by this endpoint may be augmented with [additional fields if localization is active](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/retrieving-localized-commands).
-          Fetch all of the guild commands for your application for a specific guild. Returns an array of [application command](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object) objects.
+          > The objects returned by this endpoint may be augmented with [additional fields if localization is active](https://discord.com/developers/docs/interactions/application-commands#retrieving-localized-commands).
+          Fetch all of the guild commands for your application for a specific guild. Returns an array of [application command](https://discord.com/developers/docs/interactions/application-commands#application-command-object) objects.
     post:
       responses:
         "401":
@@ -247,7 +247,7 @@ paths:
 
             > danger
           > Creating a command with the same name as an existing command for your application will overwrite the old command.
-          Create a new guild command. New guild commands will be available in the guild immediately. Returns `201` and an [application command](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object) object. If the command did not already exist, it will count toward daily application command create limits.
+          Create a new guild command. New guild commands will be available in the guild immediately. Returns `201` and an [application command](https://discord.com/developers/docs/interactions/application-commands#application-command-object) object. If the command did not already exist, it will count toward daily application command create limits.
     put:
       responses:
         "401":
@@ -270,7 +270,7 @@ paths:
       description: |-
         - [Bulk Overwrite Guild Application Commands](https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-guild-application-commands)
 
-            Takes a list of application commands, overwriting the existing command list for this application for the targeted guild. Returns `200` and a list of [application command](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object) objects.
+            Takes a list of application commands, overwriting the existing command list for this application for the targeted guild. Returns `200` and a list of [application command](https://discord.com/developers/docs/interactions/application-commands#application-command-object) objects.
           > danger
           > This will overwrite **all** types of application commands: slash commands, user commands, and message commands.
   "/applications/{applicationId}/guilds/{guildId}/commands/{commandId}":
@@ -315,7 +315,7 @@ paths:
       description: |-
         - [Get Guild Application Command](https://discord.com/developers/docs/interactions/application-commands#get-guild-application-command)
 
-            Fetch a guild command for your application. Returns an [application command](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object) object.
+            Fetch a guild command for your application. Returns an [application command](https://discord.com/developers/docs/interactions/application-commands#application-command-object) object.
     patch:
       responses:
         "401":
@@ -340,7 +340,7 @@ paths:
 
             > info
           > All parameters for this endpoint are optional.
-          Edit a guild command. Updates for guild commands will be available immediately. Returns `200` and an [application command](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object) object. All fields are optional, but any fields provided will entirely overwrite the existing values of those fields.
+          Edit a guild command. Updates for guild commands will be available immediately. Returns `200` and an [application command](https://discord.com/developers/docs/interactions/application-commands#application-command-object) object. All fields are optional, but any fields provided will entirely overwrite the existing values of those fields.
     delete:
       responses:
         "401":
@@ -400,7 +400,7 @@ paths:
       description: |-
         - [Get Guild Application Command Permissions](https://discord.com/developers/docs/interactions/application-commands#get-guild-application-command-permissions)
 
-            Fetches permissions for all commands for your application in a guild. Returns an array of [guild application command permissions](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-permissions-object-guild-application-command-permissions-structure) objects.
+            Fetches permissions for all commands for your application in a guild. Returns an array of [guild application command permissions](https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object-guild-application-command-permissions-structure) objects.
   "/applications/{applicationId}/guilds/{guildId}/commands/{commandId}/permissions":
     parameters:
       - name: applicationId
@@ -443,7 +443,7 @@ paths:
       description: |-
         - [Get Application Command Permissions](https://discord.com/developers/docs/interactions/application-commands#get-application-command-permissions)
 
-            Fetches permissions for a specific command for your application in a guild. Returns a [guild application command permissions](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-permissions-object-guild-application-command-permissions-structure) object.
+            Fetches permissions for a specific command for your application in a guild. Returns a [guild application command permissions](https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object-guild-application-command-permissions-structure) object.
     put:
       responses:
         "401":
@@ -468,10 +468,10 @@ paths:
 
             > warn
           > This endpoint will overwrite existing permissions for the command in that guild
-          Edits command permissions for a specific command for your application in a guild and returns a [guild application command permissions](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-permissions-object-guild-application-command-permissions-structure) object. Fires an [Application Command Permissions Update](#DOCS_TOPICS_GATEWAY/application-command-permissions-update) Gateway event.
+          Edits command permissions for a specific command for your application in a guild and returns a [guild application command permissions](https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object-guild-application-command-permissions-structure) object. Fires an [Application Command Permissions Update](https://discord.com/developers/docs/topics/gateway#application-command-permissions-update) Gateway event.
           You can add up to 100 permission overwrites for a command.
           > info
-          > This endpoint requires authentication with a Bearer token that has permission to manage the guild and its roles. For more information, read above about [application command permissions](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/permissions).
+          > This endpoint requires authentication with a Bearer token that has permission to manage the guild and its roles. For more information, read above about [application command permissions](https://discord.com/developers/docs/interactions/application-commands#permissions).
           > warn
           > Deleting or renaming a command will permanently delete all permissions for the command
   "/guilds/{guildId}/audit-logs":
@@ -510,7 +510,7 @@ paths:
           name: action_type
           schema:
             $ref: "#/components/schemas/AuditLogEvents"
-          description: Entries for a specific [audit log event](#DOCS_RESOURCES_AUDIT_LOG/audit-log-entry-object-audit-log-events)
+          description: Entries for a specific [audit log event](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events)
         - in: query
           name: before
           schema:
@@ -524,7 +524,7 @@ paths:
       description: |-
         - [Get Guild Audit Log](https://discord.com/developers/docs/resources/audit-log#get-guild-audit-log)
 
-            Returns an [audit log](#DOCS_RESOURCES_AUDIT_LOG/audit-log-object) object for the guild. Requires the [`VIEW_AUDIT_LOG`](#DOCS_TOPICS_PERMISSIONS/permissions-bitwise-permission-flags) permission.
+            Returns an [audit log](https://discord.com/developers/docs/resources/audit-log#audit-log-object) object for the guild. Requires the [`VIEW_AUDIT_LOG`](https://discord.com/developers/docs/topics/permissions#permissions-bitwise-permission-flags) permission.
   "/guilds/{guildId}/auto-moderation/rules":
     parameters:
       - name: guildId
@@ -555,9 +555,9 @@ paths:
       description: |-
         - [List Auto Moderation Rules for Guild](https://discord.com/developers/docs/resources/auto-moderation#list-auto-moderation-rules-for-guild)
 
-            Get a list of all rules currently configured for the guild. Returns a list of [auto moderation rule](#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-rule-object) objects for the given guild.
+            Get a list of all rules currently configured for the guild. Returns a list of [auto moderation rule](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object) objects for the given guild.
           > info
-          > This endpoint requires the `MANAGE_GUILD` [permission](#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-permission-requirements).
+          > This endpoint requires the `MANAGE_GUILD` [permission](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-permission-requirements).
     post:
       responses:
         "401":
@@ -580,9 +580,9 @@ paths:
       description: |-
         - [Create Auto Moderation Rule](https://discord.com/developers/docs/resources/auto-moderation#create-auto-moderation-rule)
 
-            Create a new rule. Returns an [auto moderation rule](#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-rule-object) on success. Fires an [Auto Moderation Rule Create](#DOCS_TOPICS_GATEWAY/auto-moderation-rule-create) Gateway event.
+            Create a new rule. Returns an [auto moderation rule](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object) on success. Fires an [Auto Moderation Rule Create](https://discord.com/developers/docs/topics/gateway#auto-moderation-rule-create) Gateway event.
           > info
-          > This endpoint requires the `MANAGE_GUILD` [permission](#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-permission-requirements).
+          > This endpoint requires the `MANAGE_GUILD` [permission](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-permission-requirements).
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/guilds/{guildId}/auto-moderation/rules/{autoModerationRuleId}":
@@ -621,9 +621,9 @@ paths:
       description: |-
         - [Get Auto Moderation Rule](https://discord.com/developers/docs/resources/auto-moderation#get-auto-moderation-rule)
 
-            Get a single rule. Returns an [auto moderation rule](#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-rule-object) object.
+            Get a single rule. Returns an [auto moderation rule](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object) object.
           > info
-          > This endpoint requires the `MANAGE_GUILD` [permission](#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-permission-requirements).
+          > This endpoint requires the `MANAGE_GUILD` [permission](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-permission-requirements).
     patch:
       responses:
         "401":
@@ -646,9 +646,9 @@ paths:
       description: |-
         - [Modify Auto Moderation Rule](https://discord.com/developers/docs/resources/auto-moderation#modify-auto-moderation-rule)
 
-            Modify an existing rule. Returns an [auto moderation rule](#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-rule-object) on success. Fires an [Auto Moderation Rule Update](#DOCS_TOPICS_GATEWAY/auto-moderation-rule-update) Gateway event.
+            Modify an existing rule. Returns an [auto moderation rule](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object) on success. Fires an [Auto Moderation Rule Update](https://discord.com/developers/docs/topics/gateway#auto-moderation-rule-update) Gateway event.
           > info
-          > Requires `MANAGE_GUILD` [permissions](#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-permission-requirements).
+          > Requires `MANAGE_GUILD` [permissions](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-permission-requirements).
           > info
           > All parameters for this endpoint are optional.
           > info
@@ -675,9 +675,9 @@ paths:
       description: |-
         - [Delete Auto Moderation Rule](https://discord.com/developers/docs/resources/auto-moderation#delete-auto-moderation-rule)
 
-            Delete a rule. Returns a `204` on success. Fires an [Auto Moderation Rule Delete](#DOCS_TOPICS_GATEWAY/auto-moderation-rule-delete) Gateway event.
+            Delete a rule. Returns a `204` on success. Fires an [Auto Moderation Rule Delete](https://discord.com/developers/docs/topics/gateway#auto-moderation-rule-delete) Gateway event.
           > info
-          > This endpoint requires the `MANAGE_GUILD` [permission](#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-permission-requirements).
+          > This endpoint requires the `MANAGE_GUILD` [permission](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-permission-requirements).
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/channels/{channelId}":
@@ -710,7 +710,7 @@ paths:
       description: |-
         - [Get Channel](https://discord.com/developers/docs/resources/channel#get-channel)
 
-            Get a channel by ID. Returns a [channel](#DOCS_RESOURCES_CHANNEL/channel-object) object.  If the channel is a thread, a [thread member](#DOCS_RESOURCES_CHANNEL/thread-member-object) object is included in the returned result.
+            Get a channel by ID. Returns a [channel](https://discord.com/developers/docs/resources/channel#channel-object) object.  If the channel is a thread, a [thread member](https://discord.com/developers/docs/resources/channel#thread-member-object) object is included in the returned result.
     patch:
       responses:
         "401":
@@ -733,7 +733,7 @@ paths:
       description: |-
         - [Modify Channel](https://discord.com/developers/docs/resources/channel#modify-channel)
 
-            Update a channel's settings. Returns a [channel](#DOCS_RESOURCES_CHANNEL/channel-object) on success, and a 400 BAD REQUEST on invalid parameters. All JSON parameters are optional.
+            Update a channel's settings. Returns a [channel](https://discord.com/developers/docs/resources/channel#channel-object) on success, and a 400 BAD REQUEST on invalid parameters. All JSON parameters are optional.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
     delete:
@@ -756,9 +756,9 @@ paths:
       operationId: deleteCloseChannel
       parameters: []
       description: |-
-        - [Delete/Close Channel](https://discord.com/developers/docs/resources/channel#delete)
+        - [Delete/Close Channel](https://discord.com/developers/docs/resources/channel#deleteclose-channel)
 
-            Delete a channel, or close a private message. Requires the `MANAGE_CHANNELS` permission for the guild, or `MANAGE_THREADS` if the channel is a thread. Deleting a category does not delete its child channels; they will have their `parent_id` removed and a [Channel Update](#DOCS_TOPICS_GATEWAY/channel-update) Gateway event will fire for each of them. Returns a [channel](#DOCS_RESOURCES_CHANNEL/channel-object) object on success. Fires a [Channel Delete](#DOCS_TOPICS_GATEWAY/channel-delete) Gateway event (or [Thread Delete](#DOCS_TOPICS_GATEWAY/thread-delete) if the channel was a thread).
+            Delete a channel, or close a private message. Requires the `MANAGE_CHANNELS` permission for the guild, or `MANAGE_THREADS` if the channel is a thread. Deleting a category does not delete its child channels; they will have their `parent_id` removed and a [Channel Update](https://discord.com/developers/docs/topics/gateway#channel-update) Gateway event will fire for each of them. Returns a [channel](https://discord.com/developers/docs/resources/channel#channel-object) object on success. Fires a [Channel Delete](https://discord.com/developers/docs/topics/gateway#channel-delete) Gateway event (or [Thread Delete](https://discord.com/developers/docs/topics/gateway#thread-delete) if the channel was a thread).
           > warn
           > Deleting a guild channel cannot be undone. Use this with caution, as it is impossible to undo this action when performed on a guild channel. In contrast, when used with a private message, it is possible to undo the action by opening a private message with the recipient again.
           > info
@@ -823,7 +823,7 @@ paths:
       description: |-
         - [Get Channel Messages](https://discord.com/developers/docs/resources/channel#get-channel-messages)
 
-            Returns the messages for a channel. If operating on a guild channel, this endpoint requires the `VIEW_CHANNEL` permission to be present on the current user. If the current user is missing the `READ_MESSAGE_HISTORY` permission in the channel then this will return no messages (since they cannot read the message history). Returns an array of [message](#DOCS_RESOURCES_CHANNEL/message-object) objects on success.
+            Returns the messages for a channel. If operating on a guild channel, this endpoint requires the `VIEW_CHANNEL` permission to be present on the current user. If the current user is missing the `READ_MESSAGE_HISTORY` permission in the channel then this will return no messages (since they cannot read the message history). Returns an array of [message](https://discord.com/developers/docs/resources/channel#message-object) objects on success.
           > info
           > The `before`, `after`, and `around` parameters are mutually exclusive, only one may be passed at a time.
     post:
@@ -850,9 +850,9 @@ paths:
 
             > warn
           > Discord may strip certain characters from message content, like invalid unicode characters or characters which cause unexpected message formatting. If you are passing user-generated strings into message content, consider sanitizing the data to prevent unexpected behavior and utilizing `allowed_mentions` to prevent unexpected mentions.
-          Post a message to a guild text or DM channel. Returns a [message](#DOCS_RESOURCES_CHANNEL/message-object) object. Fires a [Message Create](#DOCS_TOPICS_GATEWAY/message-create) Gateway event. See [message formatting](#DOCS_REFERENCE/message-formatting) for more information on how to properly format messages.
-          To create a message as a reply to another message, apps can include a [`message_reference`](#DOCS_RESOURCES_CHANNEL/message-reference-object-message-reference-structure) with a `message_id`. The `channel_id` and `guild_id` in the `message_reference` are optional, but will be validated if provided.
-          Files must be attached using a `multipart/form-data` body as described in [Uploading Files](#DOCS_REFERENCE/uploading-files).
+          Post a message to a guild text or DM channel. Returns a [message](https://discord.com/developers/docs/resources/channel#message-object) object. Fires a [Message Create](https://discord.com/developers/docs/topics/gateway#message-create) Gateway event. See [message formatting](https://discord.com/developers/docs/reference#message-formatting) for more information on how to properly format messages.
+          To create a message as a reply to another message, apps can include a [`message_reference`](https://discord.com/developers/docs/resources/channel#message-reference-object-message-reference-structure) with a `message_id`. The `channel_id` and `guild_id` in the `message_reference` are optional, but will be validated if provided.
+          Files must be attached using a `multipart/form-data` body as described in [Uploading Files](https://discord.com/developers/docs/reference#uploading-files).
   "/channels/{channelId}/messages/{messageId}":
     parameters:
       - name: channelId
@@ -889,7 +889,7 @@ paths:
       description: |-
         - [Get Channel Message](https://discord.com/developers/docs/resources/channel#get-channel-message)
 
-            Returns a specific message in the channel. If operating on a guild channel, this endpoint requires the `READ_MESSAGE_HISTORY` permission to be present on the current user. Returns a [message](#DOCS_RESOURCES_CHANNEL/message-object) object on success.
+            Returns a specific message in the channel. If operating on a guild channel, this endpoint requires the `READ_MESSAGE_HISTORY` permission to be present on the current user. Returns a [message](https://discord.com/developers/docs/resources/channel#message-object) object on success.
     patch:
       responses:
         "401":
@@ -914,8 +914,8 @@ paths:
 
             Edit a previously sent message. The fields `content`, `embeds`, and `flags` can be edited by the original message author. Other users can only edit `flags` and only if they have the `MANAGE_MESSAGES` permission in the corresponding channel. When specifying flags, ensure to include all previously set flags/bits in addition to ones that you are modifying. Only `flags` documented in the table below may be modified by users (unsupported flag changes are currently ignored without error).
           When the `content` field is edited, the `mentions` array in the message object will be reconstructed from scratch based on the new content. The `allowed_mentions` field of the edit request controls how this happens. If there is no explicit `allowed_mentions` in the edit request, the content will be parsed with _default_ allowances, that is, without regard to whether or not an `allowed_mentions` was present in the request that originally created the message.
-          Returns a [message](#DOCS_RESOURCES_CHANNEL/message-object) object. Fires a [Message Update](#DOCS_TOPICS_GATEWAY/message-update) Gateway event.
-          Refer to [Uploading Files](#DOCS_REFERENCE/uploading-files) for details on attachments and `multipart/form-data` requests.
+          Returns a [message](https://discord.com/developers/docs/resources/channel#message-object) object. Fires a [Message Update](https://discord.com/developers/docs/topics/gateway#message-update) Gateway event.
+          Refer to [Uploading Files](https://discord.com/developers/docs/reference#uploading-files) for details on attachments and `multipart/form-data` requests.
           Any provided files will be **appended** to the message. To remove or replace files you will have to supply the `attachments` field which specifies the files to retain on the message after edit.
           > warn
           > Starting with API v10, the `attachments` array must contain all attachments that should be present after edit, including **retained and new** attachments provided in the request body.
@@ -943,7 +943,7 @@ paths:
       description: |-
         - [Delete Message](https://discord.com/developers/docs/resources/channel#delete-message)
 
-            Delete a message. If operating on a guild channel and trying to delete a message that was not sent by the current user, this endpoint requires the `MANAGE_MESSAGES` permission. Returns a 204 empty response on success. Fires a [Message Delete](#DOCS_TOPICS_GATEWAY/message-delete) Gateway event.
+            Delete a message. If operating on a guild channel and trying to delete a message that was not sent by the current user, this endpoint requires the `MANAGE_MESSAGES` permission. Returns a 204 empty response on success. Fires a [Message Delete](https://discord.com/developers/docs/topics/gateway#message-delete) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/channels/{channelId}/messages/{messageId}/crosspost":
@@ -983,7 +983,7 @@ paths:
         - [Crosspost Message](https://discord.com/developers/docs/resources/channel#crosspost-message)
 
             Crosspost a message in an Announcement Channel to following channels. This endpoint requires the `SEND_MESSAGES` permission, if the current user sent the message, or additionally the `MANAGE_MESSAGES` permission, for all other messages, to be present for the current user.
-          Returns a [message](#DOCS_RESOURCES_CHANNEL/message-object) object.
+          Returns a [message](https://discord.com/developers/docs/resources/channel#message-object) object.
   "/channels/{channelId}/messages/{messageId}/reactions/{emoji}/@me":
     parameters:
       - name: channelId
@@ -1026,7 +1026,7 @@ paths:
       description: |-
         - [Create Reaction](https://discord.com/developers/docs/resources/channel#create-reaction)
 
-            Create a reaction for the message. This endpoint requires the `READ_MESSAGE_HISTORY` permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the `ADD_REACTIONS` permission to be present on the current user. Returns a 204 empty response on success. Fires a [Message Reaction Add](#DOCS_TOPICS_GATEWAY/message-reaction-add) Gateway event.
+            Create a reaction for the message. This endpoint requires the `READ_MESSAGE_HISTORY` permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the `ADD_REACTIONS` permission to be present on the current user. Returns a 204 empty response on success. Fires a [Message Reaction Add](https://discord.com/developers/docs/topics/gateway#message-reaction-add) Gateway event.
           The `emoji` must be [URL Encoded](https://en.wikipedia.org/wiki/Percent-encoding) or the request will fail with `10014: Unknown Emoji`. To use custom emoji, you must encode it in the format `name:id` with the emoji name and emoji id.
     delete:
       responses:
@@ -1050,7 +1050,7 @@ paths:
       description: |-
         - [Delete Own Reaction](https://discord.com/developers/docs/resources/channel#delete-own-reaction)
 
-            Delete a reaction the current user has made for the message. Returns a 204 empty response on success. Fires a [Message Reaction Remove](#DOCS_TOPICS_GATEWAY/message-reaction-remove) Gateway event.
+            Delete a reaction the current user has made for the message. Returns a 204 empty response on success. Fires a [Message Reaction Remove](https://discord.com/developers/docs/topics/gateway#message-reaction-remove) Gateway event.
           The `emoji` must be [URL Encoded](https://en.wikipedia.org/wiki/Percent-encoding) or the request will fail with `10014: Unknown Emoji`. To use custom emoji, you must encode it in the format `name:id` with the emoji name and emoji id.
   "/channels/{channelId}/messages/{messageId}/reactions/{emoji}/{userId}":
     parameters:
@@ -1100,7 +1100,7 @@ paths:
       description: |-
         - [Delete User Reaction](https://discord.com/developers/docs/resources/channel#delete-user-reaction)
 
-            Deletes another user's reaction. This endpoint requires the `MANAGE_MESSAGES` permission to be present on the current user. Returns a 204 empty response on success. Fires a [Message Reaction Remove](#DOCS_TOPICS_GATEWAY/message-reaction-remove) Gateway event.
+            Deletes another user's reaction. This endpoint requires the `MANAGE_MESSAGES` permission to be present on the current user. Returns a 204 empty response on success. Fires a [Message Reaction Remove](https://discord.com/developers/docs/topics/gateway#message-reaction-remove) Gateway event.
           The `emoji` must be [URL Encoded](https://en.wikipedia.org/wiki/Percent-encoding) or the request will fail with `10014: Unknown Emoji`. To use custom emoji, you must encode it in the format `name:id` with the emoji name and emoji id.
   "/channels/{channelId}/messages/{messageId}/reactions/{emoji}":
     parameters:
@@ -1158,7 +1158,7 @@ paths:
       description: |-
         - [Get Reactions](https://discord.com/developers/docs/resources/channel#get-reactions)
 
-            Get a list of users that reacted with this emoji. Returns an array of [user](#DOCS_RESOURCES_USER/user-object) objects on success.
+            Get a list of users that reacted with this emoji. Returns an array of [user](https://discord.com/developers/docs/resources/user#user-object) objects on success.
           The `emoji` must be [URL Encoded](https://en.wikipedia.org/wiki/Percent-encoding) or the request will fail with `10014: Unknown Emoji`. To use custom emoji, you must encode it in the format `name:id` with the emoji name and emoji id.
     delete:
       responses:
@@ -1182,7 +1182,7 @@ paths:
       description: |-
         - [Delete All Reactions for Emoji](https://discord.com/developers/docs/resources/channel#delete-all-reactions-for-emoji)
 
-            Deletes all the reactions for a given emoji on a message. This endpoint requires the `MANAGE_MESSAGES` permission to be present on the current user. Fires a [Message Reaction Remove Emoji](#DOCS_TOPICS_GATEWAY/message-reaction-remove-emoji) Gateway event.
+            Deletes all the reactions for a given emoji on a message. This endpoint requires the `MANAGE_MESSAGES` permission to be present on the current user. Fires a [Message Reaction Remove Emoji](https://discord.com/developers/docs/topics/gateway#message-reaction-remove-emoji) Gateway event.
           The `emoji` must be [URL Encoded](https://en.wikipedia.org/wiki/Percent-encoding) or the request will fail with `10014: Unknown Emoji`. To use custom emoji, you must encode it in the format `name:id` with the emoji name and emoji id.
   "/channels/{channelId}/messages/{messageId}/reactions":
     parameters:
@@ -1220,7 +1220,7 @@ paths:
       description: |-
         - [Delete All Reactions](https://discord.com/developers/docs/resources/channel#delete-all-reactions)
 
-            Deletes all reactions on a message. This endpoint requires the `MANAGE_MESSAGES` permission to be present on the current user. Fires a [Message Reaction Remove All](#DOCS_TOPICS_GATEWAY/message-reaction-remove-all) Gateway event.
+            Deletes all reactions on a message. This endpoint requires the `MANAGE_MESSAGES` permission to be present on the current user. Fires a [Message Reaction Remove All](https://discord.com/developers/docs/topics/gateway#message-reaction-remove-all) Gateway event.
   "/channels/{channelId}/messages/bulk-delete":
     parameters:
       - name: channelId
@@ -1251,7 +1251,7 @@ paths:
       description: |-
         - [Bulk Delete Messages](https://discord.com/developers/docs/resources/channel#bulk-delete-messages)
 
-            Delete multiple messages in a single request. This endpoint can only be used on guild channels and requires the `MANAGE_MESSAGES` permission. Returns a 204 empty response on success. Fires a [Message Delete Bulk](#DOCS_TOPICS_GATEWAY/message-delete-bulk) Gateway event.
+            Delete multiple messages in a single request. This endpoint can only be used on guild channels and requires the `MANAGE_MESSAGES` permission. Returns a 204 empty response on success. Fires a [Message Delete Bulk](https://discord.com/developers/docs/topics/gateway#message-delete-bulk) Gateway event.
           Any message IDs given that do not exist or are invalid will count towards the minimum and maximum message count (currently 2 and 100 respectively).
           > warn
           > This endpoint will not delete messages older than 2 weeks, and will fail with a 400 BAD REQUEST if any message provided is older than that or if any duplicate message IDs are provided.
@@ -1293,7 +1293,7 @@ paths:
       description: |-
         - [Edit Channel Permissions](https://discord.com/developers/docs/resources/channel#edit-channel-permissions)
 
-            Edit the channel permission overwrites for a user or role in a channel. Only usable for guild channels. Requires the `MANAGE_ROLES` permission. Only permissions your bot has in the guild or parent channel (if applicable) can be allowed/denied (unless your bot has a `MANAGE_ROLES` overwrite in the channel). Returns a 204 empty response on success. Fires a [Channel Update](#DOCS_TOPICS_GATEWAY/channel-update) Gateway event. For more information about permissions, see [permissions](#DOCS_TOPICS_PERMISSIONS/permissions).
+            Edit the channel permission overwrites for a user or role in a channel. Only usable for guild channels. Requires the `MANAGE_ROLES` permission. Only permissions your bot has in the guild or parent channel (if applicable) can be allowed/denied (unless your bot has a `MANAGE_ROLES` overwrite in the channel). Returns a 204 empty response on success. Fires a [Channel Update](https://discord.com/developers/docs/topics/gateway#channel-update) Gateway event. For more information about permissions, see [permissions](https://discord.com/developers/docs/topics/permissions#permissions).
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
     delete:
@@ -1318,7 +1318,7 @@ paths:
       description: |-
         - [Delete Channel Permission](https://discord.com/developers/docs/resources/channel#delete-channel-permission)
 
-            Delete a channel permission overwrite for a user or role in a channel. Only usable for guild channels. Requires the `MANAGE_ROLES` permission. Returns a 204 empty response on success. Fires a [Channel Update](#DOCS_TOPICS_GATEWAY/channel-update) Gateway event. For more information about permissions, see [permissions](#DOCS_TOPICS_PERMISSIONS/permissions)
+            Delete a channel permission overwrite for a user or role in a channel. Only usable for guild channels. Requires the `MANAGE_ROLES` permission. Returns a 204 empty response on success. Fires a [Channel Update](https://discord.com/developers/docs/topics/gateway#channel-update) Gateway event. For more information about permissions, see [permissions](https://discord.com/developers/docs/topics/permissions#permissions)
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/channels/{channelId}/invites":
@@ -1351,7 +1351,7 @@ paths:
       description: |-
         - [Get Channel Invites](https://discord.com/developers/docs/resources/channel#get-channel-invites)
 
-            Returns a list of [invite](#DOCS_RESOURCES_INVITE/invite-object) objects (with [invite metadata](#DOCS_RESOURCES_INVITE/invite-metadata-object)) for the channel. Only usable for guild channels. Requires the `MANAGE_CHANNELS` permission.
+            Returns a list of [invite](https://discord.com/developers/docs/resources/invite#invite-object) objects (with [invite metadata](https://discord.com/developers/docs/resources/invite#invite-metadata-object)) for the channel. Only usable for guild channels. Requires the `MANAGE_CHANNELS` permission.
     post:
       responses:
         "401":
@@ -1374,7 +1374,7 @@ paths:
       description: |-
         - [Create Channel Invite](https://discord.com/developers/docs/resources/channel#create-channel-invite)
 
-            Create a new [invite](#DOCS_RESOURCES_INVITE/invite-object) object for the channel. Only usable for guild channels. Requires the `CREATE_INSTANT_INVITE` permission. All JSON parameters for this route are optional, however the request body is not. If you are not sending any fields, you still have to send an empty JSON object (`{}`). Returns an [invite](#DOCS_RESOURCES_INVITE/invite-object) object. Fires an [Invite Create](#DOCS_TOPICS_GATEWAY/invite-create) Gateway event.
+            Create a new [invite](https://discord.com/developers/docs/resources/invite#invite-object) object for the channel. Only usable for guild channels. Requires the `CREATE_INSTANT_INVITE` permission. All JSON parameters for this route are optional, however the request body is not. If you are not sending any fields, you still have to send an empty JSON object (`{}`). Returns an [invite](https://discord.com/developers/docs/resources/invite#invite-object) object. Fires an [Invite Create](https://discord.com/developers/docs/topics/gateway#invite-create) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/channels/{channelId}/followers":
@@ -1407,7 +1407,7 @@ paths:
       description: |-
         - [Follow Announcement Channel](https://discord.com/developers/docs/resources/channel#follow-announcement-channel)
 
-            Follow an Announcement Channel to send messages to a target channel. Requires the `MANAGE_WEBHOOKS` permission in the target channel. Returns a [followed channel](#DOCS_RESOURCES_CHANNEL/followed-channel-object) object. Fires a [Webhooks Update](#DOCS_TOPICS_GATEWAY/webhooks-update) Gateway event for the target channel.
+            Follow an Announcement Channel to send messages to a target channel. Requires the `MANAGE_WEBHOOKS` permission in the target channel. Returns a [followed channel](https://discord.com/developers/docs/resources/channel#followed-channel-object) object. Fires a [Webhooks Update](https://discord.com/developers/docs/topics/gateway#webhooks-update) Gateway event for the target channel.
   "/channels/{channelId}/typing":
     parameters:
       - name: channelId
@@ -1438,7 +1438,7 @@ paths:
       description: |-
         - [Trigger Typing Indicator](https://discord.com/developers/docs/resources/channel#trigger-typing-indicator)
 
-            Post a typing indicator for the specified channel. Generally bots should **not** implement this route. However, if a bot is responding to a command and expects the computation to take a few seconds, this endpoint may be called to let the user know that the bot is processing their message. Returns a 204 empty response on success. Fires a [Typing Start](#DOCS_TOPICS_GATEWAY/typing-start) Gateway event.
+            Post a typing indicator for the specified channel. Generally bots should **not** implement this route. However, if a bot is responding to a command and expects the computation to take a few seconds, this endpoint may be called to let the user know that the bot is processing their message. Returns a 204 empty response on success. Fires a [Typing Start](https://discord.com/developers/docs/topics/gateway#typing-start) Gateway event.
   "/channels/{channelId}/pins":
     parameters:
       - name: channelId
@@ -1469,7 +1469,7 @@ paths:
       description: |-
         - [Get Pinned Messages](https://discord.com/developers/docs/resources/channel#get-pinned-messages)
 
-            Returns all pinned messages in the channel as an array of [message](#DOCS_RESOURCES_CHANNEL/message-object) objects.
+            Returns all pinned messages in the channel as an array of [message](https://discord.com/developers/docs/resources/channel#message-object) objects.
   "/channels/{channelId}/pins/{messageId}":
     parameters:
       - name: channelId
@@ -1506,7 +1506,7 @@ paths:
       description: |-
         - [Pin Message](https://discord.com/developers/docs/resources/channel#pin-message)
 
-            Pin a message in a channel. Requires the `MANAGE_MESSAGES` permission. Returns a 204 empty response on success. Fires a [Channel Pins Update](#DOCS_TOPICS_GATEWAY/channel-pins-update) Gateway event.
+            Pin a message in a channel. Requires the `MANAGE_MESSAGES` permission. Returns a 204 empty response on success. Fires a [Channel Pins Update](https://discord.com/developers/docs/topics/gateway#channel-pins-update) Gateway event.
           > warn
           > The max pinned messages is 50.
           > info
@@ -1533,7 +1533,7 @@ paths:
       description: |-
         - [Unpin Message](https://discord.com/developers/docs/resources/channel#unpin-message)
 
-            Unpin a message in a channel. Requires the `MANAGE_MESSAGES` permission. Returns a 204 empty response on success. Fires a [Channel Pins Update](#DOCS_TOPICS_GATEWAY/channel-pins-update) Gateway event.
+            Unpin a message in a channel. Requires the `MANAGE_MESSAGES` permission. Returns a 204 empty response on success. Fires a [Channel Pins Update](https://discord.com/developers/docs/topics/gateway#channel-pins-update) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/channels/{channelId}/recipients/{userId}":
@@ -1632,8 +1632,8 @@ paths:
       description: |-
         - [Start Thread from Message](https://discord.com/developers/docs/resources/channel#start-thread-from-message)
 
-            Creates a new thread from an existing message. Returns a [channel](#DOCS_RESOURCES_CHANNEL/channel-object) on success, and a 400 BAD REQUEST on invalid parameters. Fires a [Thread Create](#DOCS_TOPICS_GATEWAY/thread-create) Gateway event.
-          When called on a `GUILD_TEXT` channel, creates a `PUBLIC_THREAD`. When called on a `GUILD_ANNOUNCEMENT` channel, creates a `ANNOUNCEMENT_THREAD`. Does not work on a [`GUILD_FORUM`](#DOCS_RESOURCES_CHANNEL/start-thread-in-forum-channel) channel. The id of the created thread will be the same as the id of the source message, and as such a message can only have a single thread created from it.
+            Creates a new thread from an existing message. Returns a [channel](https://discord.com/developers/docs/resources/channel#channel-object) on success, and a 400 BAD REQUEST on invalid parameters. Fires a [Thread Create](https://discord.com/developers/docs/topics/gateway#thread-create) Gateway event.
+          When called on a `GUILD_TEXT` channel, creates a `PUBLIC_THREAD`. When called on a `GUILD_ANNOUNCEMENT` channel, creates a `ANNOUNCEMENT_THREAD`. Does not work on a [`GUILD_FORUM`](https://discord.com/developers/docs/resources/channel#start-thread-in-forum-channel) channel. The id of the created thread will be the same as the id of the source message, and as such a message can only have a single thread created from it.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/channels/{channelId}/threads":
@@ -1666,21 +1666,21 @@ paths:
       description: |-
         - [Start Thread without Message](https://discord.com/developers/docs/resources/channel#start-thread-without-message)
 
-            Creates a new thread that is not connected to an existing message. Returns a [channel](#DOCS_RESOURCES_CHANNEL/channel-object) on success, and a 400 BAD REQUEST on invalid parameters. Fires a [Thread Create](#DOCS_TOPICS_GATEWAY/thread-create) Gateway event.
+            Creates a new thread that is not connected to an existing message. Returns a [channel](https://discord.com/developers/docs/resources/channel#channel-object) on success, and a 400 BAD REQUEST on invalid parameters. Fires a [Thread Create](https://discord.com/developers/docs/topics/gateway#thread-create) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
           > info
-          > Creating a private thread requires the server to be boosted. The [guild features](#DOCS_RESOURCES_GUILD/guild-object-guild-features) will indicate if that is possible for the guild.
+          > Creating a private thread requires the server to be boosted. The [guild features](https://discord.com/developers/docs/resources/guild#guild-object-guild-features) will indicate if that is possible for the guild.
         - [Start Thread in Forum Channel](https://discord.com/developers/docs/resources/channel#start-thread-in-forum-channel)
 
-            Creates a new thread in a forum channel, and sends a message within the created thread. Returns a [channel](#DOCS_RESOURCES_CHANNEL/channel-object), with a nested [message](#DOCS_RESOURCES_CHANNEL/message-object) object, on success, and a 400 BAD REQUEST on invalid parameters. Fires a [Thread Create](#DOCS_TOPICS_GATEWAY/thread-create) and [Message Create](#DOCS_TOPICS_GATEWAY/message-create) Gateway event.
+            Creates a new thread in a forum channel, and sends a message within the created thread. Returns a [channel](https://discord.com/developers/docs/resources/channel#channel-object), with a nested [message](https://discord.com/developers/docs/resources/channel#message-object) object, on success, and a 400 BAD REQUEST on invalid parameters. Fires a [Thread Create](https://discord.com/developers/docs/topics/gateway#thread-create) and [Message Create](https://discord.com/developers/docs/topics/gateway#message-create) Gateway event.
           - The type of the created thread is `PUBLIC_THREAD`.
-          - See [message formatting](#DOCS_REFERENCE/message-formatting) for more information on how to properly format messages.
+          - See [message formatting](https://discord.com/developers/docs/reference#message-formatting) for more information on how to properly format messages.
           - The current user must have the `SEND_MESSAGES` permission (`CREATE_PUBLIC_THREADS` is ignored).
           - The maximum request size when sending a message is **8MiB**.
           - For the embed object, you can set every field except `type` (it will be `rich` regardless of if you try to set it), `provider`, `video`, and any `height`, `width`, or `proxy_url` values for images.
-          - Examples for file uploads are available in [Uploading Files](#DOCS_REFERENCE/uploading-files).
-          - Files must be attached using a `multipart/form-data` body as described in [Uploading Files](#DOCS_REFERENCE/uploading-files).
+          - Examples for file uploads are available in [Uploading Files](https://discord.com/developers/docs/reference#uploading-files).
+          - Files must be attached using a `multipart/form-data` body as described in [Uploading Files](https://discord.com/developers/docs/reference#uploading-files).
           - Note that when sending a message, you must provide a value for at **least one of** `content`, `embeds`, or `files[n]`.
           > warn
           > Discord may strip certain characters from message content, like invalid unicode characters or characters which cause unexpected message formatting. If you are passing user-generated strings into message content, consider sanitizing the data to prevent unexpected behavior and utilizing `allowed_mentions` to prevent unexpected mentions.
@@ -1716,7 +1716,7 @@ paths:
       description: |-
         - [Join Thread](https://discord.com/developers/docs/resources/channel#join-thread)
 
-            Adds the current user to a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a [Thread Members Update](#DOCS_TOPICS_GATEWAY/thread-members-update) Gateway event.
+            Adds the current user to a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a [Thread Members Update](https://discord.com/developers/docs/topics/gateway#thread-members-update) Gateway event.
     delete:
       responses:
         "401":
@@ -1739,7 +1739,7 @@ paths:
       description: |-
         - [Leave Thread](https://discord.com/developers/docs/resources/channel#leave-thread)
 
-            Removes the current user from a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a [Thread Members Update](#DOCS_TOPICS_GATEWAY/thread-members-update) Gateway event.
+            Removes the current user from a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a [Thread Members Update](https://discord.com/developers/docs/topics/gateway#thread-members-update) Gateway event.
   "/channels/{channelId}/thread-members/{userId}":
     parameters:
       - name: channelId
@@ -1776,7 +1776,7 @@ paths:
       description: |-
         - [Add Thread Member](https://discord.com/developers/docs/resources/channel#add-thread-member)
 
-            Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived. Returns a 204 empty response if the member is successfully added or was already a member of the thread. Fires a [Thread Members Update](#DOCS_TOPICS_GATEWAY/thread-members-update) Gateway event.
+            Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived. Returns a 204 empty response if the member is successfully added or was already a member of the thread. Fires a [Thread Members Update](https://discord.com/developers/docs/topics/gateway#thread-members-update) Gateway event.
     delete:
       responses:
         "401":
@@ -1799,7 +1799,7 @@ paths:
       description: |-
         - [Remove Thread Member](https://discord.com/developers/docs/resources/channel#remove-thread-member)
 
-            Removes another member from a thread. Requires the `MANAGE_THREADS` permission, or the creator of the thread if it is a `GUILD_PRIVATE_THREAD`. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a [Thread Members Update](#DOCS_TOPICS_GATEWAY/thread-members-update) Gateway event.
+            Removes another member from a thread. Requires the `MANAGE_THREADS` permission, or the creator of the thread if it is a `GUILD_PRIVATE_THREAD`. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a [Thread Members Update](https://discord.com/developers/docs/topics/gateway#thread-members-update) Gateway event.
     get:
       responses:
         "401":
@@ -1822,7 +1822,7 @@ paths:
       description: |-
         - [Get Thread Member](https://discord.com/developers/docs/resources/channel#get-thread-member)
 
-            Returns a [thread member](#DOCS_RESOURCES_CHANNEL/thread-member-object) object for the specified user if they are a member of the thread, returns a 404 response otherwise.
+            Returns a [thread member](https://discord.com/developers/docs/resources/channel#thread-member-object) object for the specified user if they are a member of the thread, returns a 404 response otherwise.
   "/channels/{channelId}/thread-members":
     parameters:
       - name: channelId
@@ -1853,9 +1853,9 @@ paths:
       description: |-
         - [List Thread Members](https://discord.com/developers/docs/resources/channel#list-thread-members)
 
-            Returns array of [thread members](#DOCS_RESOURCES_CHANNEL/thread-member-object) objects that are members of the thread.
+            Returns array of [thread members](https://discord.com/developers/docs/resources/channel#thread-member-object) objects that are members of the thread.
           > warn
-          > This endpoint is restricted according to whether the `GUILD_MEMBERS` [Privileged Intent](#DOCS_TOPICS_GATEWAY/privileged-intents) is enabled for your application.
+          > This endpoint is restricted according to whether the `GUILD_MEMBERS` [Privileged Intent](https://discord.com/developers/docs/topics/gateway#privileged-intents) is enabled for your application.
   "/channels/{channelId}/threads/archived/public":
     parameters:
       - name: channelId
@@ -1896,7 +1896,7 @@ paths:
       description: |-
         - [List Public Archived Threads](https://discord.com/developers/docs/resources/channel#list-public-archived-threads)
 
-            Returns archived threads in the channel that are public. When called on a `GUILD_TEXT` channel, returns threads of [type](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) `PUBLIC_THREAD`. When called on a `GUILD_ANNOUNCEMENT` channel returns threads of [type](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) `ANNOUNCEMENT_THREAD`. Threads are ordered by `archive_timestamp`, in descending order. Requires the `READ_MESSAGE_HISTORY` permission.
+            Returns archived threads in the channel that are public. When called on a `GUILD_TEXT` channel, returns threads of [type](https://discord.com/developers/docs/resources/channel#channel-object-channel-types) `PUBLIC_THREAD`. When called on a `GUILD_ANNOUNCEMENT` channel returns threads of [type](https://discord.com/developers/docs/resources/channel#channel-object-channel-types) `ANNOUNCEMENT_THREAD`. Threads are ordered by `archive_timestamp`, in descending order. Requires the `READ_MESSAGE_HISTORY` permission.
   "/channels/{channelId}/threads/archived/private":
     parameters:
       - name: channelId
@@ -1937,7 +1937,7 @@ paths:
       description: |-
         - [List Private Archived Threads](https://discord.com/developers/docs/resources/channel#list-private-archived-threads)
 
-            Returns archived threads in the channel that are of [type](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) `GUILD_PRIVATE_THREAD`. Threads are ordered by `archive_timestamp`, in descending order. Requires both the `READ_MESSAGE_HISTORY` and `MANAGE_THREADS` permissions.
+            Returns archived threads in the channel that are of [type](https://discord.com/developers/docs/resources/channel#channel-object-channel-types) `GUILD_PRIVATE_THREAD`. Threads are ordered by `archive_timestamp`, in descending order. Requires both the `READ_MESSAGE_HISTORY` and `MANAGE_THREADS` permissions.
   "/channels/{channelId}/users/@me/threads/archived/private":
     parameters:
       - name: channelId
@@ -1978,7 +1978,7 @@ paths:
       description: |-
         - [List Joined Private Archived Threads](https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads)
 
-            Returns archived threads in the channel that are of [type](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) `GUILD_PRIVATE_THREAD`, and the user has joined. Threads are ordered by their `id`, in descending order. Requires the `READ_MESSAGE_HISTORY` permission.
+            Returns archived threads in the channel that are of [type](https://discord.com/developers/docs/resources/channel#channel-object-channel-types) `GUILD_PRIVATE_THREAD`, and the user has joined. Threads are ordered by their `id`, in descending order. Requires the `READ_MESSAGE_HISTORY` permission.
   "/guilds/{guildId}/emojis":
     parameters:
       - name: guildId
@@ -2009,7 +2009,7 @@ paths:
       description: |-
         - [List Guild Emojis](https://discord.com/developers/docs/resources/emoji#list-guild-emojis)
 
-            Returns a list of [emoji](#DOCS_RESOURCES_EMOJI/emoji-object) objects for the given guild.
+            Returns a list of [emoji](https://discord.com/developers/docs/resources/emoji#emoji-object) objects for the given guild.
     post:
       responses:
         "401":
@@ -2032,9 +2032,9 @@ paths:
       description: |-
         - [Create Guild Emoji](https://discord.com/developers/docs/resources/emoji#create-guild-emoji)
 
-            Create a new emoji for the guild. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns the new [emoji](#DOCS_RESOURCES_EMOJI/emoji-object) object on success. Fires a [Guild Emojis Update](#DOCS_TOPICS_GATEWAY/guild-emojis-update) Gateway event.
+            Create a new emoji for the guild. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns the new [emoji](https://discord.com/developers/docs/resources/emoji#emoji-object) object on success. Fires a [Guild Emojis Update](https://discord.com/developers/docs/topics/gateway#guild-emojis-update) Gateway event.
           > warn
-          > Emojis and animated emojis have a maximum file size of 256kb. Attempting to upload an emoji larger than this limit will fail and return 400 Bad Request and an error message, but not a [JSON status code](#DOCS_TOPICS_OPCODES_AND_STATUS_CODES/json).
+          > Emojis and animated emojis have a maximum file size of 256kb. Attempting to upload an emoji larger than this limit will fail and return 400 Bad Request and an error message, but not a [JSON status code](https://discord.com/developers/docs/topics/opcodes-and-status-codes#json).
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/guilds/{guildId}/emojis/{emojiId}":
@@ -2073,7 +2073,7 @@ paths:
       description: |-
         - [Get Guild Emoji](https://discord.com/developers/docs/resources/emoji#get-guild-emoji)
 
-            Returns an [emoji](#DOCS_RESOURCES_EMOJI/emoji-object) object for the given guild and emoji IDs.
+            Returns an [emoji](https://discord.com/developers/docs/resources/emoji#emoji-object) object for the given guild and emoji IDs.
     patch:
       responses:
         "401":
@@ -2096,7 +2096,7 @@ paths:
       description: |-
         - [Modify Guild Emoji](https://discord.com/developers/docs/resources/emoji#modify-guild-emoji)
 
-            Modify the given emoji. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns the updated [emoji](#DOCS_RESOURCES_EMOJI/emoji-object) object on success. Fires a [Guild Emojis Update](#DOCS_TOPICS_GATEWAY/guild-emojis-update) Gateway event.
+            Modify the given emoji. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns the updated [emoji](https://discord.com/developers/docs/resources/emoji#emoji-object) object on success. Fires a [Guild Emojis Update](https://discord.com/developers/docs/topics/gateway#guild-emojis-update) Gateway event.
           > info
           > All parameters to this endpoint are optional.
           > info
@@ -2123,7 +2123,7 @@ paths:
       description: |-
         - [Delete Guild Emoji](https://discord.com/developers/docs/resources/emoji#delete-guild-emoji)
 
-            Delete the given emoji. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns `204 No Content` on success. Fires a [Guild Emojis Update](#DOCS_TOPICS_GATEWAY/guild-emojis-update) Gateway event.
+            Delete the given emoji. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns `204 No Content` on success. Fires a [Guild Emojis Update](https://discord.com/developers/docs/topics/gateway#guild-emojis-update) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   /gateway:
@@ -2152,7 +2152,7 @@ paths:
 
             > info
           > This endpoint does not require authentication.
-          Returns an object with a single valid WSS URL, which the client can use for [Connecting](#DOCS_TOPICS_GATEWAY/connecting). Clients **should** cache this value and only call this endpoint to retrieve a new URL if they are unable to properly establish a connection using the cached version of the URL.
+          Returns an object with a single valid WSS URL, which the client can use for [Connecting](https://discord.com/developers/docs/topics/gateway#connecting). Clients **should** cache this value and only call this endpoint to retrieve a new URL if they are unable to properly establish a connection using the cached version of the URL.
   /gateway/bot:
     parameters: []
     get:
@@ -2179,7 +2179,7 @@ paths:
 
             > warn
           > This endpoint requires authentication using a valid bot token.
-          Returns an object based on the information in [Get Gateway](#DOCS_TOPICS_GATEWAY/get-gateway), plus additional metadata that can help during the operation of large or [sharded](#DOCS_TOPICS_GATEWAY/sharding) bots. Unlike the [Get Gateway](#DOCS_TOPICS_GATEWAY/get-gateway), this route should not be cached for extended periods of time as the value is not guaranteed to be the same per-call, and changes as the bot joins/leaves guilds.
+          Returns an object based on the information in [Get Gateway](https://discord.com/developers/docs/topics/gateway#get-gateway), plus additional metadata that can help during the operation of large or [sharded](https://discord.com/developers/docs/topics/gateway#sharding) bots. Unlike the [Get Gateway](https://discord.com/developers/docs/topics/gateway#get-gateway), this route should not be cached for extended periods of time as the value is not guaranteed to be the same per-call, and changes as the bot joins/leaves guilds.
   /guilds:
     parameters: []
     post:
@@ -2204,7 +2204,7 @@ paths:
       description: |-
         - [Create Guild](https://discord.com/developers/docs/resources/guild#create-guild)
 
-            Create a new guild. Returns a [guild](#DOCS_RESOURCES_GUILD/guild-object) object on success. Fires a [Guild Create](#DOCS_TOPICS_GATEWAY/guild-create) Gateway event.
+            Create a new guild. Returns a [guild](https://discord.com/developers/docs/resources/guild#guild-object) object on success. Fires a [Guild Create](https://discord.com/developers/docs/topics/gateway#guild-create) Gateway event.
           > warn
           > This endpoint can be used only by bots in less than 10 guilds.
   "/guilds/{guildId}":
@@ -2244,7 +2244,7 @@ paths:
       description: |-
         - [Get Guild](https://discord.com/developers/docs/resources/guild#get-guild)
 
-            Returns the [guild](#DOCS_RESOURCES_GUILD/guild-object) object for the given id. If `with_counts` is set to `true`, this endpoint will also return `approximate_member_count` and `approximate_presence_count` for the guild.
+            Returns the [guild](https://discord.com/developers/docs/resources/guild#guild-object) object for the given id. If `with_counts` is set to `true`, this endpoint will also return `approximate_member_count` and `approximate_presence_count` for the guild.
     patch:
       responses:
         "401":
@@ -2267,13 +2267,13 @@ paths:
       description: |-
         - [Modify Guild](https://discord.com/developers/docs/resources/guild#modify-guild)
 
-            Modify a guild's settings. Requires the `MANAGE_GUILD` permission. Returns the updated [guild](#DOCS_RESOURCES_GUILD/guild-object) object on success. Fires a [Guild Update](#DOCS_TOPICS_GATEWAY/guild-update) Gateway event.
+            Modify a guild's settings. Requires the `MANAGE_GUILD` permission. Returns the updated [guild](https://discord.com/developers/docs/resources/guild#guild-object) object on success. Fires a [Guild Update](https://discord.com/developers/docs/topics/gateway#guild-update) Gateway event.
           > info
           > All parameters to this endpoint are optional
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
           > warn
-          > Attempting to add or remove the `COMMUNITY` [guild feature](#DOCS_RESOURCES_GUILD/guild-object-guild-features) requires the `ADMINISTRATOR` permission.
+          > Attempting to add or remove the `COMMUNITY` [guild feature](https://discord.com/developers/docs/resources/guild#guild-object-guild-features) requires the `ADMINISTRATOR` permission.
     delete:
       responses:
         "401":
@@ -2296,7 +2296,7 @@ paths:
       description: |-
         - [Delete Guild](https://discord.com/developers/docs/resources/guild#delete-guild)
 
-            Delete a guild permanently. User must be owner. Returns `204 No Content` on success. Fires a [Guild Delete](#DOCS_TOPICS_GATEWAY/guild-delete) Gateway event.
+            Delete a guild permanently. User must be owner. Returns `204 No Content` on success. Fires a [Guild Delete](https://discord.com/developers/docs/topics/gateway#guild-delete) Gateway event.
   "/guilds/{guildId}/preview":
     parameters:
       - name: guildId
@@ -2327,7 +2327,7 @@ paths:
       description: |-
         - [Get Guild Preview](https://discord.com/developers/docs/resources/guild#get-guild-preview)
 
-            Returns the [guild preview](#DOCS_RESOURCES_GUILD/guild-preview-object) object for the given id. If the user is not in the guild, then the guild must be lurkable.
+            Returns the [guild preview](https://discord.com/developers/docs/resources/guild#guild-preview-object) object for the given id. If the user is not in the guild, then the guild must be lurkable.
   "/guilds/{guildId}/channels":
     parameters:
       - name: guildId
@@ -2358,7 +2358,7 @@ paths:
       description: |-
         - [Get Guild Channels](https://discord.com/developers/docs/resources/guild#get-guild-channels)
 
-            Returns a list of guild [channel](#DOCS_RESOURCES_CHANNEL/channel-object) objects. Does not include threads.
+            Returns a list of guild [channel](https://discord.com/developers/docs/resources/channel#channel-object) objects. Does not include threads.
     post:
       responses:
         "401":
@@ -2381,7 +2381,7 @@ paths:
       description: |-
         - [Create Guild Channel](https://discord.com/developers/docs/resources/guild#create-guild-channel)
 
-            Create a new [channel](#DOCS_RESOURCES_CHANNEL/channel-object) object for the guild. Requires the `MANAGE_CHANNELS` permission. If setting permission overwrites, only permissions your bot has in the guild can be allowed/denied. Setting `MANAGE_ROLES` permission in channels is only possible for guild administrators. Returns the new [channel](#DOCS_RESOURCES_CHANNEL/channel-object) object on success. Fires a [Channel Create](#DOCS_TOPICS_GATEWAY/channel-create) Gateway event.
+            Create a new [channel](https://discord.com/developers/docs/resources/channel#channel-object) object for the guild. Requires the `MANAGE_CHANNELS` permission. If setting permission overwrites, only permissions your bot has in the guild can be allowed/denied. Setting `MANAGE_ROLES` permission in channels is only possible for guild administrators. Returns the new [channel](https://discord.com/developers/docs/resources/channel#channel-object) object on success. Fires a [Channel Create](https://discord.com/developers/docs/topics/gateway#channel-create) Gateway event.
           > info
           > All parameters to this endpoint are optional and nullable excluding `name`
           > info
@@ -2408,7 +2408,7 @@ paths:
       description: |-
         - [Modify Guild Channel Positions](https://discord.com/developers/docs/resources/guild#modify-guild-channel-positions)
 
-            Modify the positions of a set of [channel](#DOCS_RESOURCES_CHANNEL/channel-object) objects for the guild. Requires `MANAGE_CHANNELS` permission. Returns a 204 empty response on success. Fires multiple [Channel Update](#DOCS_TOPICS_GATEWAY/channel-update) Gateway events.
+            Modify the positions of a set of [channel](https://discord.com/developers/docs/resources/channel#channel-object) objects for the guild. Requires `MANAGE_CHANNELS` permission. Returns a 204 empty response on success. Fires multiple [Channel Update](https://discord.com/developers/docs/topics/gateway#channel-update) Gateway events.
           > info
           > Only channels to be modified are required.
           This endpoint takes a JSON array of parameters in the following format:
@@ -2479,7 +2479,7 @@ paths:
       description: |-
         - [Get Guild Member](https://discord.com/developers/docs/resources/guild#get-guild-member)
 
-            Returns a [guild member](#DOCS_RESOURCES_GUILD/guild-member-object) object for the specified user.
+            Returns a [guild member](https://discord.com/developers/docs/resources/guild#guild-member-object) object for the specified user.
     put:
       responses:
         "401":
@@ -2502,8 +2502,8 @@ paths:
       description: |-
         - [Add Guild Member](https://discord.com/developers/docs/resources/guild#add-guild-member)
 
-            Adds a user to the guild, provided you have a valid oauth2 access token for the user with the `guilds.join` scope. Returns a 201 Created with the [guild member](#DOCS_RESOURCES_GUILD/guild-member-object) as the body, or 204 No Content if the user is already a member of the guild. Fires a [Guild Member Add](#DOCS_TOPICS_GATEWAY/guild-member-add) Gateway event.
-          For guilds with [Membership Screening](#DOCS_RESOURCES_GUILD/membership-screening-object) enabled, this endpoint will default to adding new members as `pending` in the [guild member object](#DOCS_RESOURCES_GUILD/guild-member-object). Members that are `pending` will have to complete membership screening before they become full members that can talk.
+            Adds a user to the guild, provided you have a valid oauth2 access token for the user with the `guilds.join` scope. Returns a 201 Created with the [guild member](https://discord.com/developers/docs/resources/guild#guild-member-object) as the body, or 204 No Content if the user is already a member of the guild. Fires a [Guild Member Add](https://discord.com/developers/docs/topics/gateway#guild-member-add) Gateway event.
+          For guilds with [Membership Screening](https://discord.com/developers/docs/resources/guild#membership-screening-object) enabled, this endpoint will default to adding new members as `pending` in the [guild member object](https://discord.com/developers/docs/resources/guild#guild-member-object). Members that are `pending` will have to complete membership screening before they become full members that can talk.
           > info
           > All parameters to this endpoint except for `access_token` are optional.
           > info
@@ -2530,7 +2530,7 @@ paths:
       description: |-
         - [Modify Guild Member](https://discord.com/developers/docs/resources/guild#modify-guild-member)
 
-            Modify attributes of a [guild member](#DOCS_RESOURCES_GUILD/guild-member-object). Returns a 200 OK with the [guild member](#DOCS_RESOURCES_GUILD/guild-member-object) as the body. Fires a [Guild Member Update](#DOCS_TOPICS_GATEWAY/guild-member-update) Gateway event. If the `channel_id` is set to null, this will force the target user to be disconnected from voice.
+            Modify attributes of a [guild member](https://discord.com/developers/docs/resources/guild#guild-member-object). Returns a 200 OK with the [guild member](https://discord.com/developers/docs/resources/guild#guild-member-object) as the body. Fires a [Guild Member Update](https://discord.com/developers/docs/topics/gateway#guild-member-update) Gateway event. If the `channel_id` is set to null, this will force the target user to be disconnected from voice.
           > info
           > All parameters to this endpoint are optional and nullable. When moving members to channels, the API user _must_ have permissions to both connect to the channel and have the `MOVE_MEMBERS` permission.
           > info
@@ -2557,7 +2557,7 @@ paths:
       description: |-
         - [Remove Guild Member](https://discord.com/developers/docs/resources/guild#remove-guild-member)
 
-            Remove a member from a guild. Requires `KICK_MEMBERS` permission. Returns a 204 empty response on success. Fires a [Guild Member Remove](#DOCS_TOPICS_GATEWAY/guild-member-remove) Gateway event.
+            Remove a member from a guild. Requires `KICK_MEMBERS` permission. Returns a 204 empty response on success. Fires a [Guild Member Remove](https://discord.com/developers/docs/topics/gateway#guild-member-remove) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/guilds/{guildId}/members":
@@ -2606,9 +2606,9 @@ paths:
       description: |-
         - [List Guild Members](https://discord.com/developers/docs/resources/guild#list-guild-members)
 
-            Returns a list of [guild member](#DOCS_RESOURCES_GUILD/guild-member-object) objects that are members of the guild.
+            Returns a list of [guild member](https://discord.com/developers/docs/resources/guild#guild-member-object) objects that are members of the guild.
           > warn
-          > This endpoint is restricted according to whether the `GUILD_MEMBERS` [Privileged Intent](#DOCS_TOPICS_GATEWAY/privileged-intents) is enabled for your application.
+          > This endpoint is restricted according to whether the `GUILD_MEMBERS` [Privileged Intent](https://discord.com/developers/docs/topics/gateway#privileged-intents) is enabled for your application.
           > info
           > All parameters to this endpoint are optional
   "/guilds/{guildId}/members/search":
@@ -2657,7 +2657,7 @@ paths:
       description: |-
         - [Search Guild Members](https://discord.com/developers/docs/resources/guild#search-guild-members)
 
-            Returns a list of [guild member](#DOCS_RESOURCES_GUILD/guild-member-object) objects whose username or nickname starts with a provided string.
+            Returns a list of [guild member](https://discord.com/developers/docs/resources/guild#guild-member-object) objects whose username or nickname starts with a provided string.
           > info
           > All parameters to this endpoint except for `query` are optional
   "/guilds/{guildId}/members/@me":
@@ -2690,7 +2690,7 @@ paths:
       description: |-
         - [Modify Current Member](https://discord.com/developers/docs/resources/guild#modify-current-member)
 
-            Modifies the current member in a guild. Returns a 200 with the updated member object on success. Fires a [Guild Member Update](#DOCS_TOPICS_GATEWAY/guild-member-update) Gateway event.
+            Modifies the current member in a guild. Returns a 200 with the updated member object on success. Fires a [Guild Member Update](https://discord.com/developers/docs/topics/gateway#guild-member-update) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/guilds/{guildId}/members/@me/nick":
@@ -2724,8 +2724,8 @@ paths:
         - [Modify Current User Nick](https://discord.com/developers/docs/resources/guild#modify-current-user-nick)
 
             > danger
-          > Deprecated in favor of [Modify Current Member](#DOCS_RESOURCES_GUILD/modify-current-member).
-          Modifies the nickname of the current user in a guild. Returns a 200 with the nickname on success. Fires a [Guild Member Update](#DOCS_TOPICS_GATEWAY/guild-member-update) Gateway event.
+          > Deprecated in favor of [Modify Current Member](https://discord.com/developers/docs/resources/guild#modify-current-member).
+          Modifies the nickname of the current user in a guild. Returns a 200 with the nickname on success. Fires a [Guild Member Update](https://discord.com/developers/docs/topics/gateway#guild-member-update) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/guilds/{guildId}/members/{userId}/roles/{roleId}":
@@ -2770,7 +2770,7 @@ paths:
       description: |-
         - [Add Guild Member Role](https://discord.com/developers/docs/resources/guild#add-guild-member-role)
 
-            Adds a role to a [guild member](#DOCS_RESOURCES_GUILD/guild-member-object). Requires the `MANAGE_ROLES` permission. Returns a 204 empty response on success. Fires a [Guild Member Update](#DOCS_TOPICS_GATEWAY/guild-member-update) Gateway event.
+            Adds a role to a [guild member](https://discord.com/developers/docs/resources/guild#guild-member-object). Requires the `MANAGE_ROLES` permission. Returns a 204 empty response on success. Fires a [Guild Member Update](https://discord.com/developers/docs/topics/gateway#guild-member-update) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
     delete:
@@ -2795,7 +2795,7 @@ paths:
       description: |-
         - [Remove Guild Member Role](https://discord.com/developers/docs/resources/guild#remove-guild-member-role)
 
-            Removes a role from a [guild member](#DOCS_RESOURCES_GUILD/guild-member-object). Requires the `MANAGE_ROLES` permission. Returns a 204 empty response on success. Fires a [Guild Member Update](#DOCS_TOPICS_GATEWAY/guild-member-update) Gateway event.
+            Removes a role from a [guild member](https://discord.com/developers/docs/resources/guild#guild-member-object). Requires the `MANAGE_ROLES` permission. Returns a 204 empty response on success. Fires a [Guild Member Update](https://discord.com/developers/docs/topics/gateway#guild-member-update) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/guilds/{guildId}/bans":
@@ -2849,7 +2849,7 @@ paths:
       description: |-
         - [Get Guild Bans](https://discord.com/developers/docs/resources/guild#get-guild-bans)
 
-            Returns a list of [ban](#DOCS_RESOURCES_GUILD/ban-object) objects for the users banned from this guild. Requires the `BAN_MEMBERS` permission.
+            Returns a list of [ban](https://discord.com/developers/docs/resources/guild#ban-object) objects for the users banned from this guild. Requires the `BAN_MEMBERS` permission.
   "/guilds/{guildId}/bans/{userId}":
     parameters:
       - name: guildId
@@ -2886,7 +2886,7 @@ paths:
       description: |-
         - [Get Guild Ban](https://discord.com/developers/docs/resources/guild#get-guild-ban)
 
-            Returns a [ban](#DOCS_RESOURCES_GUILD/ban-object) object for the given user or a 404 not found if the ban cannot be found. Requires the `BAN_MEMBERS` permission.
+            Returns a [ban](https://discord.com/developers/docs/resources/guild#ban-object) object for the given user or a 404 not found if the ban cannot be found. Requires the `BAN_MEMBERS` permission.
     put:
       responses:
         "401":
@@ -2909,7 +2909,7 @@ paths:
       description: |-
         - [Create Guild Ban](https://discord.com/developers/docs/resources/guild#create-guild-ban)
 
-            Create a guild ban, and optionally delete previous messages sent by the banned user. Requires the `BAN_MEMBERS` permission. Returns a 204 empty response on success. Fires a [Guild Ban Add](#DOCS_TOPICS_GATEWAY/guild-ban-add) Gateway event.
+            Create a guild ban, and optionally delete previous messages sent by the banned user. Requires the `BAN_MEMBERS` permission. Returns a 204 empty response on success. Fires a [Guild Ban Add](https://discord.com/developers/docs/topics/gateway#guild-ban-add) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
     delete:
@@ -2934,7 +2934,7 @@ paths:
       description: |-
         - [Remove Guild Ban](https://discord.com/developers/docs/resources/guild#remove-guild-ban)
 
-            Remove the ban for a user. Requires the `BAN_MEMBERS` permissions. Returns a 204 empty response on success. Fires a [Guild Ban Remove](#DOCS_TOPICS_GATEWAY/guild-ban-remove) Gateway event.
+            Remove the ban for a user. Requires the `BAN_MEMBERS` permissions. Returns a 204 empty response on success. Fires a [Guild Ban Remove](https://discord.com/developers/docs/topics/gateway#guild-ban-remove) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/guilds/{guildId}/roles":
@@ -2967,7 +2967,7 @@ paths:
       description: |-
         - [Get Guild Roles](https://discord.com/developers/docs/resources/guild#get-guild-roles)
 
-            Returns a list of [role](#DOCS_TOPICS_PERMISSIONS/role-object) objects for the guild.
+            Returns a list of [role](https://discord.com/developers/docs/topics/permissions#role-object) objects for the guild.
     post:
       responses:
         "401":
@@ -2990,7 +2990,7 @@ paths:
       description: |-
         - [Create Guild Role](https://discord.com/developers/docs/resources/guild#create-guild-role)
 
-            Create a new [role](#DOCS_TOPICS_PERMISSIONS/role-object) for the guild. Requires the `MANAGE_ROLES` permission. Returns the new [role](#DOCS_TOPICS_PERMISSIONS/role-object) object on success. Fires a [Guild Role Create](#DOCS_TOPICS_GATEWAY/guild-role-create) Gateway event. All JSON params are optional.
+            Create a new [role](https://discord.com/developers/docs/topics/permissions#role-object) for the guild. Requires the `MANAGE_ROLES` permission. Returns the new [role](https://discord.com/developers/docs/topics/permissions#role-object) object on success. Fires a [Guild Role Create](https://discord.com/developers/docs/topics/gateway#guild-role-create) Gateway event. All JSON params are optional.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
     patch:
@@ -3015,7 +3015,7 @@ paths:
       description: |-
         - [Modify Guild Role Positions](https://discord.com/developers/docs/resources/guild#modify-guild-role-positions)
 
-            Modify the positions of a set of [role](#DOCS_TOPICS_PERMISSIONS/role-object) objects for the guild. Requires the `MANAGE_ROLES` permission. Returns a list of all of the guild's [role](#DOCS_TOPICS_PERMISSIONS/role-object) objects on success. Fires multiple [Guild Role Update](#DOCS_TOPICS_GATEWAY/guild-role-update) Gateway events.
+            Modify the positions of a set of [role](https://discord.com/developers/docs/topics/permissions#role-object) objects for the guild. Requires the `MANAGE_ROLES` permission. Returns a list of all of the guild's [role](https://discord.com/developers/docs/topics/permissions#role-object) objects on success. Fires multiple [Guild Role Update](https://discord.com/developers/docs/topics/gateway#guild-role-update) Gateway events.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
           This endpoint takes a JSON array of parameters in the following format:
@@ -3055,7 +3055,7 @@ paths:
       description: |-
         - [Modify Guild Role](https://discord.com/developers/docs/resources/guild#modify-guild-role)
 
-            Modify a guild role. Requires the `MANAGE_ROLES` permission. Returns the updated [role](#DOCS_TOPICS_PERMISSIONS/role-object) on success. Fires a [Guild Role Update](#DOCS_TOPICS_GATEWAY/guild-role-update) Gateway event.
+            Modify a guild role. Requires the `MANAGE_ROLES` permission. Returns the updated [role](https://discord.com/developers/docs/topics/permissions#role-object) on success. Fires a [Guild Role Update](https://discord.com/developers/docs/topics/gateway#guild-role-update) Gateway event.
           > info
           > All parameters to this endpoint are optional and nullable.
           > info
@@ -3082,7 +3082,7 @@ paths:
       description: |-
         - [Delete Guild Role](https://discord.com/developers/docs/resources/guild#delete-guild-role)
 
-            Delete a guild role. Requires the `MANAGE_ROLES` permission. Returns a 204 empty response on success. Fires a [Guild Role Delete](#DOCS_TOPICS_GATEWAY/guild-role-delete) Gateway event.
+            Delete a guild role. Requires the `MANAGE_ROLES` permission. Returns a 204 empty response on success. Fires a [Guild Role Delete](https://discord.com/developers/docs/topics/gateway#guild-role-delete) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/guilds/{guildId}/mfa":
@@ -3115,7 +3115,7 @@ paths:
       description: |-
         - [Modify Guild MFA Level](https://discord.com/developers/docs/resources/guild#modify-guild-mfa-level)
 
-            Modify a guild's MFA level. Requires guild ownership. Returns the updated [level](#DOCS_RESOURCES_GUILD/guild-object-mfa-level) on success. Fires a [Guild Update](#DOCS_TOPICS_GATEWAY/guild-update) Gateway event.
+            Modify a guild's MFA level. Requires guild ownership. Returns the updated [level](https://discord.com/developers/docs/resources/guild#guild-object-mfa-level) on success. Fires a [Guild Update](https://discord.com/developers/docs/topics/gateway#guild-update) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/guilds/{guildId}/prune":
@@ -3190,7 +3190,7 @@ paths:
       description: |-
         - [Begin Guild Prune](https://discord.com/developers/docs/resources/guild#begin-guild-prune)
 
-            Begin a prune operation. Requires the `KICK_MEMBERS` permission. Returns an object with one `pruned` key indicating the number of members that were removed in the prune operation. For large guilds it's recommended to set the `compute_prune_count` option to `false`, forcing `pruned` to `null`. Fires multiple [Guild Member Remove](#DOCS_TOPICS_GATEWAY/guild-member-remove) Gateway events.
+            Begin a prune operation. Requires the `KICK_MEMBERS` permission. Returns an object with one `pruned` key indicating the number of members that were removed in the prune operation. For large guilds it's recommended to set the `compute_prune_count` option to `false`, forcing `pruned` to `null`. Fires multiple [Guild Member Remove](https://discord.com/developers/docs/topics/gateway#guild-member-remove) Gateway events.
           By default, prune will not remove users with roles. You can optionally include specific roles in your prune by providing the `include_roles` parameter. Any inactive user that has a subset of the provided role(s) will be included in the prune and users with additional roles will not.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
@@ -3224,7 +3224,7 @@ paths:
       description: |-
         - [Get Guild Voice Regions](https://discord.com/developers/docs/resources/guild#get-guild-voice-regions)
 
-            Returns a list of [voice region](#DOCS_RESOURCES_VOICE/voice-region-object) objects for the guild. Unlike the similar `/voice` route, this returns VIP servers when the guild is VIP-enabled.
+            Returns a list of [voice region](https://discord.com/developers/docs/resources/voice#voice-region-object) objects for the guild. Unlike the similar `/voice` route, this returns VIP servers when the guild is VIP-enabled.
   "/guilds/{guildId}/invites":
     parameters:
       - name: guildId
@@ -3255,7 +3255,7 @@ paths:
       description: |-
         - [Get Guild Invites](https://discord.com/developers/docs/resources/guild#get-guild-invites)
 
-            Returns a list of [invite](#DOCS_RESOURCES_INVITE/invite-object) objects (with [invite metadata](#DOCS_RESOURCES_INVITE/invite-metadata-object)) for the guild. Requires the `MANAGE_GUILD` permission.
+            Returns a list of [invite](https://discord.com/developers/docs/resources/invite#invite-object) objects (with [invite metadata](https://discord.com/developers/docs/resources/invite#invite-metadata-object)) for the guild. Requires the `MANAGE_GUILD` permission.
   "/guilds/{guildId}/integrations":
     parameters:
       - name: guildId
@@ -3286,7 +3286,7 @@ paths:
       description: |-
         - [Get Guild Integrations](https://discord.com/developers/docs/resources/guild#get-guild-integrations)
 
-            Returns a list of [integration](#DOCS_RESOURCES_GUILD/integration-object) objects for the guild. Requires the `MANAGE_GUILD` permission.
+            Returns a list of [integration](https://discord.com/developers/docs/resources/guild#integration-object) objects for the guild. Requires the `MANAGE_GUILD` permission.
   "/guilds/{guildId}/integrations/{integrationId}":
     parameters:
       - name: guildId
@@ -3323,7 +3323,7 @@ paths:
       description: |-
         - [Delete Guild Integration](https://discord.com/developers/docs/resources/guild#delete-guild-integration)
 
-            Delete the attached [integration](#DOCS_RESOURCES_GUILD/integration-object) object for the guild. Deletes any associated webhooks and kicks the associated bot if there is one. Requires the `MANAGE_GUILD` permission. Returns a 204 empty response on success. Fires [Guild Integrations Update](#DOCS_TOPICS_GATEWAY/guild-integrations-update) and [Integration Delete](#DOCS_TOPICS_GATEWAY/integration-delete) Gateway events.
+            Delete the attached [integration](https://discord.com/developers/docs/resources/guild#integration-object) object for the guild. Deletes any associated webhooks and kicks the associated bot if there is one. Requires the `MANAGE_GUILD` permission. Returns a 204 empty response on success. Fires [Guild Integrations Update](https://discord.com/developers/docs/topics/gateway#guild-integrations-update) and [Integration Delete](https://discord.com/developers/docs/topics/gateway#integration-delete) Gateway events.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/guilds/{guildId}/widget":
@@ -3356,7 +3356,7 @@ paths:
       description: |-
         - [Get Guild Widget Settings](https://discord.com/developers/docs/resources/guild#get-guild-widget-settings)
 
-            Returns a [guild widget settings](#DOCS_RESOURCES_GUILD/guild-widget-settings-object) object. Requires the `MANAGE_GUILD` permission.
+            Returns a [guild widget settings](https://discord.com/developers/docs/resources/guild#guild-widget-settings-object) object. Requires the `MANAGE_GUILD` permission.
     patch:
       responses:
         "401":
@@ -3379,7 +3379,7 @@ paths:
       description: |-
         - [Modify Guild Widget](https://discord.com/developers/docs/resources/guild#modify-guild-widget)
 
-            Modify a [guild widget settings](#DOCS_RESOURCES_GUILD/guild-widget-settings-object) object for the guild. All attributes may be passed in with JSON and modified. Requires the `MANAGE_GUILD` permission. Returns the updated [guild widget](#DOCS_RESOURCES_GUILD/guild-widget-settings-object) object.
+            Modify a [guild widget settings](https://discord.com/developers/docs/resources/guild#guild-widget-settings-object) object for the guild. All attributes may be passed in with JSON and modified. Requires the `MANAGE_GUILD` permission. Returns the updated [guild widget](https://discord.com/developers/docs/resources/guild#guild-widget-settings-object) object.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/guilds/{guildId}/widget.json":
@@ -3412,7 +3412,7 @@ paths:
       description: |-
         - [Get Guild Widget](https://discord.com/developers/docs/resources/guild#get-guild-widget)
 
-            Returns the [widget](#DOCS_RESOURCES_GUILD/guild-widget-object) for the guild.
+            Returns the [widget](https://discord.com/developers/docs/resources/guild#guild-widget-object) for the guild.
   "/guilds/{guildId}/vanity-url":
     parameters:
       - name: guildId
@@ -3443,7 +3443,7 @@ paths:
       description: |-
         - [Get Guild Vanity URL](https://discord.com/developers/docs/resources/guild#get-guild-vanity-url)
 
-            Returns a partial [invite](#DOCS_RESOURCES_INVITE/invite-object) object for guilds with that feature enabled. Requires the `MANAGE_GUILD` permission. `code` will be null if a vanity url for the guild is not set.
+            Returns a partial [invite](https://discord.com/developers/docs/resources/invite#invite-object) object for guilds with that feature enabled. Requires the `MANAGE_GUILD` permission. `code` will be null if a vanity url for the guild is not set.
   "/guilds/{guildId}/widget.png":
     parameters:
       - name: guildId
@@ -3515,7 +3515,7 @@ paths:
       description: |-
         - [Get Guild Welcome Screen](https://discord.com/developers/docs/resources/guild#get-guild-welcome-screen)
 
-            Returns the [Welcome Screen](#DOCS_RESOURCES_GUILD/welcome-screen-object) object for the guild. If the welcome screen is not enabled, the `MANAGE_GUILD` permission is required.
+            Returns the [Welcome Screen](https://discord.com/developers/docs/resources/guild#welcome-screen-object) object for the guild. If the welcome screen is not enabled, the `MANAGE_GUILD` permission is required.
     patch:
       responses:
         "401":
@@ -3538,7 +3538,7 @@ paths:
       description: |-
         - [Modify Guild Welcome Screen](https://discord.com/developers/docs/resources/guild#modify-guild-welcome-screen)
 
-            Modify the guild's [Welcome Screen](#DOCS_RESOURCES_GUILD/welcome-screen-object). Requires the `MANAGE_GUILD` permission. Returns the updated [Welcome Screen](#DOCS_RESOURCES_GUILD/welcome-screen-object) object.
+            Modify the guild's [Welcome Screen](https://discord.com/developers/docs/resources/guild#welcome-screen-object). Requires the `MANAGE_GUILD` permission. Returns the updated [Welcome Screen](https://discord.com/developers/docs/resources/guild#welcome-screen-object) object.
           > info
           > All parameters to this endpoint are optional and nullable
           > info
@@ -3573,7 +3573,7 @@ paths:
       description: |-
         - [Modify Current User Voice State](https://discord.com/developers/docs/resources/guild#modify-current-user-voice-state)
 
-            Updates the current user's voice state. Returns `204 No Content` on success. Fires a [Voice State Update](#DOCS_TOPICS_GATEWAY/voice-state-update) Gateway event.
+            Updates the current user's voice state. Returns `204 No Content` on success. Fires a [Voice State Update](https://discord.com/developers/docs/topics/gateway#voice-state-update) Gateway event.
   "/guilds/{guildId}/voice-states/{userId}":
     parameters:
       - name: guildId
@@ -3610,7 +3610,7 @@ paths:
       description: |-
         - [Modify User Voice State](https://discord.com/developers/docs/resources/guild#modify-user-voice-state)
 
-            Updates another user's voice state. Fires a [Voice State Update](#DOCS_TOPICS_GATEWAY/voice-state-update) Gateway event.
+            Updates another user's voice state. Fires a [Voice State Update](https://discord.com/developers/docs/topics/gateway#voice-state-update) Gateway event.
   "/guilds/{guildId}/scheduled-events":
     parameters:
       - name: guildId
@@ -3646,7 +3646,7 @@ paths:
       description: |-
         - [List Scheduled Events for Guild](https://discord.com/developers/docs/resources/guild-scheduled-event#list-scheduled-events-for-guild)
 
-            Returns a list of [guild scheduled event](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object) objects for the given guild.
+            Returns a list of [guild scheduled event](https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object) objects for the given guild.
     post:
       responses:
         "401":
@@ -3669,7 +3669,7 @@ paths:
       description: |-
         - [Create Guild Scheduled Event](https://discord.com/developers/docs/resources/guild-scheduled-event#create-guild-scheduled-event)
 
-            Create a guild scheduled event in the guild. Returns a [guild scheduled event](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object) object on success. Fires a [Guild Scheduled Event Create](#DOCS_TOPICS_GATEWAY/guild-scheduled-event-create) Gateway event.
+            Create a guild scheduled event in the guild. Returns a [guild scheduled event](https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object) object on success. Fires a [Guild Scheduled Event Create](https://discord.com/developers/docs/topics/gateway#guild-scheduled-event-create) Gateway event.
           > info
           > A guild can have a maximum of 100 events with `SCHEDULED` or `ACTIVE` status at any time.
           > info
@@ -3715,7 +3715,7 @@ paths:
       description: |-
         - [Get Guild Scheduled Event](https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event)
 
-            Get a guild scheduled event. Returns a [guild scheduled event](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object) object on success.
+            Get a guild scheduled event. Returns a [guild scheduled event](https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object) object on success.
     patch:
       responses:
         "401":
@@ -3738,9 +3738,9 @@ paths:
       description: |-
         - [Modify Guild Scheduled Event](https://discord.com/developers/docs/resources/guild-scheduled-event#modify-guild-scheduled-event)
 
-            Modify a guild scheduled event. Returns the modified [guild scheduled event](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object) object on success. Fires a [Guild Scheduled Event Update](#DOCS_TOPICS_GATEWAY/guild-scheduled-event-update) Gateway event.
+            Modify a guild scheduled event. Returns the modified [guild scheduled event](https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object) object on success. Fires a [Guild Scheduled Event Update](https://discord.com/developers/docs/topics/gateway#guild-scheduled-event-update) Gateway event.
           > info
-          > To start or end an event, use this endpoint to modify the event's [status](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object-guild-scheduled-event-status) field.
+          > To start or end an event, use this endpoint to modify the event's [status](https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object-guild-scheduled-event-status) field.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
           > info
@@ -3767,7 +3767,7 @@ paths:
       description: |-
         - [Delete Guild Scheduled Event](https://discord.com/developers/docs/resources/guild-scheduled-event#delete-guild-scheduled-event)
 
-            Delete a guild scheduled event. Returns a `204` on success. Fires a [Guild Scheduled Event Delete](#DOCS_TOPICS_GATEWAY/guild-scheduled-event-delete) Gateway event.
+            Delete a guild scheduled event. Returns a `204` on success. Fires a [Guild Scheduled Event Delete](https://discord.com/developers/docs/topics/gateway#guild-scheduled-event-delete) Gateway event.
   "/guilds/{guildId}/scheduled-events/{guildScheduledEventId}/users":
     parameters:
       - name: guildId
@@ -3832,7 +3832,7 @@ paths:
       description: |-
         - [Get Guild Scheduled Event Users](https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-users)
 
-            Get a list of guild scheduled event users subscribed to a guild scheduled event. Returns a list of [guild scheduled event user](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-user-object) objects on success. Guild member data, if it exists, is included if the `with_member` query parameter is set.
+            Get a list of guild scheduled event users subscribed to a guild scheduled event. Returns a list of [guild scheduled event user](https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object) objects on success. Guild member data, if it exists, is included if the `with_member` query parameter is set.
   "/guilds/templates/{templateCode}":
     parameters:
       - name: templateCode
@@ -3864,7 +3864,7 @@ paths:
       description: |-
         - [Get Guild Template](https://discord.com/developers/docs/resources/guild-template#get-guild-template)
 
-            Returns a [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) object for the given code.
+            Returns a [guild template](https://discord.com/developers/docs/resources/guild-template#guild-template-object) object for the given code.
     post:
       responses:
         "401":
@@ -3887,7 +3887,7 @@ paths:
       description: |-
         - [Create Guild from Guild Template](https://discord.com/developers/docs/resources/guild-template#create-guild-from-guild-template)
 
-            Create a new guild based on a template. Returns a [guild](#DOCS_RESOURCES_GUILD/guild-object) object on success. Fires a [Guild Create](#DOCS_TOPICS_GATEWAY/guild-create) Gateway event.
+            Create a new guild based on a template. Returns a [guild](https://discord.com/developers/docs/resources/guild#guild-object) object on success. Fires a [Guild Create](https://discord.com/developers/docs/topics/gateway#guild-create) Gateway event.
           > warn
           > This endpoint can be used only by bots in less than 10 guilds.
   "/guilds/{guildId}/templates":
@@ -3920,7 +3920,7 @@ paths:
       description: |-
         - [Get Guild Templates](https://discord.com/developers/docs/resources/guild-template#get-guild-templates)
 
-            Returns an array of [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) objects. Requires the `MANAGE_GUILD` permission.
+            Returns an array of [guild template](https://discord.com/developers/docs/resources/guild-template#guild-template-object) objects. Requires the `MANAGE_GUILD` permission.
     post:
       responses:
         "401":
@@ -3943,7 +3943,7 @@ paths:
       description: |-
         - [Create Guild Template](https://discord.com/developers/docs/resources/guild-template#create-guild-template)
 
-            Creates a template for the guild. Requires the `MANAGE_GUILD` permission. Returns the created [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) object on success.
+            Creates a template for the guild. Requires the `MANAGE_GUILD` permission. Returns the created [guild template](https://discord.com/developers/docs/resources/guild-template#guild-template-object) object on success.
   "/guilds/{guildId}/templates/{templateCode}":
     parameters:
       - name: guildId
@@ -3981,7 +3981,7 @@ paths:
       description: |-
         - [Sync Guild Template](https://discord.com/developers/docs/resources/guild-template#sync-guild-template)
 
-            Syncs the template to the guild's current state. Requires the `MANAGE_GUILD` permission. Returns the [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) object on success.
+            Syncs the template to the guild's current state. Requires the `MANAGE_GUILD` permission. Returns the [guild template](https://discord.com/developers/docs/resources/guild-template#guild-template-object) object on success.
     patch:
       responses:
         "401":
@@ -4004,7 +4004,7 @@ paths:
       description: |-
         - [Modify Guild Template](https://discord.com/developers/docs/resources/guild-template#modify-guild-template)
 
-            Modifies the template's metadata. Requires the `MANAGE_GUILD` permission. Returns the [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) object on success.
+            Modifies the template's metadata. Requires the `MANAGE_GUILD` permission. Returns the [guild template](https://discord.com/developers/docs/resources/guild-template#guild-template-object) object on success.
     delete:
       responses:
         "401":
@@ -4027,7 +4027,7 @@ paths:
       description: |-
         - [Delete Guild Template](https://discord.com/developers/docs/resources/guild-template#delete-guild-template)
 
-            Deletes the template. Requires the `MANAGE_GUILD` permission. Returns the deleted [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) object on success.
+            Deletes the template. Requires the `MANAGE_GUILD` permission. Returns the deleted [guild template](https://discord.com/developers/docs/resources/guild-template#guild-template-object) object on success.
   "/invites/{inviteCode}":
     parameters:
       - name: inviteCode
@@ -4074,7 +4074,7 @@ paths:
       description: |-
         - [Get Invite](https://discord.com/developers/docs/resources/invite#get-invite)
 
-            Returns an [invite](#DOCS_RESOURCES_INVITE/invite-object) object for the given code.
+            Returns an [invite](https://discord.com/developers/docs/resources/invite#invite-object) object for the given code.
     delete:
       responses:
         "401":
@@ -4097,7 +4097,7 @@ paths:
       description: |-
         - [Delete Invite](https://discord.com/developers/docs/resources/invite#delete-invite)
 
-            Delete an invite. Requires the `MANAGE_CHANNELS` permission on the channel this invite belongs to, or `MANAGE_GUILD` to remove any invite across the guild. Returns an [invite](#DOCS_RESOURCES_INVITE/invite-object) object on success. Fires an [Invite Delete](#DOCS_TOPICS_GATEWAY/invite-delete) Gateway event.
+            Delete an invite. Requires the `MANAGE_CHANNELS` permission on the channel this invite belongs to, or `MANAGE_GUILD` to remove any invite across the guild. Returns an [invite](https://discord.com/developers/docs/resources/invite#invite-object) object on success. Fires an [Invite Delete](https://discord.com/developers/docs/topics/gateway#invite-delete) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   /oauth2/applications/@me:
@@ -4124,7 +4124,7 @@ paths:
       description: |-
         - [Get Current Bot Application Information](https://discord.com/developers/docs/topics/oauth2#get-current-bot-application-information)
 
-            Returns the bot's [application](#DOCS_RESOURCES_APPLICATION/application-object) object.
+            Returns the bot's [application](https://discord.com/developers/docs/resources/application#application-object) object.
   /oauth2/@me:
     parameters: []
     get:
@@ -4187,8 +4187,8 @@ paths:
       description: |-
         - [Create Interaction Response](https://discord.com/developers/docs/interactions/receiving-and-responding#create-interaction-response)
 
-            Create a response to an Interaction from the gateway. Body is an [interaction response](#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-response-object). Returns `204 No Content`.
-          This endpoint also supports file attachments similar to the webhook endpoints. Refer to [Uploading Files](#DOCS_REFERENCE/uploading-files) for details on uploading files and `multipart/form-data` requests.
+            Create a response to an Interaction from the gateway. Body is an [interaction response](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-response-object). Returns `204 No Content`.
+          This endpoint also supports file attachments similar to the webhook endpoints. Refer to [Uploading Files](https://discord.com/developers/docs/reference#uploading-files) for details on uploading files and `multipart/form-data` requests.
   "/webhooks/{applicationId}/{interactionToken}/messages/@original":
     parameters:
       - name: applicationId
@@ -4226,7 +4226,7 @@ paths:
       description: |-
         - [Get Original Interaction Response](https://discord.com/developers/docs/interactions/receiving-and-responding#get-original-interaction-response)
 
-            Returns the initial Interaction response. Functions the same as [Get Webhook Message](#DOCS_RESOURCES_WEBHOOK/get-webhook-message).
+            Returns the initial Interaction response. Functions the same as [Get Webhook Message](https://discord.com/developers/docs/resources/webhook#get-webhook-message).
     patch:
       responses:
         "401":
@@ -4249,7 +4249,7 @@ paths:
       description: |-
         - [Edit Original Interaction Response](https://discord.com/developers/docs/interactions/receiving-and-responding#edit-original-interaction-response)
 
-            Edits the initial Interaction response. Functions the same as [Edit Webhook Message](#DOCS_RESOURCES_WEBHOOK/edit-webhook-message).
+            Edits the initial Interaction response. Functions the same as [Edit Webhook Message](https://discord.com/developers/docs/resources/webhook#edit-webhook-message).
     delete:
       responses:
         "401":
@@ -4310,7 +4310,7 @@ paths:
       description: |-
         - [Create Followup Message](https://discord.com/developers/docs/interactions/receiving-and-responding#create-followup-message)
 
-            Create a followup message for an Interaction. Functions the same as [Execute Webhook](#DOCS_RESOURCES_WEBHOOK/execute-webhook), but `wait` is always true. The `thread_id`, `avatar_url`, and `username` parameters are not supported when using this endpoint for interaction followups.
+            Create a followup message for an Interaction. Functions the same as [Execute Webhook](https://discord.com/developers/docs/resources/webhook#execute-webhook), but `wait` is always true. The `thread_id`, `avatar_url`, and `username` parameters are not supported when using this endpoint for interaction followups.
           `flags` can be set to `64` to mark the message as ephemeral, except when it is the first followup message to a deferred Interactions Response. In that case, the `flags` field will be ignored, and the ephemerality of the message will be determined by the `flags` value in your original ACK.
   "/webhooks/{applicationId}/{interactionToken}/messages/{messageId}":
     parameters:
@@ -4355,7 +4355,7 @@ paths:
       description: |-
         - [Get Followup Message](https://discord.com/developers/docs/interactions/receiving-and-responding#get-followup-message)
 
-            Returns a followup message for an Interaction. Functions the same as [Get Webhook Message](#DOCS_RESOURCES_WEBHOOK/get-webhook-message).
+            Returns a followup message for an Interaction. Functions the same as [Get Webhook Message](https://discord.com/developers/docs/resources/webhook#get-webhook-message).
     patch:
       responses:
         "401":
@@ -4378,7 +4378,7 @@ paths:
       description: |-
         - [Edit Followup Message](https://discord.com/developers/docs/interactions/receiving-and-responding#edit-followup-message)
 
-            Edits a followup message for an Interaction. Functions the same as [Edit Webhook Message](#DOCS_RESOURCES_WEBHOOK/edit-webhook-message).
+            Edits a followup message for an Interaction. Functions the same as [Edit Webhook Message](https://discord.com/developers/docs/resources/webhook#edit-webhook-message).
     delete:
       responses:
         "401":
@@ -4426,7 +4426,7 @@ paths:
       description: |-
         - [Create Stage Instance](https://discord.com/developers/docs/resources/stage-instance#create-stage-instance)
 
-            Creates a new Stage instance associated to a Stage channel. Returns that [Stage instance](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-stage-instance-structure). Fires a [Stage Instance Create](#DOCS_TOPICS_GATEWAY/stage-instance-create) Gateway event.
+            Creates a new Stage instance associated to a Stage channel. Returns that [Stage instance](https://discord.com/developers/docs/resources/stage-instance#stage-instance-object-stage-instance-structure). Fires a [Stage Instance Create](https://discord.com/developers/docs/topics/gateway#stage-instance-create) Gateway event.
           Requires the user to be a moderator of the Stage channel.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
@@ -4483,7 +4483,7 @@ paths:
       description: |-
         - [Modify Stage Instance](https://discord.com/developers/docs/resources/stage-instance#modify-stage-instance)
 
-            Updates fields of an existing Stage instance. Returns the updated [Stage instance](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-stage-instance-structure). Fires a [Stage Instance Update](#DOCS_TOPICS_GATEWAY/stage-instance-update) Gateway event.
+            Updates fields of an existing Stage instance. Returns the updated [Stage instance](https://discord.com/developers/docs/resources/stage-instance#stage-instance-object-stage-instance-structure). Fires a [Stage Instance Update](https://discord.com/developers/docs/topics/gateway#stage-instance-update) Gateway event.
           Requires the user to be a moderator of the Stage channel.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
@@ -4509,7 +4509,7 @@ paths:
       description: |-
         - [Delete Stage Instance](https://discord.com/developers/docs/resources/stage-instance#delete-stage-instance)
 
-            Deletes the Stage instance. Returns `204 No Content`. Fires a [Stage Instance Delete](#DOCS_TOPICS_GATEWAY/stage-instance-delete) Gateway event.
+            Deletes the Stage instance. Returns `204 No Content`. Fires a [Stage Instance Delete](https://discord.com/developers/docs/topics/gateway#stage-instance-delete) Gateway event.
           Requires the user to be a moderator of the Stage channel.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
@@ -4543,7 +4543,7 @@ paths:
       description: |-
         - [Get Sticker](https://discord.com/developers/docs/resources/sticker#get-sticker)
 
-            Returns a [sticker](#DOCS_RESOURCES_STICKER/sticker-object) object for the given sticker ID.
+            Returns a [sticker](https://discord.com/developers/docs/resources/sticker#sticker-object) object for the given sticker ID.
   /sticker-packs:
     parameters: []
     get:
@@ -4599,7 +4599,7 @@ paths:
       description: |-
         - [List Guild Stickers](https://discord.com/developers/docs/resources/sticker#list-guild-stickers)
 
-            Returns an array of [sticker](#DOCS_RESOURCES_STICKER/sticker-object) objects for the given guild. Includes `user` fields if the bot has the `MANAGE_EMOJIS_AND_STICKERS` permission.
+            Returns an array of [sticker](https://discord.com/developers/docs/resources/sticker#sticker-object) objects for the given guild. Includes `user` fields if the bot has the `MANAGE_EMOJIS_AND_STICKERS` permission.
     post:
       responses:
         "401":
@@ -4622,12 +4622,12 @@ paths:
       description: |-
         - [Create Guild Sticker](https://discord.com/developers/docs/resources/sticker#create-guild-sticker)
 
-            Create a new sticker for the guild. Send a `multipart/form-data` body. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns the new [sticker](#DOCS_RESOURCES_STICKER/sticker-object) object on success. Fires a [Guild Stickers Update](#DOCS_TOPICS_GATEWAY/guild-stickers-update) Gateway event.
+            Create a new sticker for the guild. Send a `multipart/form-data` body. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns the new [sticker](https://discord.com/developers/docs/resources/sticker#sticker-object) object on success. Fires a [Guild Stickers Update](https://discord.com/developers/docs/topics/gateway#guild-stickers-update) Gateway event.
           Every guilds has five free sticker slots by default, and each Boost level will grant access to more slots.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
           > warn
-          > Lottie stickers can only be uploaded on guilds that have either the `VERIFIED` and/or the `PARTNERED` [guild feature](#DOCS_RESOURCES_GUILD/guild-object-guild-features).
+          > Lottie stickers can only be uploaded on guilds that have either the `VERIFIED` and/or the `PARTNERED` [guild feature](https://discord.com/developers/docs/resources/guild#guild-object-guild-features).
   "/guilds/{guildId}/stickers/{stickerId}":
     parameters:
       - name: guildId
@@ -4664,7 +4664,7 @@ paths:
       description: |-
         - [Get Guild Sticker](https://discord.com/developers/docs/resources/sticker#get-guild-sticker)
 
-            Returns a [sticker](#DOCS_RESOURCES_STICKER/sticker-object) object for the given guild and sticker IDs. Includes the `user` field if the bot has the `MANAGE_EMOJIS_AND_STICKERS` permission.
+            Returns a [sticker](https://discord.com/developers/docs/resources/sticker#sticker-object) object for the given guild and sticker IDs. Includes the `user` field if the bot has the `MANAGE_EMOJIS_AND_STICKERS` permission.
     patch:
       responses:
         "401":
@@ -4687,7 +4687,7 @@ paths:
       description: |-
         - [Modify Guild Sticker](https://discord.com/developers/docs/resources/sticker#modify-guild-sticker)
 
-            Modify the given sticker. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns the updated [sticker](#DOCS_RESOURCES_STICKER/sticker-object) object on success. Fires a [Guild Stickers Update](#DOCS_TOPICS_GATEWAY/guild-stickers-update) Gateway event.
+            Modify the given sticker. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns the updated [sticker](https://discord.com/developers/docs/resources/sticker#sticker-object) object on success. Fires a [Guild Stickers Update](https://discord.com/developers/docs/topics/gateway#guild-stickers-update) Gateway event.
           > info
           > All parameters to this endpoint are optional.
           > info
@@ -4714,7 +4714,7 @@ paths:
       description: |-
         - [Delete Guild Sticker](https://discord.com/developers/docs/resources/sticker#delete-guild-sticker)
 
-            Delete the given sticker. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns `204 No Content` on success. Fires a [Guild Stickers Update](#DOCS_TOPICS_GATEWAY/guild-stickers-update) Gateway event.
+            Delete the given sticker. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns `204 No Content` on success. Fires a [Guild Stickers Update](https://discord.com/developers/docs/topics/gateway#guild-stickers-update) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   /users/@me:
@@ -4741,7 +4741,7 @@ paths:
       description: |-
         - [Get Current User](https://discord.com/developers/docs/resources/user#get-current-user)
 
-            Returns the [user](#DOCS_RESOURCES_USER/user-object) object of the requester's account. For OAuth2, this requires the `identify` scope, which will return the object _without_ an email, and optionally the `email` scope, which returns the object _with_ an email.
+            Returns the [user](https://discord.com/developers/docs/resources/user#user-object) object of the requester's account. For OAuth2, this requires the `identify` scope, which will return the object _without_ an email, and optionally the `email` scope, which returns the object _with_ an email.
     patch:
       responses:
         "401":
@@ -4764,7 +4764,7 @@ paths:
       description: |-
         - [Modify Current User](https://discord.com/developers/docs/resources/user#modify-current-user)
 
-            Modify the requester's user account settings. Returns a [user](#DOCS_RESOURCES_USER/user-object) object on success. Fires a [User Update](#DOCS_TOPICS_GATEWAY/user-update) Gateway event.
+            Modify the requester's user account settings. Returns a [user](https://discord.com/developers/docs/resources/user#user-object) object on success. Fires a [User Update](https://discord.com/developers/docs/topics/gateway#user-update) Gateway event.
           > info
           > All parameters to this endpoint are optional.
   "/users/{userId}":
@@ -4797,7 +4797,7 @@ paths:
       description: |-
         - [Get User](https://discord.com/developers/docs/resources/user#get-user)
 
-            Returns a [user](#DOCS_RESOURCES_USER/user-object) object for a given user ID.
+            Returns a [user](https://discord.com/developers/docs/resources/user#user-object) object for a given user ID.
   /users/@me/guilds:
     parameters: []
     get:
@@ -4846,7 +4846,7 @@ paths:
       description: |-
         - [Get Current User Guilds](https://discord.com/developers/docs/resources/user#get-current-user-guilds)
 
-            Returns a list of partial [guild](#DOCS_RESOURCES_GUILD/guild-object) objects the current user is a member of. Requires the `guilds` OAuth2 scope.
+            Returns a list of partial [guild](https://discord.com/developers/docs/resources/guild#guild-object) objects the current user is a member of. Requires the `guilds` OAuth2 scope.
   "/users/@me/guilds/{guildId}/member":
     parameters:
       - name: guildId
@@ -4877,7 +4877,7 @@ paths:
       description: |-
         - [Get Current User Guild Member](https://discord.com/developers/docs/resources/user#get-current-user-guild-member)
 
-            Returns a [guild member](#DOCS_RESOURCES_GUILD/guild-member-object) object for the current user. Requires the `guilds.members.read` OAuth2 scope.
+            Returns a [guild member](https://discord.com/developers/docs/resources/guild#guild-member-object) object for the current user. Requires the `guilds.members.read` OAuth2 scope.
   "/users/@me/guilds/{guildId}":
     parameters:
       - name: guildId
@@ -4933,12 +4933,12 @@ paths:
       description: |-
         - [Create DM](https://discord.com/developers/docs/resources/user#create-dm)
 
-            Create a new DM channel with a user. Returns a [DM channel](#DOCS_RESOURCES_CHANNEL/channel-object) object.
+            Create a new DM channel with a user. Returns a [DM channel](https://discord.com/developers/docs/resources/channel#channel-object) object.
           > warn
           > You should not use this endpoint to DM everyone in a server about something. DMs should generally be initiated by a user action. If you open a significant amount of DMs too quickly, your bot may be rate limited or blocked from opening new ones.
         - [Create Group DM](https://discord.com/developers/docs/resources/user#create-group-dm)
 
-            Create a new group DM channel with multiple users. Returns a [DM channel](#DOCS_RESOURCES_CHANNEL/channel-object) object. This endpoint was intended to be used with the now-deprecated GameBridge SDK. DMs created with this endpoint will not be shown in the Discord client
+            Create a new group DM channel with multiple users. Returns a [DM channel](https://discord.com/developers/docs/resources/channel#channel-object) object. This endpoint was intended to be used with the now-deprecated GameBridge SDK. DMs created with this endpoint will not be shown in the Discord client
           > warn
           > This endpoint is limited to 10 active group DMs.
   /users/@me/connections:
@@ -4965,7 +4965,7 @@ paths:
       description: |-
         - [Get User Connections](https://discord.com/developers/docs/resources/user#get-user-connections)
 
-            Returns a list of [connection](#DOCS_RESOURCES_USER/connection-object) objects. Requires the `connections` OAuth2 scope.
+            Returns a list of [connection](https://discord.com/developers/docs/resources/user#connection-object) objects. Requires the `connections` OAuth2 scope.
   /voice/regions:
     parameters: []
     get:
@@ -4990,7 +4990,7 @@ paths:
       description: |-
         - [List Voice Regions](https://discord.com/developers/docs/resources/voice#list-voice-regions)
 
-            Returns an array of [voice region](#DOCS_RESOURCES_VOICE/voice-region-object) objects that can be used when setting a voice or stage channel's [`rtc_region`](#DOCS_RESOURCES_CHANNEL/channel-object-channel-structure).
+            Returns an array of [voice region](https://discord.com/developers/docs/resources/voice#voice-region-object) objects that can be used when setting a voice or stage channel's [`rtc_region`](https://discord.com/developers/docs/resources/channel#channel-object-channel-structure).
   "/channels/{channelId}/webhooks":
     parameters:
       - name: channelId
@@ -5021,10 +5021,10 @@ paths:
       description: |-
         - [Create Webhook](https://discord.com/developers/docs/resources/webhook#create-webhook)
 
-            Creates a new webhook and returns a [webhook](#DOCS_RESOURCES_WEBHOOK/webhook-object) object on success. Requires the `MANAGE_WEBHOOKS` permission. Fires a [Webhooks Update](#DOCS_TOPICS_GATEWAY/webhooks-update) Gateway event.
+            Creates a new webhook and returns a [webhook](https://discord.com/developers/docs/resources/webhook#webhook-object) object on success. Requires the `MANAGE_WEBHOOKS` permission. Fires a [Webhooks Update](https://discord.com/developers/docs/topics/gateway#webhooks-update) Gateway event.
           An error will be returned if a webhook name (`name`) is not valid. A webhook name is valid if:
           - It does not contain the substring '**clyde**' (case-insensitive)
-          - It follows the nickname guidelines in the [Usernames and Nicknames](#DOCS_RESOURCES_USER/usernames-and-nicknames) documentation, with an exception that webhook names can be up to 80 characters
+          - It follows the nickname guidelines in the [Usernames and Nicknames](https://discord.com/developers/docs/resources/user#usernames-and-nicknames) documentation, with an exception that webhook names can be up to 80 characters
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
     get:
@@ -5049,7 +5049,7 @@ paths:
       description: |-
         - [Get Channel Webhooks](https://discord.com/developers/docs/resources/webhook#get-channel-webhooks)
 
-            Returns a list of channel [webhook](#DOCS_RESOURCES_WEBHOOK/webhook-object) objects. Requires the `MANAGE_WEBHOOKS` permission.
+            Returns a list of channel [webhook](https://discord.com/developers/docs/resources/webhook#webhook-object) objects. Requires the `MANAGE_WEBHOOKS` permission.
   "/guilds/{guildId}/webhooks":
     parameters:
       - name: guildId
@@ -5080,7 +5080,7 @@ paths:
       description: |-
         - [Get Guild Webhooks](https://discord.com/developers/docs/resources/webhook#get-guild-webhooks)
 
-            Returns a list of guild [webhook](#DOCS_RESOURCES_WEBHOOK/webhook-object) objects. Requires the `MANAGE_WEBHOOKS` permission.
+            Returns a list of guild [webhook](https://discord.com/developers/docs/resources/webhook#webhook-object) objects. Requires the `MANAGE_WEBHOOKS` permission.
   "/webhooks/{webhookId}":
     parameters:
       - name: webhookId
@@ -5111,7 +5111,7 @@ paths:
       description: |-
         - [Get Webhook](https://discord.com/developers/docs/resources/webhook#get-webhook)
 
-            Returns the new [webhook](#DOCS_RESOURCES_WEBHOOK/webhook-object) object for the given id.
+            Returns the new [webhook](https://discord.com/developers/docs/resources/webhook#webhook-object) object for the given id.
     patch:
       responses:
         "401":
@@ -5134,7 +5134,7 @@ paths:
       description: |-
         - [Modify Webhook](https://discord.com/developers/docs/resources/webhook#modify-webhook)
 
-            Modify a webhook. Requires the `MANAGE_WEBHOOKS` permission. Returns the updated [webhook](#DOCS_RESOURCES_WEBHOOK/webhook-object) object on success. Fires a [Webhooks Update](#DOCS_TOPICS_GATEWAY/webhooks-update) Gateway event.
+            Modify a webhook. Requires the `MANAGE_WEBHOOKS` permission. Returns the updated [webhook](https://discord.com/developers/docs/resources/webhook#webhook-object) object on success. Fires a [Webhooks Update](https://discord.com/developers/docs/topics/gateway#webhooks-update) Gateway event.
           > info
           > All parameters to this endpoint are optional
           > info
@@ -5161,7 +5161,7 @@ paths:
       description: |-
         - [Delete Webhook](https://discord.com/developers/docs/resources/webhook#delete-webhook)
 
-            Delete a webhook permanently. Requires the `MANAGE_WEBHOOKS` permission. Returns a `204 No Content` response on success. Fires a [Webhooks Update](#DOCS_TOPICS_GATEWAY/webhooks-update) Gateway event.
+            Delete a webhook permanently. Requires the `MANAGE_WEBHOOKS` permission. Returns a `204 No Content` response on success. Fires a [Webhooks Update](https://discord.com/developers/docs/topics/gateway#webhooks-update) Gateway event.
           > info
           > This endpoint supports the `X-Audit-Log-Reason` header.
   "/webhooks/{webhookId}/{webhookToken}":
@@ -5280,7 +5280,7 @@ paths:
       description: |-
         - [Execute Webhook](https://discord.com/developers/docs/resources/webhook#execute-webhook)
 
-            Refer to [Uploading Files](#DOCS_REFERENCE/uploading-files) for details on attachments and `multipart/form-data` requests. Returns a message or `204 No Content` depending on the `wait` query parameter.
+            Refer to [Uploading Files](https://discord.com/developers/docs/reference#uploading-files) for details on attachments and `multipart/form-data` requests. Returns a message or `204 No Content` depending on the `wait` query parameter.
           > info
           > Note that when sending a message, you must provide a value for at **least one of** `content`, `embeds`, `components`, or `file`.
           > info
@@ -5330,7 +5330,7 @@ paths:
             type: boolean
           description: waits for server confirmation of message send before response (defaults to `true`; when `false` a message that is not saved does not return an error)
       description: |-
-        - [Execute Slack-Compatible Webhook](https://discord.com/developers/docs/resources/webhook#execute-slack-compatible-webhook)
+        - [Execute Slack-Compatible Webhook](https://discord.com/developers/docs/resources/webhook#execute-slackcompatible-webhook)
 
             Refer to [Slack's documentation](https://api.slack.com/incoming-webhooks) for more information. We do not support Slack's `channel`, `icon_emoji`, `mrkdwn`, or `mrkdwn_in` properties.
   "/webhooks/{webhookId}/{webhookToken}/github":
@@ -5378,7 +5378,7 @@ paths:
             type: boolean
           description: waits for server confirmation of message send before response (defaults to `true`; when `false` a message that is not saved does not return an error)
       description: |-
-        - [Execute GitHub-Compatible Webhook](https://discord.com/developers/docs/resources/webhook#execute-github-compatible-webhook)
+        - [Execute GitHub-Compatible Webhook](https://discord.com/developers/docs/resources/webhook#execute-githubcompatible-webhook)
 
             Add a new webhook to your GitHub repo (in the repo's settings), and use this endpoint as the "Payload URL." You can choose what events your Discord channel receives by choosing the "Let me select individual events" option and selecting individual events for the new webhook you're configuring.
   "/webhooks/{webhookId}/{webhookToken}/messages/{messageId}":
@@ -5429,7 +5429,7 @@ paths:
       description: |-
         - [Get Webhook Message](https://discord.com/developers/docs/resources/webhook#get-webhook-message)
 
-            Returns a previously-sent webhook message from the same token. Returns a [message](#DOCS_RESOURCES_CHANNEL/message-object) object on success.
+            Returns a previously-sent webhook message from the same token. Returns a [message](https://discord.com/developers/docs/resources/channel#message-object) object on success.
     patch:
       responses:
         "401":
@@ -5457,9 +5457,9 @@ paths:
       description: |-
         - [Edit Webhook Message](https://discord.com/developers/docs/resources/webhook#edit-webhook-message)
 
-            Edits a previously-sent webhook message from the same token. Returns a [message](#DOCS_RESOURCES_CHANNEL/message-object) object on success.
+            Edits a previously-sent webhook message from the same token. Returns a [message](https://discord.com/developers/docs/resources/channel#message-object) object on success.
           When the `content` field is edited, the `mentions` array in the message object will be reconstructed from scratch based on the new content. The `allowed_mentions` field of the edit request controls how this happens. If there is no explicit `allowed_mentions` in the edit request, the content will be parsed with _default_ allowances, that is, without regard to whether or not an `allowed_mentions` was present in the request that originally created the message.
-          Refer to [Uploading Files](#DOCS_REFERENCE/uploading-files) for details on attachments and `multipart/form-data` requests.
+          Refer to [Uploading Files](https://discord.com/developers/docs/reference#uploading-files) for details on attachments and `multipart/form-data` requests.
           Any provided files will be **appended** to the message. To remove or replace files you will have to supply the `attachments` field which specifies the files to retain on the message after edit.
           > warn
           > Starting with API v10, the `attachments` array must contain all attachments that should be present after edit, including **retained and new** attachments provided in the request body.
@@ -6605,99 +6605,6 @@ components:
         - ja
         - zh-TW
         - ko
-      x-enumNames:
-        - Danish
-        - German
-        - English, UK
-        - English, US
-        - Spanish
-        - French
-        - Croatian
-        - Italian
-        - Lithuanian
-        - Hungarian
-        - Dutch
-        - Norwegian
-        - Polish
-        - Portuguese, Brazilian
-        - Romanian, Romania
-        - Finnish
-        - Swedish
-        - Vietnamese
-        - Turkish
-        - Czech
-        - Greek
-        - Bulgarian
-        - Russian
-        - Ukrainian
-        - Hindi
-        - Thai
-        - Chinese, China
-        - Japanese
-        - Chinese, Taiwan
-        - Korean
-      x-enum-varnames:
-        - Danish
-        - German
-        - English, UK
-        - English, US
-        - Spanish
-        - French
-        - Croatian
-        - Italian
-        - Lithuanian
-        - Hungarian
-        - Dutch
-        - Norwegian
-        - Polish
-        - Portuguese, Brazilian
-        - Romanian, Romania
-        - Finnish
-        - Swedish
-        - Vietnamese
-        - Turkish
-        - Czech
-        - Greek
-        - Bulgarian
-        - Russian
-        - Ukrainian
-        - Hindi
-        - Thai
-        - Chinese, China
-        - Japanese
-        - Chinese, Taiwan
-        - Korean
-      x-ms-enum:
-        - Danish
-        - German
-        - English, UK
-        - English, US
-        - Spanish
-        - French
-        - Croatian
-        - Italian
-        - Lithuanian
-        - Hungarian
-        - Dutch
-        - Norwegian
-        - Polish
-        - Portuguese, Brazilian
-        - Romanian, Romania
-        - Finnish
-        - Swedish
-        - Vietnamese
-        - Turkish
-        - Czech
-        - Greek
-        - Bulgarian
-        - Russian
-        - Ukrainian
-        - Hindi
-        - Thai
-        - Chinese, China
-        - Japanese
-        - Chinese, Taiwan
-        - Korean
       description: |-
         - Danish (`"da"`) - Dansk
         - German (`"de"`) - Deutsch
@@ -6802,7 +6709,7 @@ components:
         - HYPESQUAD_ONLINE_HOUSE_2 (`128`) - House Brilliance Member
         - HYPESQUAD_ONLINE_HOUSE_3 (`256`) - House Balance Member
         - PREMIUM_EARLY_SUPPORTER (`512`) - Early Nitro Supporter
-        - TEAM_PSEUDO_USER (`1024`) - User is a [team](#DOCS_TOPICS_TEAMS/)
+        - TEAM_PSEUDO_USER (`1024`) - User is a [team](https://discord.com/developers/docs/topics/teams)
         - BUG_HUNTER_LEVEL_2 (`16384`) - Bug Hunter Level 2
         - VERIFIED_BOT (`65536`) - Verified Bot
         - VERIFIED_DEVELOPER (`131072`) - Early Verified Bot Developer
@@ -7133,97 +7040,13 @@ components:
         - rpc.voice.write
         - voice
         - webhook.incoming
-      x-enumNames:
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-      x-enum-varnames:
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-      x-ms-enum:
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
       description: |-
         - "activities.read" - allows your app to fetch data from a user's "Now Playing/Recently Played" list - requires Discord approval
-        - "activities.write" - allows your app to update a user's activity - requires Discord approval (NOT REQUIRED FOR [GAMESDK ACTIVITY MANAGER](#DOCS_GAME_SDK_ACTIVITIES/))
+        - "activities.write" - allows your app to update a user's activity - requires Discord approval (NOT REQUIRED FOR [GAMESDK ACTIVITY MANAGER](https://discord.com/developers/docs/game-sdk/activities))
         - "applications.builds.read" - allows your app to read build data for a user's applications
         - "applications.builds.upload" - allows your app to upload/update builds for a user's applications - requires Discord approval
-        - "applications.commands" - allows your app to use [commands](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/) in a guild
-        - "applications.commands.update" - allows your app to update its [commands](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/) using a Bearer token - [client credentials grant](#DOCS_TOPICS_OAUTH2/client-credentials-grant) only
+        - "applications.commands" - allows your app to use [commands](https://discord.com/developers/docs/interactions/application-commands) in a guild
+        - "applications.commands.update" - allows your app to update its [commands](https://discord.com/developers/docs/interactions/application-commands) using a Bearer token - [client credentials grant](https://discord.com/developers/docs/topics/oauth2#client-credentials-grant) only
         - "applications.commands.permissions.update" - allows your app to update [permissions for its commands](https://discord.com/developers/docs/interactions/application-commands#permissions) in a guild a user has permissions to
         - "applications.entitlements" - allows your app to read entitlements for a user's applications
         - "applications.store.update" - allows your app to read and update store data (SKUs, store listings, achievements, etc.) for a user's applications
@@ -7469,7 +7292,7 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/OAuth2Scopes"
-          description: the [scopes](#DOCS_TOPICS_OAUTH2/shared-resources-oauth2-scopes) to add the application to the server with
+          description: the [scopes](https://discord.com/developers/docs/topics/oauth2#shared-resources-oauth2-scopes) to add the application to the server with
         permissions:
           type: string
           format: uint64
@@ -8419,75 +8242,6 @@ components:
         - VERIFIED
         - VIP_REGIONS
         - WELCOME_SCREEN_ENABLED
-      x-enumNames:
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-      x-enum-varnames:
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-      x-ms-enum:
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
       description: |-
         - "ANIMATED_BANNER" - guild has access to set an animated guild banner image
         - "ANIMATED_ICON" - guild has access to set an animated guild icon
@@ -9755,27 +9509,6 @@ components:
         - gifv
         - article
         - link
-      x-enumNames:
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-      x-enum-varnames:
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-      x-ms-enum:
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
       description: |-
         - "rich" - generic embed rendered from embed attributes
         - "image" - image embed
@@ -10432,7 +10165,7 @@ components:
         application_id:
           allOf:
             - $ref: "#/components/schemas/Snowflake"
-          description: if the message is an [Interaction](#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/) or application-owned webhook, this is the id of the application
+          description: if the message is an [Interaction](https://discord.com/developers/docs/interactions/receiving-and-responding) or application-owned webhook, this is the id of the application
         message_reference:
           allOf:
             - $ref: "#/components/schemas/MessageReference"
@@ -10448,7 +10181,7 @@ components:
         interaction:
           allOf:
             - $ref: "#/components/schemas/MessageInteraction"
-          description: sent if the message is a response to an [Interaction](#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/)
+          description: sent if the message is a response to an [Interaction](https://discord.com/developers/docs/interactions/receiving-and-responding)
         thread:
           allOf:
             - $ref: "#/components/schemas/Channel"
@@ -12424,7 +12157,7 @@ components:
           description: the channel that this webhook is following (returned for Channel Follower Webhooks)
         url:
           type: string
-          description: the url used for executing the webhook (returned by the [webhooks](#DOCS_TOPICS_OAUTH2/webhooks) OAuth2 flow)
+          description: the url used for executing the webhook (returned by the [webhooks](https://discord.com/developers/docs/topics/oauth2#webhooks) OAuth2 flow)
       required:
         - id
         - type

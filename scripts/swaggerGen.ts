@@ -92,5 +92,5 @@ const swagger: OpenAPIV3.Document = {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const json = JSON.stringify(swagger);
 const yaml = YAML.stringify(swagger, { lineWidth: 0, aliasDuplicateObjects: false });
-await fs.writeFile(path.join(__dirname, '../swagger.json'), json);
-await fs.writeFile(path.join(__dirname, '../swagger.yaml'), yaml);
+await fs.writeFile(path.join(__dirname, '../swagger.json'), documentation.resolveMarkdownLinks(json));
+await fs.writeFile(path.join(__dirname, '../swagger.yaml'), documentation.resolveMarkdownLinks(yaml));

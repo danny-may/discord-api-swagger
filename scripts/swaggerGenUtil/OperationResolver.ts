@@ -80,7 +80,7 @@ export class OperationResolver {
             this.#requestResolver.apply(region, operation, method);
             this.#responseResolver.apply(region, operation); // TODO: Should merge not replace
             operation.description ??= '';
-            operation.description += `\n- [${name}](${this.#documentationResolver.getDocumentationUri(`${file.id}/${name}`)})`;
+            operation.description += `\n- [${name}](#${region.id})`;
             operation.description += `\n\n  ${region.content.split('\n').map(line => `  ${line}`).join('\n')}`;
             operation.description = operation.description.trim();
         }

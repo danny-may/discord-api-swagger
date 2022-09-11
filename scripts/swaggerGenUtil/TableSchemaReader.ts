@@ -177,12 +177,16 @@ const nameValueDescEnumScheme: ITableReaderScheme = {
                 ? ['number', x => x.asNumber]
                 : ['integer', x => x.asNumber]
 
+        const extensions = type === 'string' ? {} : {
+            'x-enumNames': values.map(v => v.name),     // nswag
+            'x-enum-varnames': values.map(v => v.name), // openapi
+            'x-ms-enum': values.map(v => v.name),       // AutoRest
+        }
+
         return {
             type,
             enum: values.map(selector),
-            ['x-enumNames']: values.map(v => v.name),     // nswag
-            ['x-enum-varnames']: values.map(v => v.name), // openapi
-            ['x-ms-enum']: values.map(v => v.name),       // AutoRest
+            ...extensions,
             description: values.map(v => v.display(selector(v))).filter(v => v !== undefined).join('\n')
         }
     }
@@ -255,9 +259,9 @@ const nameValueDescFlagScheme: ITableReaderScheme = {
             type,
             format: type === 'string' ? 'uint64' : undefined,
             enum: values.map(selector),
-            ['x-enumNames']: values.map(v => v.name),     // nswag
-            ['x-enum-varnames']: values.map(v => v.name), // openapi
-            ['x-ms-enum']: values.map(v => v.name),       // AutoRest
+            'x-enumNames': values.map(v => v.name),     // nswag
+            'x-enum-varnames': values.map(v => v.name), // openapi
+            'x-ms-enum': values.map(v => v.name),       // AutoRest
             description: values.map(v => v.display(selector(v))).filter(v => v !== undefined).join('\n')
         }
     },
