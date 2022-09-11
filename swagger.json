@@ -286,516 +286,6 @@
         "description": "- [Get User Achievements](https://discord.com/developers/docs/game-sdk/achievements#get-user-achievements)\n\n    Returns a list of achievements for the user whose token you're making the request with. This endpoint will **NOT** accept the Bearer token for your application generated via the [Client Credentials Grant](#DOCS_TOPICS_OAUTH2/client-credentials-grant). You will need the _user's_ bearer token, gotten via either the [Authorization Code OAuth2 Grant](#DOCS_TOPICS_OAUTH2/authorization-code-grant) or via the SDK with [GetOAuth2Token](#DOCS_GAME_SDK_APPLICATIONS/getoauth2token). This endpoint has a rate limit of 2 requests per 5 seconds per application per user.\n  > info\n  > This endpoint will _not_ return any achievements marked as `secret` that the user has not yet completed."
       }
     },
-    "/lobbies": {
-      "parameters": [],
-      "post": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Lobbies"
-        ],
-        "summary": "Create Lobby",
-        "operationId": "createLobby",
-        "description": "- [Create Lobby](https://discord.com/developers/docs/game-sdk/lobbies#create-lobby)\n\n    Creates a new lobby. Returns an object similar to the SDK `Lobby` struct, documented below.\n  To get a list of valid regions, call the [List Voice Regions](https://discord.com/developers/docs/resources/voice#list-voice-regions) endpoint."
-      }
-    },
-    "/lobbies/{lobbyId}": {
-      "parameters": [
-        {
-          "name": "lobbyId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[lobby.id](https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobby-struct)"
-        }
-      ],
-      "patch": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Lobbies"
-        ],
-        "summary": "Update Lobby",
-        "operationId": "updateLobby",
-        "description": "- [Update Lobby](https://discord.com/developers/docs/game-sdk/lobbies#update-lobby)\n\n    Updates a lobby."
-      },
-      "delete": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Lobbies"
-        ],
-        "summary": "Delete Lobby",
-        "operationId": "deleteLobby",
-        "description": "- [Delete Lobby](https://discord.com/developers/docs/game-sdk/lobbies#delete-lobby)\n\n    Deletes a lobby."
-      }
-    },
-    "/lobbies/{lobbyId}/members/{userId}": {
-      "parameters": [
-        {
-          "name": "lobbyId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[lobby.id](https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobby-struct)"
-        },
-        {
-          "name": "userId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[user.id](https://discord.com/developers/docs/resources/user#user-object)"
-        }
-      ],
-      "patch": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Lobbies"
-        ],
-        "summary": "Update Lobby Member",
-        "operationId": "updateLobbyMember",
-        "description": "- [Update Lobby Member](https://discord.com/developers/docs/game-sdk/lobbies#update-lobby-member)\n\n    Updates the metadata for a lobby member."
-      }
-    },
-    "/lobbies/search": {
-      "parameters": [],
-      "post": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Lobbies"
-        ],
-        "summary": "Create Lobby Search",
-        "operationId": "createLobbySearch",
-        "description": "- [Create Lobby Search](https://discord.com/developers/docs/game-sdk/lobbies#create-lobby-search)\n\n    Creates a lobby search for matchmaking around given criteria."
-      }
-    },
-    "/lobbies/{lobbyId}/send": {
-      "parameters": [
-        {
-          "name": "lobbyId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[lobby.id](https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobby-struct)"
-        }
-      ],
-      "post": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Lobbies"
-        ],
-        "summary": "Send Lobby Data",
-        "operationId": "sendLobbyData",
-        "description": "- [Send Lobby Data](https://discord.com/developers/docs/game-sdk/lobbies#send-lobby-data)\n\n    Sends a message to the lobby, fanning it out to other lobby members.\n  This endpoints accepts a UTF8 string. If your message is already a string, you're good to go! If you want to send binary, you can send it to this endpoint as a base64 encoded data uri."
-      }
-    },
-    "/applications/{applicationId}/entitlements": {
-      "parameters": [
-        {
-          "name": "applicationId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
-        }
-      ],
-      "get": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Store"
-        ],
-        "summary": "Get Entitlements",
-        "operationId": "getEntitlements",
-        "description": "- [Get Entitlements](https://discord.com/developers/docs/game-sdk/store#get-entitlements)\n\n    Gets entitlements for a given user. You can use this on your game backend to check entitlements of an arbitrary user, or perhaps in an administrative panel for your support team."
-      }
-    },
-    "/applications/{applicationId}/entitlements/{entitlementId}": {
-      "parameters": [
-        {
-          "name": "applicationId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
-        },
-        {
-          "name": "entitlementId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[entitlement.id](https://discord.com/developers/docs/game-sdk/store#data-models-entitlement-struct)"
-        }
-      ],
-      "get": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Store"
-        ],
-        "summary": "Get Entitlement",
-        "operationId": "getEntitlement",
-        "description": "- [Get Entitlement](https://discord.com/developers/docs/game-sdk/store#get-entitlement)\n\n    Fetch an entitlement by its ID. This may be useful in confirming that a user has a given entitlement that another call or the SDK says they do."
-      },
-      "delete": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Store"
-        ],
-        "summary": "Delete Test Entitlement",
-        "operationId": "deleteTestEntitlement",
-        "description": "- [Delete Test Entitlement](https://discord.com/developers/docs/game-sdk/store#delete-test-entitlement)\n\n    Deletes a test entitlement for an application. You can only delete entitlements that were \"purchased\" in developer test mode; these are entitlements of `type == TestModePurchase`. You cannot use this route to delete arbitrary entitlements that users actually purchased."
-      }
-    },
-    "/applications/{applicationId}/skus": {
-      "parameters": [
-        {
-          "name": "applicationId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
-        }
-      ],
-      "get": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Store"
-        ],
-        "summary": "Get SKUs",
-        "operationId": "getSKUs",
-        "description": "- [Get SKUs](https://discord.com/developers/docs/game-sdk/store#get-skus)\n\n    Get all SKUs for an application."
-      }
-    },
-    "/applications/{applicationId}/entitlements/{entitlementId}/consume": {
-      "parameters": [
-        {
-          "name": "applicationId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
-        },
-        {
-          "name": "entitlementId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[entitlement.id](https://discord.com/developers/docs/game-sdk/store#data-models-entitlement-struct)"
-        }
-      ],
-      "post": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Store"
-        ],
-        "summary": "Consume SKU",
-        "operationId": "consumeSKU",
-        "description": "- [Consume SKU](https://discord.com/developers/docs/game-sdk/store#consume-sku)\n\n    Marks a given entitlement for the user as consumed, meaning it will no longer be returned in an entitlements check. **Ensure the user was granted whatever items the entitlement was for before consuming it!**"
-      }
-    },
-    "/store/skus/{skuId}/discounts/{userId}": {
-      "parameters": [
-        {
-          "name": "skuId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[sku.id](https://discord.com/developers/docs/game-sdk/store#data-models-sku-struct)"
-        },
-        {
-          "name": "userId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[user.id](https://discord.com/developers/docs/resources/user#user-object)"
-        }
-      ],
-      "put": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Store"
-        ],
-        "summary": "Create Purchase Discount",
-        "operationId": "createPurchaseDiscount",
-        "description": "- [Create Purchase Discount](https://discord.com/developers/docs/game-sdk/store#create-purchase-discount)\n\n    Creates a discount for the given user on their next purchase of the given SKU. You should call this endpoint from your backend server just before calling [StartPurchase](#DOCS_GAME_SDK_STORE/startpurchase) for the SKU you wish to discount. The user will then see a discounted price for that SKU at time of payment. The discount is automatically consumed after successful purchase or if the TTL expires."
-      },
-      "delete": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Store"
-        ],
-        "summary": "Delete Purchase Discount",
-        "operationId": "deletePurchaseDiscount",
-        "description": "- [Delete Purchase Discount](https://discord.com/developers/docs/game-sdk/store#delete-purchase-discount)\n\n    Deletes the currently active discount on the given SKU for the given user. You **do not need** to call this after a user has made a discounted purchase; successful discounted purchases will automatically remove the discount for that user for subsequent purchases."
-      }
-    },
     "/applications/{applicationId}/commands": {
       "parameters": [
         {
@@ -1383,331 +873,6 @@
         "summary": "Edit Application Command Permissions",
         "operationId": "editApplicationCommandPermissions",
         "description": "- [Edit Application Command Permissions](https://discord.com/developers/docs/interactions/application-commands#edit-application-command-permissions)\n\n    > warn\n  > This endpoint will overwrite existing permissions for the command in that guild\n  Edits command permissions for a specific command for your application in a guild and returns a [guild application command permissions](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-permissions-object-guild-application-command-permissions-structure) object. Fires an [Application Command Permissions Update](#DOCS_TOPICS_GATEWAY/application-command-permissions-update) Gateway event.\n  You can add up to 100 permission overwrites for a command.\n  > info\n  > This endpoint requires authentication with a Bearer token that has permission to manage the guild and its roles. For more information, read above about [application command permissions](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/permissions).\n  > warn\n  > Deleting or renaming a command will permanently delete all permissions for the command"
-      }
-    },
-    "/interactions/{interactionId}/{interactionToken}/callback": {
-      "parameters": [
-        {
-          "name": "interactionId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[interaction.id](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)"
-        },
-        {
-          "name": "interactionToken",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "description": "Continuation token for responding to the interaction"
-          },
-          "description": "[interaction.token](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)"
-        }
-      ],
-      "post": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Receiving and Responding"
-        ],
-        "summary": "Create Interaction Response",
-        "operationId": "createInteractionResponse",
-        "description": "- [Create Interaction Response](https://discord.com/developers/docs/interactions/receiving-and-responding#create-interaction-response)\n\n    Create a response to an Interaction from the gateway. Body is an [interaction response](#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-response-object). Returns `204 No Content`.\n  This endpoint also supports file attachments similar to the webhook endpoints. Refer to [Uploading Files](#DOCS_REFERENCE/uploading-files) for details on uploading files and `multipart/form-data` requests."
-      }
-    },
-    "/webhooks/{applicationId}/{interactionToken}/messages/@original": {
-      "parameters": [
-        {
-          "name": "applicationId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[application.id](https://discord.com/developers/docs/resources/application#application-object)"
-        },
-        {
-          "name": "interactionToken",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "description": "Continuation token for responding to the interaction"
-          },
-          "description": "[interaction.token](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)"
-        }
-      ],
-      "get": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Receiving and Responding"
-        ],
-        "summary": "Get Original Interaction Response",
-        "operationId": "getOriginalInteractionResponse",
-        "description": "- [Get Original Interaction Response](https://discord.com/developers/docs/interactions/receiving-and-responding#get-original-interaction-response)\n\n    Returns the initial Interaction response. Functions the same as [Get Webhook Message](#DOCS_RESOURCES_WEBHOOK/get-webhook-message)."
-      },
-      "patch": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Receiving and Responding"
-        ],
-        "summary": "Edit Original Interaction Response",
-        "operationId": "editOriginalInteractionResponse",
-        "description": "- [Edit Original Interaction Response](https://discord.com/developers/docs/interactions/receiving-and-responding#edit-original-interaction-response)\n\n    Edits the initial Interaction response. Functions the same as [Edit Webhook Message](#DOCS_RESOURCES_WEBHOOK/edit-webhook-message)."
-      },
-      "delete": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Receiving and Responding"
-        ],
-        "summary": "Delete Original Interaction Response",
-        "operationId": "deleteOriginalInteractionResponse",
-        "description": "- [Delete Original Interaction Response](https://discord.com/developers/docs/interactions/receiving-and-responding#delete-original-interaction-response)\n\n    Deletes the initial Interaction response. Returns `204 No Content` on success. Does not support ephemeral followups."
-      }
-    },
-    "/webhooks/{applicationId}/{interactionToken}": {
-      "parameters": [
-        {
-          "name": "applicationId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[application.id](https://discord.com/developers/docs/resources/application#application-object)"
-        },
-        {
-          "name": "interactionToken",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "description": "Continuation token for responding to the interaction"
-          },
-          "description": "[interaction.token](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)"
-        }
-      ],
-      "post": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Receiving and Responding"
-        ],
-        "summary": "Create Followup Message",
-        "operationId": "createFollowupMessage",
-        "description": "- [Create Followup Message](https://discord.com/developers/docs/interactions/receiving-and-responding#create-followup-message)\n\n    Create a followup message for an Interaction. Functions the same as [Execute Webhook](#DOCS_RESOURCES_WEBHOOK/execute-webhook), but `wait` is always true. The `thread_id`, `avatar_url`, and `username` parameters are not supported when using this endpoint for interaction followups.\n  `flags` can be set to `64` to mark the message as ephemeral, except when it is the first followup message to a deferred Interactions Response. In that case, the `flags` field will be ignored, and the ephemerality of the message will be determined by the `flags` value in your original ACK."
-      }
-    },
-    "/webhooks/{applicationId}/{interactionToken}/messages/{messageId}": {
-      "parameters": [
-        {
-          "name": "applicationId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[application.id](https://discord.com/developers/docs/resources/application#application-object)"
-        },
-        {
-          "name": "interactionToken",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "description": "Continuation token for responding to the interaction"
-          },
-          "description": "[interaction.token](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)"
-        },
-        {
-          "name": "messageId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Snowflake"
-          },
-          "description": "[message.id](https://discord.com/developers/docs/resources/channel#message-object)"
-        }
-      ],
-      "get": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Receiving and Responding"
-        ],
-        "summary": "Get Followup Message",
-        "operationId": "getFollowupMessage",
-        "description": "- [Get Followup Message](https://discord.com/developers/docs/interactions/receiving-and-responding#get-followup-message)\n\n    Returns a followup message for an Interaction. Functions the same as [Get Webhook Message](#DOCS_RESOURCES_WEBHOOK/get-webhook-message)."
-      },
-      "patch": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Receiving and Responding"
-        ],
-        "summary": "Edit Followup Message",
-        "operationId": "editFollowupMessage",
-        "description": "- [Edit Followup Message](https://discord.com/developers/docs/interactions/receiving-and-responding#edit-followup-message)\n\n    Edits a followup message for an Interaction. Functions the same as [Edit Webhook Message](#DOCS_RESOURCES_WEBHOOK/edit-webhook-message)."
-      },
-      "delete": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Receiving and Responding"
-        ],
-        "summary": "Delete Followup Message",
-        "operationId": "deleteFollowupMessage",
-        "description": "- [Delete Followup Message](https://discord.com/developers/docs/interactions/receiving-and-responding#delete-followup-message)\n\n    Deletes a followup message for an Interaction. Returns `204 No Content` on success. Does not support ephemeral followups."
       }
     },
     "/guilds/{guildId}/audit-logs": {
@@ -3610,6 +2775,68 @@
         "summary": "Delete Guild Emoji",
         "operationId": "deleteGuildEmoji",
         "description": "- [Delete Guild Emoji](https://discord.com/developers/docs/resources/emoji#delete-guild-emoji)\n\n    Delete the given emoji. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns `204 No Content` on success. Fires a [Guild Emojis Update](#DOCS_TOPICS_GATEWAY/guild-emojis-update) Gateway event.\n  > info\n  > This endpoint supports the `X-Audit-Log-Reason` header."
+      }
+    },
+    "/gateway": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Gateway"
+        ],
+        "summary": "Get Gateway",
+        "operationId": "getGateway",
+        "description": "- [Get Gateway](https://discord.com/developers/docs/topics/gateway#get-gateway)\n\n    > info\n  > This endpoint does not require authentication.\n  Returns an object with a single valid WSS URL, which the client can use for [Connecting](#DOCS_TOPICS_GATEWAY/connecting). Clients **should** cache this value and only call this endpoint to retrieve a new URL if they are unable to properly establish a connection using the cached version of the URL."
+      }
+    },
+    "/gateway/bot": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Gateway"
+        ],
+        "summary": "Get Gateway Bot",
+        "operationId": "getGatewayBot",
+        "description": "- [Get Gateway Bot](https://discord.com/developers/docs/topics/gateway#get-gateway-bot)\n\n    > warn\n  > This endpoint requires authentication using a valid bot token.\n  Returns an object based on the information in [Get Gateway](#DOCS_TOPICS_GATEWAY/get-gateway), plus additional metadata that can help during the operation of large or [sharded](#DOCS_TOPICS_GATEWAY/sharding) bots. Unlike the [Get Gateway](#DOCS_TOPICS_GATEWAY/get-gateway), this route should not be cached for extended periods of time as the value is not guaranteed to be the same per-call, and changes as the bot joins/leaves guilds."
       }
     },
     "/guilds": {
@@ -5802,6 +5029,615 @@
         "description": "- [Delete Invite](https://discord.com/developers/docs/resources/invite#delete-invite)\n\n    Delete an invite. Requires the `MANAGE_CHANNELS` permission on the channel this invite belongs to, or `MANAGE_GUILD` to remove any invite across the guild. Returns an [invite](#DOCS_RESOURCES_INVITE/invite-object) object on success. Fires an [Invite Delete](#DOCS_TOPICS_GATEWAY/invite-delete) Gateway event.\n  > info\n  > This endpoint supports the `X-Audit-Log-Reason` header."
       }
     },
+    "/lobbies": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Lobbies"
+        ],
+        "summary": "Create Lobby",
+        "operationId": "createLobby",
+        "description": "- [Create Lobby](https://discord.com/developers/docs/game-sdk/lobbies#create-lobby)\n\n    Creates a new lobby. Returns an object similar to the SDK `Lobby` struct, documented below.\n  To get a list of valid regions, call the [List Voice Regions](https://discord.com/developers/docs/resources/voice#list-voice-regions) endpoint."
+      }
+    },
+    "/lobbies/{lobbyId}": {
+      "parameters": [
+        {
+          "name": "lobbyId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[lobby.id](https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobby-struct)"
+        }
+      ],
+      "patch": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Lobbies"
+        ],
+        "summary": "Update Lobby",
+        "operationId": "updateLobby",
+        "description": "- [Update Lobby](https://discord.com/developers/docs/game-sdk/lobbies#update-lobby)\n\n    Updates a lobby."
+      },
+      "delete": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Lobbies"
+        ],
+        "summary": "Delete Lobby",
+        "operationId": "deleteLobby",
+        "description": "- [Delete Lobby](https://discord.com/developers/docs/game-sdk/lobbies#delete-lobby)\n\n    Deletes a lobby."
+      }
+    },
+    "/lobbies/{lobbyId}/members/{userId}": {
+      "parameters": [
+        {
+          "name": "lobbyId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[lobby.id](https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobby-struct)"
+        },
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[user.id](https://discord.com/developers/docs/resources/user#user-object)"
+        }
+      ],
+      "patch": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Lobbies"
+        ],
+        "summary": "Update Lobby Member",
+        "operationId": "updateLobbyMember",
+        "description": "- [Update Lobby Member](https://discord.com/developers/docs/game-sdk/lobbies#update-lobby-member)\n\n    Updates the metadata for a lobby member."
+      }
+    },
+    "/lobbies/search": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Lobbies"
+        ],
+        "summary": "Create Lobby Search",
+        "operationId": "createLobbySearch",
+        "description": "- [Create Lobby Search](https://discord.com/developers/docs/game-sdk/lobbies#create-lobby-search)\n\n    Creates a lobby search for matchmaking around given criteria."
+      }
+    },
+    "/lobbies/{lobbyId}/send": {
+      "parameters": [
+        {
+          "name": "lobbyId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[lobby.id](https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobby-struct)"
+        }
+      ],
+      "post": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Lobbies"
+        ],
+        "summary": "Send Lobby Data",
+        "operationId": "sendLobbyData",
+        "description": "- [Send Lobby Data](https://discord.com/developers/docs/game-sdk/lobbies#send-lobby-data)\n\n    Sends a message to the lobby, fanning it out to other lobby members.\n  This endpoints accepts a UTF8 string. If your message is already a string, you're good to go! If you want to send binary, you can send it to this endpoint as a base64 encoded data uri."
+      }
+    },
+    "/oauth2/applications/@me": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "OAuth2"
+        ],
+        "summary": "Get Current Bot Application Information",
+        "operationId": "getCurrentBotApplicationInformation",
+        "description": "- [Get Current Bot Application Information](https://discord.com/developers/docs/topics/oauth2#get-current-bot-application-information)\n\n    Returns the bot's [application](#DOCS_RESOURCES_APPLICATION/application-object) object."
+      }
+    },
+    "/oauth2/@me": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "OAuth2"
+        ],
+        "summary": "Get Current Authorization Information",
+        "operationId": "getCurrentAuthorizationInformation",
+        "description": "- [Get Current Authorization Information](https://discord.com/developers/docs/topics/oauth2#get-current-authorization-information)\n\n    Returns info about the current authorization. Requires authentication with a bearer token."
+      }
+    },
+    "/interactions/{interactionId}/{interactionToken}/callback": {
+      "parameters": [
+        {
+          "name": "interactionId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[interaction.id](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)"
+        },
+        {
+          "name": "interactionToken",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "description": "Continuation token for responding to the interaction"
+          },
+          "description": "[interaction.token](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)"
+        }
+      ],
+      "post": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Receiving and Responding"
+        ],
+        "summary": "Create Interaction Response",
+        "operationId": "createInteractionResponse",
+        "description": "- [Create Interaction Response](https://discord.com/developers/docs/interactions/receiving-and-responding#create-interaction-response)\n\n    Create a response to an Interaction from the gateway. Body is an [interaction response](#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-response-object). Returns `204 No Content`.\n  This endpoint also supports file attachments similar to the webhook endpoints. Refer to [Uploading Files](#DOCS_REFERENCE/uploading-files) for details on uploading files and `multipart/form-data` requests."
+      }
+    },
+    "/webhooks/{applicationId}/{interactionToken}/messages/@original": {
+      "parameters": [
+        {
+          "name": "applicationId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[application.id](https://discord.com/developers/docs/resources/application#application-object)"
+        },
+        {
+          "name": "interactionToken",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "description": "Continuation token for responding to the interaction"
+          },
+          "description": "[interaction.token](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)"
+        }
+      ],
+      "get": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Receiving and Responding"
+        ],
+        "summary": "Get Original Interaction Response",
+        "operationId": "getOriginalInteractionResponse",
+        "description": "- [Get Original Interaction Response](https://discord.com/developers/docs/interactions/receiving-and-responding#get-original-interaction-response)\n\n    Returns the initial Interaction response. Functions the same as [Get Webhook Message](#DOCS_RESOURCES_WEBHOOK/get-webhook-message)."
+      },
+      "patch": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Receiving and Responding"
+        ],
+        "summary": "Edit Original Interaction Response",
+        "operationId": "editOriginalInteractionResponse",
+        "description": "- [Edit Original Interaction Response](https://discord.com/developers/docs/interactions/receiving-and-responding#edit-original-interaction-response)\n\n    Edits the initial Interaction response. Functions the same as [Edit Webhook Message](#DOCS_RESOURCES_WEBHOOK/edit-webhook-message)."
+      },
+      "delete": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Receiving and Responding"
+        ],
+        "summary": "Delete Original Interaction Response",
+        "operationId": "deleteOriginalInteractionResponse",
+        "description": "- [Delete Original Interaction Response](https://discord.com/developers/docs/interactions/receiving-and-responding#delete-original-interaction-response)\n\n    Deletes the initial Interaction response. Returns `204 No Content` on success. Does not support ephemeral followups."
+      }
+    },
+    "/webhooks/{applicationId}/{interactionToken}": {
+      "parameters": [
+        {
+          "name": "applicationId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[application.id](https://discord.com/developers/docs/resources/application#application-object)"
+        },
+        {
+          "name": "interactionToken",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "description": "Continuation token for responding to the interaction"
+          },
+          "description": "[interaction.token](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)"
+        }
+      ],
+      "post": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Receiving and Responding"
+        ],
+        "summary": "Create Followup Message",
+        "operationId": "createFollowupMessage",
+        "description": "- [Create Followup Message](https://discord.com/developers/docs/interactions/receiving-and-responding#create-followup-message)\n\n    Create a followup message for an Interaction. Functions the same as [Execute Webhook](#DOCS_RESOURCES_WEBHOOK/execute-webhook), but `wait` is always true. The `thread_id`, `avatar_url`, and `username` parameters are not supported when using this endpoint for interaction followups.\n  `flags` can be set to `64` to mark the message as ephemeral, except when it is the first followup message to a deferred Interactions Response. In that case, the `flags` field will be ignored, and the ephemerality of the message will be determined by the `flags` value in your original ACK."
+      }
+    },
+    "/webhooks/{applicationId}/{interactionToken}/messages/{messageId}": {
+      "parameters": [
+        {
+          "name": "applicationId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[application.id](https://discord.com/developers/docs/resources/application#application-object)"
+        },
+        {
+          "name": "interactionToken",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "description": "Continuation token for responding to the interaction"
+          },
+          "description": "[interaction.token](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)"
+        },
+        {
+          "name": "messageId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[message.id](https://discord.com/developers/docs/resources/channel#message-object)"
+        }
+      ],
+      "get": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Receiving and Responding"
+        ],
+        "summary": "Get Followup Message",
+        "operationId": "getFollowupMessage",
+        "description": "- [Get Followup Message](https://discord.com/developers/docs/interactions/receiving-and-responding#get-followup-message)\n\n    Returns a followup message for an Interaction. Functions the same as [Get Webhook Message](#DOCS_RESOURCES_WEBHOOK/get-webhook-message)."
+      },
+      "patch": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Receiving and Responding"
+        ],
+        "summary": "Edit Followup Message",
+        "operationId": "editFollowupMessage",
+        "description": "- [Edit Followup Message](https://discord.com/developers/docs/interactions/receiving-and-responding#edit-followup-message)\n\n    Edits a followup message for an Interaction. Functions the same as [Edit Webhook Message](#DOCS_RESOURCES_WEBHOOK/edit-webhook-message)."
+      },
+      "delete": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Receiving and Responding"
+        ],
+        "summary": "Delete Followup Message",
+        "operationId": "deleteFollowupMessage",
+        "description": "- [Delete Followup Message](https://discord.com/developers/docs/interactions/receiving-and-responding#delete-followup-message)\n\n    Deletes a followup message for an Interaction. Returns `204 No Content` on success. Does not support ephemeral followups."
+      }
+    },
     "/stage-instances": {
       "parameters": [],
       "post": {
@@ -6175,6 +6011,294 @@
         "summary": "Delete Guild Sticker",
         "operationId": "deleteGuildSticker",
         "description": "- [Delete Guild Sticker](https://discord.com/developers/docs/resources/sticker#delete-guild-sticker)\n\n    Delete the given sticker. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns `204 No Content` on success. Fires a [Guild Stickers Update](#DOCS_TOPICS_GATEWAY/guild-stickers-update) Gateway event.\n  > info\n  > This endpoint supports the `X-Audit-Log-Reason` header."
+      }
+    },
+    "/applications/{applicationId}/entitlements": {
+      "parameters": [
+        {
+          "name": "applicationId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
+        }
+      ],
+      "get": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Store"
+        ],
+        "summary": "Get Entitlements",
+        "operationId": "getEntitlements",
+        "description": "- [Get Entitlements](https://discord.com/developers/docs/game-sdk/store#get-entitlements)\n\n    Gets entitlements for a given user. You can use this on your game backend to check entitlements of an arbitrary user, or perhaps in an administrative panel for your support team."
+      }
+    },
+    "/applications/{applicationId}/entitlements/{entitlementId}": {
+      "parameters": [
+        {
+          "name": "applicationId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
+        },
+        {
+          "name": "entitlementId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[entitlement.id](https://discord.com/developers/docs/game-sdk/store#data-models-entitlement-struct)"
+        }
+      ],
+      "get": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Store"
+        ],
+        "summary": "Get Entitlement",
+        "operationId": "getEntitlement",
+        "description": "- [Get Entitlement](https://discord.com/developers/docs/game-sdk/store#get-entitlement)\n\n    Fetch an entitlement by its ID. This may be useful in confirming that a user has a given entitlement that another call or the SDK says they do."
+      },
+      "delete": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Store"
+        ],
+        "summary": "Delete Test Entitlement",
+        "operationId": "deleteTestEntitlement",
+        "description": "- [Delete Test Entitlement](https://discord.com/developers/docs/game-sdk/store#delete-test-entitlement)\n\n    Deletes a test entitlement for an application. You can only delete entitlements that were \"purchased\" in developer test mode; these are entitlements of `type == TestModePurchase`. You cannot use this route to delete arbitrary entitlements that users actually purchased."
+      }
+    },
+    "/applications/{applicationId}/skus": {
+      "parameters": [
+        {
+          "name": "applicationId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
+        }
+      ],
+      "get": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Store"
+        ],
+        "summary": "Get SKUs",
+        "operationId": "getSKUs",
+        "description": "- [Get SKUs](https://discord.com/developers/docs/game-sdk/store#get-skus)\n\n    Get all SKUs for an application."
+      }
+    },
+    "/applications/{applicationId}/entitlements/{entitlementId}/consume": {
+      "parameters": [
+        {
+          "name": "applicationId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[application.id](https://discord.com/developers/docs/game-sdk/sdk-starter-guide#get-set-up)"
+        },
+        {
+          "name": "entitlementId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[entitlement.id](https://discord.com/developers/docs/game-sdk/store#data-models-entitlement-struct)"
+        }
+      ],
+      "post": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Store"
+        ],
+        "summary": "Consume SKU",
+        "operationId": "consumeSKU",
+        "description": "- [Consume SKU](https://discord.com/developers/docs/game-sdk/store#consume-sku)\n\n    Marks a given entitlement for the user as consumed, meaning it will no longer be returned in an entitlements check. **Ensure the user was granted whatever items the entitlement was for before consuming it!**"
+      }
+    },
+    "/store/skus/{skuId}/discounts/{userId}": {
+      "parameters": [
+        {
+          "name": "skuId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[sku.id](https://discord.com/developers/docs/game-sdk/store#data-models-sku-struct)"
+        },
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Snowflake"
+          },
+          "description": "[user.id](https://discord.com/developers/docs/resources/user#user-object)"
+        }
+      ],
+      "put": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Store"
+        ],
+        "summary": "Create Purchase Discount",
+        "operationId": "createPurchaseDiscount",
+        "description": "- [Create Purchase Discount](https://discord.com/developers/docs/game-sdk/store#create-purchase-discount)\n\n    Creates a discount for the given user on their next purchase of the given SKU. You should call this endpoint from your backend server just before calling [StartPurchase](#DOCS_GAME_SDK_STORE/startpurchase) for the SKU you wish to discount. The user will then see a discounted price for that SKU at time of payment. The discount is automatically consumed after successful purchase or if the TTL expires."
+      },
+      "delete": {
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/DiscordUnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/DiscordForbiddenError"
+          },
+          "404": {
+            "$ref": "#/components/responses/DiscordNotFoundError"
+          },
+          "429": {
+            "$ref": "#/components/responses/DiscordRatelimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/DiscordApiError"
+          },
+          "502": {
+            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
+          }
+        },
+        "tags": [
+          "Store"
+        ],
+        "summary": "Delete Purchase Discount",
+        "operationId": "deletePurchaseDiscount",
+        "description": "- [Delete Purchase Discount](https://discord.com/developers/docs/game-sdk/store#delete-purchase-discount)\n\n    Deletes the currently active discount on the given SKU for the given user. You **do not need** to call this after a user has made a discounted purchase; successful discounted purchases will automatically remove the discount for that user for subsequent purchases."
       }
     },
     "/users/@me": {
@@ -7041,130 +7165,6 @@
         "summary": "Delete Webhook Message",
         "operationId": "deleteWebhookMessage",
         "description": "- [Delete Webhook Message](https://discord.com/developers/docs/resources/webhook#delete-webhook-message)\n\n    Deletes a message that was created by the webhook. Returns a `204 No Content` response on success."
-      }
-    },
-    "/gateway": {
-      "parameters": [],
-      "get": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Gateway"
-        ],
-        "summary": "Get Gateway",
-        "operationId": "getGateway",
-        "description": "- [Get Gateway](https://discord.com/developers/docs/topics/gateway#get-gateway)\n\n    > info\n  > This endpoint does not require authentication.\n  Returns an object with a single valid WSS URL, which the client can use for [Connecting](#DOCS_TOPICS_GATEWAY/connecting). Clients **should** cache this value and only call this endpoint to retrieve a new URL if they are unable to properly establish a connection using the cached version of the URL."
-      }
-    },
-    "/gateway/bot": {
-      "parameters": [],
-      "get": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "Gateway"
-        ],
-        "summary": "Get Gateway Bot",
-        "operationId": "getGatewayBot",
-        "description": "- [Get Gateway Bot](https://discord.com/developers/docs/topics/gateway#get-gateway-bot)\n\n    > warn\n  > This endpoint requires authentication using a valid bot token.\n  Returns an object based on the information in [Get Gateway](#DOCS_TOPICS_GATEWAY/get-gateway), plus additional metadata that can help during the operation of large or [sharded](#DOCS_TOPICS_GATEWAY/sharding) bots. Unlike the [Get Gateway](#DOCS_TOPICS_GATEWAY/get-gateway), this route should not be cached for extended periods of time as the value is not guaranteed to be the same per-call, and changes as the bot joins/leaves guilds."
-      }
-    },
-    "/oauth2/applications/@me": {
-      "parameters": [],
-      "get": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "OAuth2"
-        ],
-        "summary": "Get Current Bot Application Information",
-        "operationId": "getCurrentBotApplicationInformation",
-        "description": "- [Get Current Bot Application Information](https://discord.com/developers/docs/topics/oauth2#get-current-bot-application-information)\n\n    Returns the bot's [application](#DOCS_RESOURCES_APPLICATION/application-object) object."
-      }
-    },
-    "/oauth2/@me": {
-      "parameters": [],
-      "get": {
-        "responses": {
-          "401": {
-            "$ref": "#/components/responses/DiscordUnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/components/responses/DiscordForbiddenError"
-          },
-          "404": {
-            "$ref": "#/components/responses/DiscordNotFoundError"
-          },
-          "429": {
-            "$ref": "#/components/responses/DiscordRatelimitError"
-          },
-          "500": {
-            "$ref": "#/components/responses/DiscordApiError"
-          },
-          "502": {
-            "$ref": "#/components/responses/DiscordGatewayUnavailableError"
-          }
-        },
-        "tags": [
-          "OAuth2"
-        ],
-        "summary": "Get Current Authorization Information",
-        "operationId": "getCurrentAuthorizationInformation",
-        "description": "- [Get Current Authorization Information](https://discord.com/developers/docs/topics/oauth2#get-current-authorization-information)\n\n    Returns info about the current authorization. Requires authentication with a bearer token."
       }
     }
   },
@@ -8536,197 +8536,6 @@
         ],
         "externalDocs": {
           "url": "https://discord.com/developers/docs/game-sdk/achievements#data-models-achievement-struct"
-        }
-      },
-      "LobbyType": {
-        "type": "integer",
-        "enum": [
-          1,
-          2
-        ],
-        "description": "- Private (`1`)\n- Public (`2`)",
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobbytype-enum"
-        }
-      },
-      "Lobby": {
-        "type": "object",
-        "properties": {
-          "Id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "the unique id of the lobby"
-          },
-          "Type": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LobbyType"
-              }
-            ],
-            "description": "if the lobby is public or private"
-          },
-          "OwnerId": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "the userId of the lobby owner"
-          },
-          "Secret": {
-            "type": "string",
-            "description": "the password to the lobby"
-          },
-          "Capacity": {
-            "type": "integer",
-            "description": "the max capacity of the lobby"
-          },
-          "Locked": {
-            "type": "boolean",
-            "description": "whether or not the lobby can be joined"
-          }
-        },
-        "required": [
-          "Id",
-          "Type",
-          "OwnerId",
-          "Secret",
-          "Capacity",
-          "Locked"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobby-struct"
-        }
-      },
-      "EntitlementType": {
-        "type": "integer",
-        "enum": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7
-        ],
-        "description": "- Purchase (`1`) - entitlement was purchased\n- PremiumSubscription (`2`) - entitlement for a Discord Nitro subscription\n- DeveloperGift (`3`) - entitlement was gifted by a developer\n- TestModePurchase (`4`) - entitlement was purchased by a dev in application test mode\n- FreePurchase (`5`) - entitlement was granted when the SKU was free\n- UserGift (`6`) - entitlement was gifted by another user\n- PremiumPurchase (`7`) - entitlement was claimed by user for free as a Nitro Subscriber",
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/game-sdk/store#data-models-entitlementtype-enum"
-        }
-      },
-      "Entitlement": {
-        "type": "object",
-        "properties": {
-          "Id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "the unique ID of the entitlement"
-          },
-          "Type": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/EntitlementType"
-              }
-            ],
-            "description": "the kind of entitlement it is"
-          },
-          "SkuId": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "the ID of the SKU to which the user is entitled"
-          }
-        },
-        "required": [
-          "Id",
-          "Type",
-          "SkuId"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/game-sdk/store#data-models-entitlement-struct"
-        }
-      },
-      "SkuType": {
-        "type": "integer",
-        "enum": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "description": "- Application (`1`) - SKU is a game\n- DLC (`2`) - SKU is a DLC\n- Consumable (`3`) - SKU is a consumable (in-app purchase)\n- Bundle (`4`) - SKU is a bundle (comprising the other 3 types)",
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/game-sdk/store#data-models-skutype-enum"
-        }
-      },
-      "SkuPrice": {
-        "type": "object",
-        "properties": {
-          "Amount": {
-            "type": "integer",
-            "description": "the amount of money the SKU costs"
-          },
-          "Currency": {
-            "type": "string",
-            "description": "the currency the amount is in"
-          }
-        },
-        "required": [
-          "Amount",
-          "Currency"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/game-sdk/store#data-models-skuprice-struct"
-        }
-      },
-      "SKU": {
-        "type": "object",
-        "properties": {
-          "Id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "the unique ID of the SKU"
-          },
-          "Type": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/SkuType"
-              }
-            ],
-            "description": "what sort of SKU it is"
-          },
-          "Name": {
-            "type": "string",
-            "description": "the name of the SKU"
-          },
-          "Price": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/SkuPrice"
-              }
-            ],
-            "description": "the price of the SKU"
-          }
-        },
-        "required": [
-          "Id",
-          "Type",
-          "Name",
-          "Price"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/game-sdk/store#data-models-sku-struct"
         }
       },
       "ApplicationCommandTypes": {
@@ -10245,106 +10054,182 @@
           "url": "https://discord.com/developers/docs/resources/guild#guild-object-guild-structure"
         }
       },
-      "InteractionType": {
+      "EventTypes": {
+        "type": "integer",
+        "enum": [
+          1
+        ],
+        "description": "- MESSAGE_SEND (`1`) - when a member sends or edits a message in the guild",
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-event-types"
+        }
+      },
+      "TriggerTypes": {
         "type": "integer",
         "enum": [
           1,
-          2,
           3,
           4,
           5
         ],
-        "description": "- PING (`1`)\n- APPLICATION_COMMAND (`2`)\n- MESSAGE_COMPONENT (`3`)\n- APPLICATION_COMMAND_AUTOCOMPLETE (`4`)\n- MODAL_SUBMIT (`5`)",
+        "description": "- KEYWORD (`1`) - check if content contains words from a user defined list of keywords\n- SPAM (`3`) - check if content represents generic spam\n- KEYWORD_PRESET (`4`) - check if content contains words from internal pre-defined wordsets\n- MENTION_SPAM (`5`) - check if content contains more mentions than allowed",
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-type"
+          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-trigger-types"
         }
       },
-      "ISO8601DateTime": {
-        "type": "string",
-        "format": "date-time",
+      "ActionTypes": {
+        "type": "integer",
+        "enum": [
+          1,
+          2,
+          3
+        ],
+        "description": "- BLOCK_MESSAGE (`1`) - blocks the content of a message according to the rule\n- SEND_ALERT_MESSAGE (`2`) - logs user content to a specified channel\n- TIMEOUT (`3`) - timeout user for a specified duration *",
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/reference#iso8601-datetime"
+          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object-action-types"
         }
       },
-      "GuildMember": {
+      "ActionMetadata": {
         "type": "object",
         "properties": {
-          "user": {
+          "channel_id": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/Snowflake"
               }
             ],
-            "description": "the user this guild member represents"
+            "description": "SEND_ALERT_MESSAGE - channel to which user content should be logged"
           },
-          "nick": {
+          "duration_seconds": {
+            "type": "integer",
+            "description": "TIMEOUT - timeout duration in seconds *"
+          }
+        },
+        "required": [],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object-action-metadata"
+        }
+      },
+      "AutoModerationAction": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ActionTypes"
+              }
+            ],
+            "description": "the type of action"
+          },
+          "metadata": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ActionMetadata"
+              }
+            ],
+            "description": "additional metadata needed during execution for this specific action type"
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object-auto-moderation-action-structure"
+        }
+      },
+      "AutoModerationRule": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "the id of this rule"
+          },
+          "guild_id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "the id of the guild which this rule belongs to"
+          },
+          "name": {
             "type": "string",
-            "nullable": true,
-            "description": "this user's guild nickname"
+            "description": "the rule name"
           },
-          "avatar": {
-            "type": "string",
-            "nullable": true,
-            "description": "the member's [guild avatar hash](https://discord.com/developers/docs/reference#image-formatting)"
+          "creator_id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "the user which first created this rule"
           },
-          "roles": {
+          "event_type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EventTypes"
+              }
+            ],
+            "description": "the rule [event type](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-event-types)"
+          },
+          "trigger_type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TriggerTypes"
+              }
+            ],
+            "description": "the rule [trigger type](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-trigger-types)"
+          },
+          "trigger_metadata": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "the rule [trigger metadata](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-trigger-metadata)"
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AutoModerationAction"
+            },
+            "description": "the actions which will execute when the rule is triggered"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "whether the rule is enabled"
+          },
+          "exempt_roles": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "array of [role](https://discord.com/developers/docs/topics/permissions#role-object) object ids"
+            "description": "the role ids that should not be affected by the rule (Maximum of 20)"
           },
-          "joined_at": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ISO8601DateTime"
-              }
-            ],
-            "description": "when the user joined the guild"
-          },
-          "premium_since": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ISO8601DateTime"
-              }
-            ],
-            "nullable": true,
-            "description": "when the user started [boosting](https://support.discord.com/hc/en-us/articles/360028038352-Server-Boosting-) the guild"
-          },
-          "deaf": {
-            "type": "boolean",
-            "description": "whether the user is deafened in voice channels"
-          },
-          "mute": {
-            "type": "boolean",
-            "description": "whether the user is muted in voice channels"
-          },
-          "pending": {
-            "type": "boolean",
-            "description": "whether the user has not yet passed the guild's [Membership Screening](https://discord.com/developers/docs/resources/guild#membership-screening-object) requirements"
-          },
-          "permissions": {
-            "type": "string",
-            "description": "total permissions of the member in the channel, including overwrites, returned when in the interaction object"
-          },
-          "communication_disabled_until": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ISO8601DateTime"
-              }
-            ],
-            "nullable": true,
-            "description": "when the user's [timeout](https://support.discord.com/hc/en-us/articles/4413305239191-Time-Out-FAQ) will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out"
+          "exempt_channels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Snowflake"
+            },
+            "description": "the channel ids that should not be affected by the rule (Maximum of 50)"
           }
         },
         "required": [
-          "roles",
-          "joined_at",
-          "deaf",
-          "mute"
+          "id",
+          "guild_id",
+          "name",
+          "creator_id",
+          "event_type",
+          "trigger_type",
+          "trigger_metadata",
+          "actions",
+          "enabled",
+          "exempt_roles",
+          "exempt_channels"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/guild#guild-member-object-guild-member-structure"
+          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-auto-moderation-rule-structure"
         }
       },
       "Overwrite": {
@@ -10379,6 +10264,13 @@
         ],
         "externalDocs": {
           "url": "https://discord.com/developers/docs/resources/channel#overwrite-object-overwrite-structure"
+        }
+      },
+      "ISO8601DateTime": {
+        "type": "string",
+        "format": "date-time",
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/reference#iso8601-datetime"
         }
       },
       "VideoQualityModes": {
@@ -11728,6 +11620,101 @@
           "url": "https://discord.com/developers/docs/resources/channel#message-object-message-structure"
         }
       },
+      "InteractionType": {
+        "type": "integer",
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "description": "- PING (`1`)\n- APPLICATION_COMMAND (`2`)\n- MESSAGE_COMPONENT (`3`)\n- APPLICATION_COMMAND_AUTOCOMPLETE (`4`)\n- MODAL_SUBMIT (`5`)",
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-type"
+        }
+      },
+      "GuildMember": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ],
+            "description": "the user this guild member represents"
+          },
+          "nick": {
+            "type": "string",
+            "nullable": true,
+            "description": "this user's guild nickname"
+          },
+          "avatar": {
+            "type": "string",
+            "nullable": true,
+            "description": "the member's [guild avatar hash](https://discord.com/developers/docs/reference#image-formatting)"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Snowflake"
+            },
+            "description": "array of [role](https://discord.com/developers/docs/topics/permissions#role-object) object ids"
+          },
+          "joined_at": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ISO8601DateTime"
+              }
+            ],
+            "description": "when the user joined the guild"
+          },
+          "premium_since": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ISO8601DateTime"
+              }
+            ],
+            "nullable": true,
+            "description": "when the user started [boosting](https://support.discord.com/hc/en-us/articles/360028038352-Server-Boosting-) the guild"
+          },
+          "deaf": {
+            "type": "boolean",
+            "description": "whether the user is deafened in voice channels"
+          },
+          "mute": {
+            "type": "boolean",
+            "description": "whether the user is muted in voice channels"
+          },
+          "pending": {
+            "type": "boolean",
+            "description": "whether the user has not yet passed the guild's [Membership Screening](https://discord.com/developers/docs/resources/guild#membership-screening-object) requirements"
+          },
+          "permissions": {
+            "type": "string",
+            "description": "total permissions of the member in the channel, including overwrites, returned when in the interaction object"
+          },
+          "communication_disabled_until": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ISO8601DateTime"
+              }
+            ],
+            "nullable": true,
+            "description": "when the user's [timeout](https://support.discord.com/hc/en-us/articles/4413305239191-Time-Out-FAQ) will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out"
+          }
+        },
+        "required": [
+          "roles",
+          "joined_at",
+          "deaf",
+          "mute"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/resources/guild#guild-member-object-guild-member-structure"
+        }
+      },
       "MessageInteraction": {
         "type": "object",
         "properties": {
@@ -12098,455 +12085,6 @@
         ],
         "externalDocs": {
           "url": "https://discord.com/developers/docs/resources/sticker#sticker-item-object-sticker-item-structure"
-        }
-      },
-      "ResolvedData": {
-        "type": "object",
-        "properties": {
-          "users": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/User"
-            },
-            "description": "the ids and User objects"
-          },
-          "members": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/GuildMember"
-            },
-            "description": "the ids and partial Member objects"
-          },
-          "roles": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/Role"
-            },
-            "description": "the ids and Role objects"
-          },
-          "channels": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/Channel"
-            },
-            "description": "the ids and partial Channel objects"
-          },
-          "messages": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/Message"
-            },
-            "description": "the ids and partial Message objects"
-          },
-          "attachments": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/Attachment"
-            },
-            "description": "the ids and attachment objects"
-          }
-        },
-        "required": [],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-resolved-data-structure"
-        }
-      },
-      "ApplicationCommandInteractionDataOption": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Name of the parameter"
-          },
-          "type": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ApplicationCommandOptionType"
-              }
-            ],
-            "description": "Value of [application command option type](https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type)"
-          },
-          "value": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "integer"
-              },
-              {
-                "type": "number"
-              }
-            ],
-            "description": "Value of the option resulting from user input"
-          },
-          "options": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ApplicationCommandInteractionDataOption"
-            },
-            "description": "Present if this option is a group or subcommand"
-          },
-          "focused": {
-            "type": "boolean",
-            "description": "`true` if this option is the currently focused option for autocomplete"
-          }
-        },
-        "required": [
-          "name",
-          "type"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-application-command-interaction-data-option-structure"
-        }
-      },
-      "ApplicationCommandData": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "the [`ID`](https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-structure) of the invoked command"
-          },
-          "name": {
-            "type": "string",
-            "description": "the [`name`](https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-structure) of the invoked command"
-          },
-          "type": {
-            "type": "integer",
-            "description": "the [`type`](https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-structure) of the invoked command"
-          },
-          "resolved": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ResolvedData"
-              }
-            ],
-            "description": "converted users + roles + channels + attachments"
-          },
-          "options": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ApplicationCommandInteractionDataOption"
-            },
-            "description": "the params + values from the user"
-          },
-          "guild_id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "the id of the guild the command is registered to"
-          },
-          "target_id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "id of the user or message targeted by a [user](https://discord.com/developers/docs/interactions/application-commands#user-commands) or [message](https://discord.com/developers/docs/interactions/application-commands#message-commands) command"
-          }
-        },
-        "required": [
-          "id",
-          "name",
-          "type"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-application-command-data-structure"
-        }
-      },
-      "Interaction": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "ID of the interaction"
-          },
-          "application_id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "ID of the application this interaction is for"
-          },
-          "type": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/InteractionType"
-              }
-            ],
-            "description": "Type of interaction"
-          },
-          "data": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ApplicationCommandData"
-              }
-            ],
-            "description": "Interaction data payload"
-          },
-          "guild_id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "Guild that the interaction was sent from"
-          },
-          "channel_id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "Channel that the interaction was sent from"
-          },
-          "member": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/GuildMember"
-              }
-            ],
-            "description": "Guild member data for the invoking user, including permissions"
-          },
-          "user": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/User"
-              }
-            ],
-            "description": "User object for the invoking user, if invoked in a DM"
-          },
-          "token": {
-            "type": "string",
-            "description": "Continuation token for responding to the interaction"
-          },
-          "version": {
-            "type": "integer",
-            "description": "Read-only property, always `1`"
-          },
-          "message": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Message"
-              }
-            ],
-            "description": "For components, the message they were attached to"
-          },
-          "app_permissions": {
-            "type": "string",
-            "description": "Bitwise set of permissions the app or bot has within the channel the interaction was sent from"
-          },
-          "locale": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Locales"
-              }
-            ],
-            "description": "Selected [language](https://discord.com/developers/docs/reference#locales) of the invoking user"
-          },
-          "guild_locale": {
-            "type": "string",
-            "description": "[Guild's preferred locale](https://discord.com/developers/docs/resources/guild#guild-object), if invoked in a guild"
-          }
-        },
-        "required": [
-          "id",
-          "application_id",
-          "type",
-          "token",
-          "version"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-structure"
-        }
-      },
-      "EventTypes": {
-        "type": "integer",
-        "enum": [
-          1
-        ],
-        "description": "- MESSAGE_SEND (`1`) - when a member sends or edits a message in the guild",
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-event-types"
-        }
-      },
-      "TriggerTypes": {
-        "type": "integer",
-        "enum": [
-          1,
-          3,
-          4,
-          5
-        ],
-        "description": "- KEYWORD (`1`) - check if content contains words from a user defined list of keywords\n- SPAM (`3`) - check if content represents generic spam\n- KEYWORD_PRESET (`4`) - check if content contains words from internal pre-defined wordsets\n- MENTION_SPAM (`5`) - check if content contains more mentions than allowed",
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-trigger-types"
-        }
-      },
-      "ActionTypes": {
-        "type": "integer",
-        "enum": [
-          1,
-          2,
-          3
-        ],
-        "description": "- BLOCK_MESSAGE (`1`) - blocks the content of a message according to the rule\n- SEND_ALERT_MESSAGE (`2`) - logs user content to a specified channel\n- TIMEOUT (`3`) - timeout user for a specified duration *",
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object-action-types"
-        }
-      },
-      "ActionMetadata": {
-        "type": "object",
-        "properties": {
-          "channel_id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "SEND_ALERT_MESSAGE - channel to which user content should be logged"
-          },
-          "duration_seconds": {
-            "type": "integer",
-            "description": "TIMEOUT - timeout duration in seconds *"
-          }
-        },
-        "required": [],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object-action-metadata"
-        }
-      },
-      "AutoModerationAction": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ActionTypes"
-              }
-            ],
-            "description": "the type of action"
-          },
-          "metadata": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ActionMetadata"
-              }
-            ],
-            "description": "additional metadata needed during execution for this specific action type"
-          }
-        },
-        "required": [
-          "type"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object-auto-moderation-action-structure"
-        }
-      },
-      "AutoModerationRule": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "the id of this rule"
-          },
-          "guild_id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "the id of the guild which this rule belongs to"
-          },
-          "name": {
-            "type": "string",
-            "description": "the rule name"
-          },
-          "creator_id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Snowflake"
-              }
-            ],
-            "description": "the user which first created this rule"
-          },
-          "event_type": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/EventTypes"
-              }
-            ],
-            "description": "the rule [event type](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-event-types)"
-          },
-          "trigger_type": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/TriggerTypes"
-              }
-            ],
-            "description": "the rule [trigger type](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-trigger-types)"
-          },
-          "trigger_metadata": {
-            "type": "object",
-            "additionalProperties": true,
-            "description": "the rule [trigger metadata](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-trigger-metadata)"
-          },
-          "actions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AutoModerationAction"
-            },
-            "description": "the actions which will execute when the rule is triggered"
-          },
-          "enabled": {
-            "type": "boolean",
-            "description": "whether the rule is enabled"
-          },
-          "exempt_roles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Snowflake"
-            },
-            "description": "the role ids that should not be affected by the rule (Maximum of 20)"
-          },
-          "exempt_channels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Snowflake"
-            },
-            "description": "the channel ids that should not be affected by the rule (Maximum of 50)"
-          }
-        },
-        "required": [
-          "id",
-          "guild_id",
-          "name",
-          "creator_id",
-          "event_type",
-          "trigger_type",
-          "trigger_metadata",
-          "actions",
-          "enabled",
-          "exempt_roles",
-          "exempt_channels"
-        ],
-        "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-auto-moderation-rule-structure"
         }
       },
       "IntegrationExpireBehaviors": {
@@ -14084,6 +13622,468 @@
         ],
         "externalDocs": {
           "url": "https://discord.com/developers/docs/resources/invite#invite-object-invite-structure"
+        }
+      },
+      "LobbyType": {
+        "type": "integer",
+        "enum": [
+          1,
+          2
+        ],
+        "description": "- Private (`1`)\n- Public (`2`)",
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobbytype-enum"
+        }
+      },
+      "Lobby": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "the unique id of the lobby"
+          },
+          "Type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LobbyType"
+              }
+            ],
+            "description": "if the lobby is public or private"
+          },
+          "OwnerId": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "the userId of the lobby owner"
+          },
+          "Secret": {
+            "type": "string",
+            "description": "the password to the lobby"
+          },
+          "Capacity": {
+            "type": "integer",
+            "description": "the max capacity of the lobby"
+          },
+          "Locked": {
+            "type": "boolean",
+            "description": "whether or not the lobby can be joined"
+          }
+        },
+        "required": [
+          "Id",
+          "Type",
+          "OwnerId",
+          "Secret",
+          "Capacity",
+          "Locked"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobby-struct"
+        }
+      },
+      "ResolvedData": {
+        "type": "object",
+        "properties": {
+          "users": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/User"
+            },
+            "description": "the ids and User objects"
+          },
+          "members": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/GuildMember"
+            },
+            "description": "the ids and partial Member objects"
+          },
+          "roles": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Role"
+            },
+            "description": "the ids and Role objects"
+          },
+          "channels": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Channel"
+            },
+            "description": "the ids and partial Channel objects"
+          },
+          "messages": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Message"
+            },
+            "description": "the ids and partial Message objects"
+          },
+          "attachments": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Attachment"
+            },
+            "description": "the ids and attachment objects"
+          }
+        },
+        "required": [],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-resolved-data-structure"
+        }
+      },
+      "ApplicationCommandInteractionDataOption": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the parameter"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
+              }
+            ],
+            "description": "Value of [application command option type](https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type)"
+          },
+          "value": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "description": "Value of the option resulting from user input"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApplicationCommandInteractionDataOption"
+            },
+            "description": "Present if this option is a group or subcommand"
+          },
+          "focused": {
+            "type": "boolean",
+            "description": "`true` if this option is the currently focused option for autocomplete"
+          }
+        },
+        "required": [
+          "name",
+          "type"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-application-command-interaction-data-option-structure"
+        }
+      },
+      "ApplicationCommandData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "the [`ID`](https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-structure) of the invoked command"
+          },
+          "name": {
+            "type": "string",
+            "description": "the [`name`](https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-structure) of the invoked command"
+          },
+          "type": {
+            "type": "integer",
+            "description": "the [`type`](https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-structure) of the invoked command"
+          },
+          "resolved": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ResolvedData"
+              }
+            ],
+            "description": "converted users + roles + channels + attachments"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApplicationCommandInteractionDataOption"
+            },
+            "description": "the params + values from the user"
+          },
+          "guild_id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "the id of the guild the command is registered to"
+          },
+          "target_id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "id of the user or message targeted by a [user](https://discord.com/developers/docs/interactions/application-commands#user-commands) or [message](https://discord.com/developers/docs/interactions/application-commands#message-commands) command"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "type"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-application-command-data-structure"
+        }
+      },
+      "Interaction": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "ID of the interaction"
+          },
+          "application_id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "ID of the application this interaction is for"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InteractionType"
+              }
+            ],
+            "description": "Type of interaction"
+          },
+          "data": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ApplicationCommandData"
+              }
+            ],
+            "description": "Interaction data payload"
+          },
+          "guild_id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "Guild that the interaction was sent from"
+          },
+          "channel_id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "Channel that the interaction was sent from"
+          },
+          "member": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GuildMember"
+              }
+            ],
+            "description": "Guild member data for the invoking user, including permissions"
+          },
+          "user": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ],
+            "description": "User object for the invoking user, if invoked in a DM"
+          },
+          "token": {
+            "type": "string",
+            "description": "Continuation token for responding to the interaction"
+          },
+          "version": {
+            "type": "integer",
+            "description": "Read-only property, always `1`"
+          },
+          "message": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Message"
+              }
+            ],
+            "description": "For components, the message they were attached to"
+          },
+          "app_permissions": {
+            "type": "string",
+            "description": "Bitwise set of permissions the app or bot has within the channel the interaction was sent from"
+          },
+          "locale": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Locales"
+              }
+            ],
+            "description": "Selected [language](https://discord.com/developers/docs/reference#locales) of the invoking user"
+          },
+          "guild_locale": {
+            "type": "string",
+            "description": "[Guild's preferred locale](https://discord.com/developers/docs/resources/guild#guild-object), if invoked in a guild"
+          }
+        },
+        "required": [
+          "id",
+          "application_id",
+          "type",
+          "token",
+          "version"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-structure"
+        }
+      },
+      "EntitlementType": {
+        "type": "integer",
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "description": "- Purchase (`1`) - entitlement was purchased\n- PremiumSubscription (`2`) - entitlement for a Discord Nitro subscription\n- DeveloperGift (`3`) - entitlement was gifted by a developer\n- TestModePurchase (`4`) - entitlement was purchased by a dev in application test mode\n- FreePurchase (`5`) - entitlement was granted when the SKU was free\n- UserGift (`6`) - entitlement was gifted by another user\n- PremiumPurchase (`7`) - entitlement was claimed by user for free as a Nitro Subscriber",
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/game-sdk/store#data-models-entitlementtype-enum"
+        }
+      },
+      "Entitlement": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "the unique ID of the entitlement"
+          },
+          "Type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EntitlementType"
+              }
+            ],
+            "description": "the kind of entitlement it is"
+          },
+          "SkuId": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "the ID of the SKU to which the user is entitled"
+          }
+        },
+        "required": [
+          "Id",
+          "Type",
+          "SkuId"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/game-sdk/store#data-models-entitlement-struct"
+        }
+      },
+      "SkuType": {
+        "type": "integer",
+        "enum": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "description": "- Application (`1`) - SKU is a game\n- DLC (`2`) - SKU is a DLC\n- Consumable (`3`) - SKU is a consumable (in-app purchase)\n- Bundle (`4`) - SKU is a bundle (comprising the other 3 types)",
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/game-sdk/store#data-models-skutype-enum"
+        }
+      },
+      "SkuPrice": {
+        "type": "object",
+        "properties": {
+          "Amount": {
+            "type": "integer",
+            "description": "the amount of money the SKU costs"
+          },
+          "Currency": {
+            "type": "string",
+            "description": "the currency the amount is in"
+          }
+        },
+        "required": [
+          "Amount",
+          "Currency"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/game-sdk/store#data-models-skuprice-struct"
+        }
+      },
+      "SKU": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Snowflake"
+              }
+            ],
+            "description": "the unique ID of the SKU"
+          },
+          "Type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SkuType"
+              }
+            ],
+            "description": "what sort of SKU it is"
+          },
+          "Name": {
+            "type": "string",
+            "description": "the name of the SKU"
+          },
+          "Price": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SkuPrice"
+              }
+            ],
+            "description": "the price of the SKU"
+          }
+        },
+        "required": [
+          "Id",
+          "Type",
+          "Name",
+          "Price"
+        ],
+        "externalDocs": {
+          "url": "https://discord.com/developers/docs/game-sdk/store#data-models-sku-struct"
         }
       },
       "WebhookTypes": {

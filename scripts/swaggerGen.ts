@@ -24,6 +24,7 @@ const responses: Record<string, OpenAPIV3.ResponseObject> = {};
 const parameters: Record<string, OpenAPIV3.ParameterObject> = {};
 
 const files = new FileProvider(zip.getEntries()
+    .sort((a, b) => a.name < b.name ? -1 : 1)
     .filter(e => !e.isDirectory && e.entryName.startsWith('discord-api-docs-main/docs/'))
     .map(e => ({ name: e.entryName.slice(22), content: e.getData().toString('utf-8') })));
 

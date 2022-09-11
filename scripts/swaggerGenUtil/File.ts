@@ -18,15 +18,8 @@ export class File implements Iterable<IFileRegion> {
         }
     }
 
-    public * findRegions(name: RegExp): Iterable<{ match: RegExpMatchArray; region: IFileRegion; }> {
-        const pending: IMutableFileRegion[] = [this.rootRegion as IMutableFileRegion];
-        let region;
-        while ((region = pending.shift()) !== undefined) {
-            pending.push(...region.children);
-            const match = region.name.match(name);
-            if (match !== null)
-                yield { match, region };
-        }
+    public findRegions(name: RegExp): Iterable<{ match: RegExpMatchArray; region: IFileRegion; }> {
+        return this.rootRegion.findChildren(name);
     }
 }
 
@@ -37,37 +30,51 @@ export interface IFileRegion {
     readonly name: string;
     readonly content: string;
     readonly children: readonly IFileRegion[];
+    findChildren(name: RegExp): Iterable<{ match: RegExpMatchArray; region: IFileRegion; }>;
 }
 
-interface IMutableFileRegion {
-    id: string;
-    file: File;
-    depth: number;
-    name: string;
-    content: string;
-    children: IMutableFileRegion[];
+class MutableFileRegion implements IFileRegion {
+    #content: string;
+    public children: MutableFileRegion[];
+
+    public get content() {
+        return this.#content;
+    }
+    public set content(value) {
+        this.#content = value.trim();
+    }
+
+    public constructor(
+        public readonly id: string,
+        public readonly file: File,
+        public readonly depth: number,
+        public readonly name: string) {
+        this.#content = '';
+        this.children = [];
+    }
+
+    public * findChildren(name: RegExp): Iterable<{ match: RegExpMatchArray; region: IFileRegion; }> {
+        const match = this.name.match(name);
+        if (match !== null)
+            yield { match, region: this };
+
+        for (const child of this.children)
+            yield* child.findChildren(name);
+    }
 }
 
 
 function readContentRegions(source: string, file: File): IFileRegion {
-    const root: IMutableFileRegion = {
-        id: file.id,
-        file,
-        children: [],
-        content: '',
-        depth: 0,
-        name: ''
-    };
-    const regionStack: IMutableFileRegion[] = [root];
+    const root = new MutableFileRegion(file.id, file, 0, '')
+    const regionStack = [root];
     let inCodeBlock = false;
     for (const line of source.split('\n')) {
-        if (line.startsWith('```'))
+        if ([...line.matchAll(/(?<!` ?)```(?! ?`)/g)].length % 2 === 1)
             inCodeBlock = !inCodeBlock;
-        if (inCodeBlock)
-            continue;
+
         const depthMatch = line.match(/^#+/);
-        if (depthMatch === null) {
-            regionStack[regionStack.length - 1].content = (regionStack[regionStack.length - 1].content + '\n' + line).trim();
+        if (inCodeBlock || depthMatch === null) {
+            regionStack[regionStack.length - 1].content += `\n${line}`
             continue;
         }
 
@@ -82,7 +89,7 @@ function readContentRegions(source: string, file: File): IFileRegion {
             .replaceAll(/ +/g, '-')
             .toLowerCase();
         if (depth > 5) {
-            let parent: IMutableFileRegion | undefined;
+            let parent: MutableFileRegion | undefined;
             for (let i = regionStack.length - 1; i >= 0; i--) {
                 if (regionStack[i].depth <= 5) {
                     parent = regionStack[i];
@@ -92,15 +99,7 @@ function readContentRegions(source: string, file: File): IFileRegion {
             if (parent !== undefined)
                 fragment = `${parent.id.split('/')[1]}-${fragment}`;
         }
-        const region: IMutableFileRegion = {
-            id: `${file.id}/${fragment}`,
-            name,
-            depth,
-            file,
-            children: [],
-            content: ''
-        }
-
+        const region = new MutableFileRegion(`${file.id}/${fragment}`, file, depth, name);
         regionStack[regionStack.length - 1].children.push(region);
         regionStack.push(region)
     }
