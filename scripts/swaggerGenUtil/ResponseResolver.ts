@@ -62,7 +62,7 @@ const commonResponses: (typeResolver: TypeResolver) => OpenAPIV3.ResponsesObject
         headers: {
             ...ratelimitHeaders,
             'X-RateLimit-Global': { schema: { type: 'boolean' } },
-            'X-RateLimit-Scope': { type: 'string', schema: { enum: ['user', 'global', 'shared'] } },
+            'X-RateLimit-Scope': { schema: { type: 'string', enum: ['user', 'global', 'shared'] } },
         }
     },
     DiscordGatewayUnavailableError: {

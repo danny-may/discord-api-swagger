@@ -34,14 +34,6 @@ export class RequestResolver {
         return undefined!;
     }
 }
-function pick<T extends object, Key extends string & keyof T>(instance: T, keys: readonly Key[]): Pick<T, Key>
-function pick(instance: object, keys: readonly string[]): object {
-    return Object.fromEntries(Object.entries(instance).filter(e => keys.includes(e[0])));
-}
-function omit<T extends object, Key extends string & keyof T>(instance: T, keys: readonly Key[]): Omit<T, Key>
-function omit(instance: object, keys: readonly string[]): object {
-    return Object.fromEntries(Object.entries(instance).filter(e => !keys.includes(e[0])));
-}
 
 const sharedKeys = ['description', 'deprecated', 'example'] as const;
 function* typeToParameters(type: OpenAPIV3.SchemaObject, location: string): Iterable<OpenAPIV3.ParameterObject> {
@@ -65,4 +57,12 @@ function* typeToParameters(type: OpenAPIV3.SchemaObject, location: string): Iter
             required: type.required?.includes(name)
         }
     }
+}
+function pick<T extends object, Key extends string & keyof T>(instance: T, keys: readonly Key[]): Pick<T, Key>
+function pick(instance: object, keys: readonly string[]): object {
+    return Object.fromEntries(Object.entries(instance).filter(e => keys.includes(e[0])));
+}
+function omit<T extends object, Key extends string & keyof T>(instance: T, keys: readonly Key[]): Omit<T, Key>
+function omit(instance: object, keys: readonly string[]): object {
+    return Object.fromEntries(Object.entries(instance).filter(e => !keys.includes(e[0])));
 }

@@ -74,7 +74,7 @@ const nameTypeDescObjectScheme: ITableReaderScheme = {
         return {
             type: 'object',
             properties,
-            required
+            required: required.length === 0 ? undefined : required
         }
     }
 };

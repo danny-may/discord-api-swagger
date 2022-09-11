@@ -338,8 +338,7 @@
             "schema": {
               "type": "boolean"
             },
-            "description": "Whether to include full localization dictionaries (`name_localizations` and `description_localizations`) in the returned objects, instead of the `name_localized` and `description_localized` fields. Default `false`.",
-            "required": false
+            "description": "Whether to include full localization dictionaries (`name_localizations` and `description_localizations`) in the returned objects, instead of the `name_localized` and `description_localized` fields. Default `false`."
           }
         ],
         "description": "- [Get Global Application Commands](https://discord.com/developers/docs/interactions/application-commands#get-global-application-commands)\n\n    > warn\n  > The objects returned by this endpoint may be augmented with [additional fields if localization is active](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/retrieving-localized-commands).\n  Fetch all of the global commands for your application. Returns an array of [application command](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object) objects."
@@ -566,8 +565,7 @@
             "schema": {
               "type": "boolean"
             },
-            "description": "Whether to include full localization dictionaries (`name_localizations` and `description_localizations`) in the returned objects, instead of the `name_localized` and `description_localized` fields. Default `false`.",
-            "required": false
+            "description": "Whether to include full localization dictionaries (`name_localizations` and `description_localizations`) in the returned objects, instead of the `name_localized` and `description_localized` fields. Default `false`."
           }
         ],
         "description": "- [Get Guild Application Commands](https://discord.com/developers/docs/interactions/application-commands#get-guild-application-commands)\n\n    > warn\n  > The objects returned by this endpoint may be augmented with [additional fields if localization is active](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/retrieving-localized-commands).\n  Fetch all of the guild commands for your application for a specific guild. Returns an array of [application command](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object) objects."
@@ -963,8 +961,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "Entries from a specific user ID",
-            "required": false
+            "description": "Entries from a specific user ID"
           },
           {
             "in": "query",
@@ -972,8 +969,7 @@
             "schema": {
               "$ref": "#/components/schemas/AuditLogEvents"
             },
-            "description": "Entries for a specific [audit log event](#DOCS_RESOURCES_AUDIT_LOG/audit-log-entry-object-audit-log-events)",
-            "required": false
+            "description": "Entries for a specific [audit log event](#DOCS_RESOURCES_AUDIT_LOG/audit-log-entry-object-audit-log-events)"
           },
           {
             "in": "query",
@@ -981,8 +977,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "Entries that preceded a specific audit log entry ID",
-            "required": false
+            "description": "Entries that preceded a specific audit log entry ID"
           },
           {
             "in": "query",
@@ -990,8 +985,7 @@
             "schema": {
               "type": "integer"
             },
-            "description": "Maximum number of entries (between 1-100) to return, defaults to 50",
-            "required": false
+            "description": "Maximum number of entries (between 1-100) to return, defaults to 50"
           }
         ],
         "description": "- [Get Guild Audit Log](https://discord.com/developers/docs/resources/audit-log#get-guild-audit-log)\n\n    Returns an [audit log](#DOCS_RESOURCES_AUDIT_LOG/audit-log-object) object for the guild. Requires the [`VIEW_AUDIT_LOG`](#DOCS_TOPICS_PERMISSIONS/permissions-bitwise-permission-flags) permission."
@@ -1322,8 +1316,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "Get messages around this message ID\ndefault: absent",
-            "required": false
+            "description": "Get messages around this message ID\ndefault: absent"
           },
           {
             "in": "query",
@@ -1331,8 +1324,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "Get messages before this message ID\ndefault: absent",
-            "required": false
+            "description": "Get messages before this message ID\ndefault: absent"
           },
           {
             "in": "query",
@@ -1340,8 +1332,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "Get messages after this message ID\ndefault: absent",
-            "required": false
+            "description": "Get messages after this message ID\ndefault: absent"
           },
           {
             "in": "query",
@@ -1349,8 +1340,7 @@
             "schema": {
               "type": "integer"
             },
-            "description": "Max number of messages to return (1-100)\ndefault: 50",
-            "required": false
+            "description": "Max number of messages to return (1-100)\ndefault: 50"
           }
         ],
         "description": "- [Get Channel Messages](https://discord.com/developers/docs/resources/channel#get-channel-messages)\n\n    Returns the messages for a channel. If operating on a guild channel, this endpoint requires the `VIEW_CHANNEL` permission to be present on the current user. If the current user is missing the `READ_MESSAGE_HISTORY` permission in the channel then this will return no messages (since they cannot read the message history). Returns an array of [message](#DOCS_RESOURCES_CHANNEL/message-object) objects on success.\n  > info\n  > The `before`, `after`, and `around` parameters are mutually exclusive, only one may be passed at a time."
@@ -1766,8 +1756,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "Get users after this user ID\ndefault: absent",
-            "required": false
+            "description": "Get users after this user ID\ndefault: absent"
           },
           {
             "in": "query",
@@ -1775,8 +1764,7 @@
             "schema": {
               "type": "integer"
             },
-            "description": "Max number of users to return (1-100)\ndefault: 25",
-            "required": false
+            "description": "Max number of users to return (1-100)\ndefault: 25"
           }
         ],
         "description": "- [Get Reactions](https://discord.com/developers/docs/resources/channel#get-reactions)\n\n    Get a list of users that reacted with this emoji. Returns an array of [user](#DOCS_RESOURCES_USER/user-object) objects on success.\n  The `emoji` must be [URL Encoded](https://en.wikipedia.org/wiki/Percent-encoding) or the request will fail with `10014: Unknown Emoji`. To use custom emoji, you must encode it in the format `name:id` with the emoji name and emoji id."
@@ -2701,8 +2689,7 @@
             "schema": {
               "$ref": "#/components/schemas/ISO8601DateTime"
             },
-            "description": "returns threads before this timestamp",
-            "required": false
+            "description": "returns threads before this timestamp"
           },
           {
             "in": "query",
@@ -2710,8 +2697,7 @@
             "schema": {
               "type": "integer"
             },
-            "description": "optional maximum number of threads to return",
-            "required": false
+            "description": "optional maximum number of threads to return"
           }
         ],
         "description": "- [List Public Archived Threads](https://discord.com/developers/docs/resources/channel#list-public-archived-threads)\n\n    Returns archived threads in the channel that are public. When called on a `GUILD_TEXT` channel, returns threads of [type](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) `PUBLIC_THREAD`. When called on a `GUILD_ANNOUNCEMENT` channel returns threads of [type](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) `ANNOUNCEMENT_THREAD`. Threads are ordered by `archive_timestamp`, in descending order. Requires the `READ_MESSAGE_HISTORY` permission."
@@ -2762,8 +2748,7 @@
             "schema": {
               "$ref": "#/components/schemas/ISO8601DateTime"
             },
-            "description": "returns threads before this timestamp",
-            "required": false
+            "description": "returns threads before this timestamp"
           },
           {
             "in": "query",
@@ -2771,8 +2756,7 @@
             "schema": {
               "type": "integer"
             },
-            "description": "optional maximum number of threads to return",
-            "required": false
+            "description": "optional maximum number of threads to return"
           }
         ],
         "description": "- [List Private Archived Threads](https://discord.com/developers/docs/resources/channel#list-private-archived-threads)\n\n    Returns archived threads in the channel that are of [type](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) `GUILD_PRIVATE_THREAD`. Threads are ordered by `archive_timestamp`, in descending order. Requires both the `READ_MESSAGE_HISTORY` and `MANAGE_THREADS` permissions."
@@ -2823,8 +2807,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "returns threads before this id",
-            "required": false
+            "description": "returns threads before this id"
           },
           {
             "in": "query",
@@ -2832,8 +2815,7 @@
             "schema": {
               "type": "integer"
             },
-            "description": "optional maximum number of threads to return",
-            "required": false
+            "description": "optional maximum number of threads to return"
           }
         ],
         "description": "- [List Joined Private Archived Threads](https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads)\n\n    Returns archived threads in the channel that are of [type](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) `GUILD_PRIVATE_THREAD`, and the user has joined. Threads are ordered by their `id`, in descending order. Requires the `READ_MESSAGE_HISTORY` permission."
@@ -3160,8 +3142,7 @@
             "schema": {
               "type": "boolean"
             },
-            "description": "when `true`, will return approximate member and presence counts for the guild\ndefault: false",
-            "required": false
+            "description": "when `true`, will return approximate member and presence counts for the guild\ndefault: false"
           }
         ],
         "description": "- [Get Guild](https://discord.com/developers/docs/resources/guild#get-guild)\n\n    Returns the [guild](#DOCS_RESOURCES_GUILD/guild-object) object for the given id. If `with_counts` is set to `true`, this endpoint will also return `approximate_member_count` and `approximate_presence_count` for the guild."
@@ -3887,8 +3868,7 @@
             "schema": {
               "type": "number"
             },
-            "description": "number of users to return (up to maximum 1000)\ndefault: 1000",
-            "required": false
+            "description": "number of users to return (up to maximum 1000)\ndefault: 1000"
           },
           {
             "in": "query",
@@ -3896,8 +3876,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "consider only users before given user id\ndefault: null",
-            "required": false
+            "description": "consider only users before given user id\ndefault: null"
           },
           {
             "in": "query",
@@ -3905,8 +3884,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "consider only users after given user id\ndefault: null",
-            "required": false
+            "description": "consider only users after given user id\ndefault: null"
           }
         ],
         "description": "- [Get Guild Bans](https://discord.com/developers/docs/resources/guild#get-guild-bans)\n\n    Returns a list of [ban](#DOCS_RESOURCES_GUILD/ban-object) objects for the users banned from this guild. Requires the `BAN_MEMBERS` permission."
@@ -4926,8 +4904,7 @@
             "schema": {
               "type": "boolean"
             },
-            "description": "include number of users subscribed to each event",
-            "required": false
+            "description": "include number of users subscribed to each event"
           }
         ],
         "description": "- [List Scheduled Events for Guild](https://discord.com/developers/docs/resources/guild-scheduled-event#list-scheduled-events-for-guild)\n\n    Returns a list of [guild scheduled event](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object) objects for the given guild."
@@ -5016,8 +4993,7 @@
             "schema": {
               "type": "boolean"
             },
-            "description": "include number of users subscribed to this event",
-            "required": false
+            "description": "include number of users subscribed to this event"
           }
         ],
         "description": "- [Get Guild Scheduled Event](https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event)\n\n    Get a guild scheduled event. Returns a [guild scheduled event](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object) object on success."
@@ -5135,8 +5111,7 @@
             "schema": {
               "type": "number"
             },
-            "description": "number of users to return (up to maximum 100)\ndefault: 100",
-            "required": false
+            "description": "number of users to return (up to maximum 100)\ndefault: 100"
           },
           {
             "in": "query",
@@ -5144,8 +5119,7 @@
             "schema": {
               "type": "boolean"
             },
-            "description": "include guild member data if it exists\ndefault: false",
-            "required": false
+            "description": "include guild member data if it exists\ndefault: false"
           },
           {
             "in": "query",
@@ -5153,8 +5127,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "consider only users before given user id\ndefault: null",
-            "required": false
+            "description": "consider only users before given user id\ndefault: null"
           },
           {
             "in": "query",
@@ -5162,8 +5135,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "consider only users after given user id\ndefault: null",
-            "required": false
+            "description": "consider only users after given user id\ndefault: null"
           }
         ],
         "description": "- [Get Guild Scheduled Event Users](https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-users)\n\n    Get a list of guild scheduled event users subscribed to a guild scheduled event. Returns a list of [guild scheduled event user](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-user-object) objects on success. Guild member data, if it exists, is included if the `with_member` query parameter is set."
@@ -5468,8 +5440,7 @@
             "schema": {
               "type": "boolean"
             },
-            "description": "whether the invite should contain approximate member counts",
-            "required": false
+            "description": "whether the invite should contain approximate member counts"
           },
           {
             "in": "query",
@@ -5477,8 +5448,7 @@
             "schema": {
               "type": "boolean"
             },
-            "description": "whether the invite should contain the expiration date",
-            "required": false
+            "description": "whether the invite should contain the expiration date"
           },
           {
             "in": "query",
@@ -5486,8 +5456,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "the guild scheduled event to include with the invite",
-            "required": false
+            "description": "the guild scheduled event to include with the invite"
           }
         ],
         "description": "- [Get Invite](https://discord.com/developers/docs/resources/invite#get-invite)\n\n    Returns an [invite](#DOCS_RESOURCES_INVITE/invite-object) object for the given code."
@@ -7526,8 +7495,7 @@
             "schema": {
               "type": "boolean"
             },
-            "description": "waits for server confirmation of message send before response, and returns the created message body (defaults to `false`; when `false` a message that is not saved does not return an error)",
-            "required": false
+            "description": "waits for server confirmation of message send before response, and returns the created message body (defaults to `false`; when `false` a message that is not saved does not return an error)"
           },
           {
             "in": "query",
@@ -7535,8 +7503,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "Send a message to the specified thread within a webhook's channel. The thread will automatically be unarchived.",
-            "required": false
+            "description": "Send a message to the specified thread within a webhook's channel. The thread will automatically be unarchived."
           }
         ],
         "description": "- [Execute Webhook](https://discord.com/developers/docs/resources/webhook#execute-webhook)\n\n    Refer to [Uploading Files](#DOCS_REFERENCE/uploading-files) for details on attachments and `multipart/form-data` requests. Returns a message or `204 No Content` depending on the `wait` query parameter.\n  > info\n  > Note that when sending a message, you must provide a value for at **least one of** `content`, `embeds`, `components`, or `file`.\n  > info\n  > If the webhook channel is a forum channel, you must provide either `thread_id` in the query string params, or `thread_name` in the JSON/form params. If `thread_id` is provided, the message will send in that thread. If `thread_name` is provided, a thread with that name will be created in the forum channel."
@@ -7597,8 +7564,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "id of the thread to send the message in",
-            "required": false
+            "description": "id of the thread to send the message in"
           },
           {
             "in": "query",
@@ -7606,8 +7572,7 @@
             "schema": {
               "type": "boolean"
             },
-            "description": "waits for server confirmation of message send before response (defaults to `true`; when `false` a message that is not saved does not return an error)",
-            "required": false
+            "description": "waits for server confirmation of message send before response (defaults to `true`; when `false` a message that is not saved does not return an error)"
           }
         ],
         "description": "- [Execute Slack-Compatible Webhook](https://discord.com/developers/docs/resources/webhook#execute-slack-compatible-webhook)\n\n    Refer to [Slack's documentation](https://api.slack.com/incoming-webhooks) for more information. We do not support Slack's `channel`, `icon_emoji`, `mrkdwn`, or `mrkdwn_in` properties."
@@ -7668,8 +7633,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "id of the thread to send the message in",
-            "required": false
+            "description": "id of the thread to send the message in"
           },
           {
             "in": "query",
@@ -7677,8 +7641,7 @@
             "schema": {
               "type": "boolean"
             },
-            "description": "waits for server confirmation of message send before response (defaults to `true`; when `false` a message that is not saved does not return an error)",
-            "required": false
+            "description": "waits for server confirmation of message send before response (defaults to `true`; when `false` a message that is not saved does not return an error)"
           }
         ],
         "description": "- [Execute GitHub-Compatible Webhook](https://discord.com/developers/docs/resources/webhook#execute-github-compatible-webhook)\n\n    Add a new webhook to your GitHub repo (in the repo's settings), and use this endpoint as the \"Payload URL.\" You can choose what events your Discord channel receives by choosing the \"Let me select individual events\" option and selecting individual events for the new webhook you're configuring."
@@ -7748,8 +7711,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "id of the thread the message is in",
-            "required": false
+            "description": "id of the thread the message is in"
           }
         ],
         "description": "- [Get Webhook Message](https://discord.com/developers/docs/resources/webhook#get-webhook-message)\n\n    Returns a previously-sent webhook message from the same token. Returns a [message](#DOCS_RESOURCES_CHANNEL/message-object) object on success."
@@ -7787,8 +7749,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "id of the thread the message is in",
-            "required": false
+            "description": "id of the thread the message is in"
           }
         ],
         "description": "- [Edit Webhook Message](https://discord.com/developers/docs/resources/webhook#edit-webhook-message)\n\n    Edits a previously-sent webhook message from the same token. Returns a [message](#DOCS_RESOURCES_CHANNEL/message-object) object on success.\n  When the `content` field is edited, the `mentions` array in the message object will be reconstructed from scratch based on the new content. The `allowed_mentions` field of the edit request controls how this happens. If there is no explicit `allowed_mentions` in the edit request, the content will be parsed with _default_ allowances, that is, without regard to whether or not an `allowed_mentions` was present in the request that originally created the message.\n  Refer to [Uploading Files](#DOCS_REFERENCE/uploading-files) for details on attachments and `multipart/form-data` requests.\n  Any provided files will be **appended** to the message. To remove or replace files you will have to supply the `attachments` field which specifies the files to retain on the message after edit.\n  > warn\n  > Starting with API v10, the `attachments` array must contain all attachments that should be present after edit, including **retained and new** attachments provided in the request body.\n  > info\n  > All parameters to this endpoint are optional and nullable."
@@ -7826,8 +7787,7 @@
             "schema": {
               "$ref": "#/components/schemas/Snowflake"
             },
-            "description": "id of the thread the message is in",
-            "required": false
+            "description": "id of the thread the message is in"
           }
         ],
         "description": "- [Delete Webhook Message](https://discord.com/developers/docs/resources/webhook#delete-webhook-message)\n\n    Deletes a message that was created by the webhook. Returns a `204 No Content` response on success."
@@ -7980,8 +7940,8 @@
             }
           },
           "X-RateLimit-Scope": {
-            "type": "string",
             "schema": {
+              "type": "string",
               "enum": [
                 "user",
                 "global",
@@ -11135,7 +11095,6 @@
             "description": "whether this is the guild's premium subscriber role"
           }
         },
-        "required": [],
         "externalDocs": {
           "url": "https://discord.com/developers/docs/topics/permissions#role-object-role-tags-structure"
         }
@@ -12305,7 +12264,6 @@
             "description": "TIMEOUT - timeout duration in seconds *"
           }
         },
-        "required": [],
         "externalDocs": {
           "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object-action-metadata"
         }
@@ -13122,7 +13080,6 @@
             "description": "width of video"
           }
         },
-        "required": [],
         "externalDocs": {
           "url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-video-structure"
         }
@@ -13139,7 +13096,6 @@
             "description": "url of provider"
           }
         },
-        "required": [],
         "externalDocs": {
           "url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-provider-structure"
         }
@@ -13286,7 +13242,6 @@
             "description": "fields information"
           }
         },
-        "required": [],
         "externalDocs": {
           "url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-structure"
         }
@@ -13700,7 +13655,6 @@
             "description": "when sending, whether to error if the referenced message doesn't exist instead of sending as a normal (non-reply) message, default true"
           }
         },
-        "required": [],
         "externalDocs": {
           "url": "https://discord.com/developers/docs/resources/channel#message-reference-object-message-reference-structure"
         }
@@ -14798,7 +14752,6 @@
             "description": "location of the event (1-100 characters)"
           }
         },
-        "required": [],
         "externalDocs": {
           "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object-guild-scheduled-event-entity-metadata"
         }
@@ -16242,7 +16195,6 @@
             "description": "the ids and attachment objects"
           }
         },
-        "required": [],
         "externalDocs": {
           "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-resolved-data-structure"
         }
