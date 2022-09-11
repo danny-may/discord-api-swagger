@@ -3,9 +3,15 @@ import { IFileRegion } from "./File.js";
 import { NotATypeError } from "./NotATypeError.js";
 import { TypeReader } from "./TypeReader.js";
 
-export class TableReader {
-    public read(region: IFileRegion, table: string[][], reader: TypeReader): OpenAPIV3.SchemaObject {
-        const headers = table[0];
+export class TableSchemaReader {
+    readonly #typeReader: TypeReader;
+
+    public constructor(typeReader: TypeReader) {
+        this.#typeReader = typeReader;
+    }
+
+    public read(region: IFileRegion, typePrefix: string, table: string[][]): OpenAPIV3.SchemaObject {
+        const headers = table[0].filter(h => h !== '');
         let readers = schemes.filter(s => s.targets.some(s =>
             s.regionId !== undefined
             && s.regionId.test(region.id)
@@ -25,11 +31,11 @@ export class TableReader {
             throw new Error(`${region.id} - Multiple readers for headers ${JSON.stringify(headers)}`)
 
         if (readers.length === 0) {
-            console.warn(`${region.id} - No reader for headers ${JSON.stringify(headers)}`);
-            throw new NotATypeError(`${region.id} - No reader for headers ${JSON.stringify(headers)}`);
+            console.warn(new NotATypeError(`${region.id} - No reader for headers ${JSON.stringify(headers)}`));
+            return {};
         }
 
-        return readers[0].read(region, table.slice(1), reader);
+        return readers[0].read(region, typePrefix, table.slice(1), this.#typeReader);
     }
 }
 
@@ -38,7 +44,7 @@ interface ITableReaderScheme {
         readonly regionId?: RegExp;
         readonly headers: string[];
     }[]
-    read(region: IFileRegion, table: string[][], reader: TypeReader): OpenAPIV3.SchemaObject;
+    read(region: IFileRegion, typePrefix: string, table: string[][], reader: TypeReader): OpenAPIV3.SchemaObject;
 }
 
 const nameTypeDescObjectScheme: ITableReaderScheme = {
@@ -48,7 +54,7 @@ const nameTypeDescObjectScheme: ITableReaderScheme = {
         { headers: ['field', 'type', 'description', 'valid types'] },
         { headers: ['name', 'type', 'description'] }
     ],
-    read(region, table, reader) {
+    read(region, typePrefix, table, reader) {
         const properties: Record<string, OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject> = {};
         const required: string[] = [];
         for (const row of table) {
@@ -57,7 +63,7 @@ const nameTypeDescObjectScheme: ITableReaderScheme = {
             if (!meta.optional)
                 required.push(meta.name);
 
-            const parsed = reader.readType(region, meta.name, type, description);
+            const parsed = reader.readType(region, typePrefix, meta.name, type, description);
             const prop = properties[meta.name] = '$ref' in parsed ? { allOf: [parsed] } : parsed;
             if (meta.deprecated || description.includes('(deprecated)'))
                 prop.deprecated = true;
@@ -72,6 +78,56 @@ const nameTypeDescObjectScheme: ITableReaderScheme = {
         }
     }
 };
+
+const nameTypeDescReqObjectScheme: ITableReaderScheme = {
+    targets: [
+        { headers: ['field', 'type', 'description', 'required'] }
+    ],
+    read(region, typePrefix, table, reader) {
+        return nameTypeDescObjectScheme.read(region, typePrefix, table.map(([name, type, desc, required, ...rest]) => {
+            switch (required.toLowerCase()) {
+                case 'true': {
+                    if (name.endsWith('?'))
+                        name = name.slice(0, -1);
+                    break;
+                }
+                case 'false': {
+                    if (!name.endsWith('?'))
+                        name = `${name}?`;
+                    break;
+                }
+                default: {
+                    if (!name.endsWith('?'))
+                        name = `${name}?`;
+                    desc += `\n required: ${required}`;
+                    break;
+                }
+            }
+            return [name, type, desc, ...rest]
+        }), reader)
+    },
+}
+
+const nameTypeDescDefaultObjectScheme: ITableReaderScheme = {
+    targets: [
+        { headers: ['field', 'type', 'description', 'default'] }
+    ],
+    read(region, typePrefix, table, reader) {
+        return nameTypeDescObjectScheme.read(region, typePrefix, table.map(([name, type, desc, fallback, ...rest]) => {
+            return [name, type, `${desc}\ndefault: ${fallback}`, ...rest]
+        }), reader)
+    },
+}
+const nameTypeDescRequiredDefaultObjectScheme: ITableReaderScheme = {
+    targets: [
+        { headers: ['field', 'type', 'description', 'required', 'default'] }
+    ],
+    read(region, typePrefix, table, reader) {
+        return nameTypeDescObjectScheme.read(region, typePrefix, table.map(([name, type, desc, required, fallback, ...rest]) => {
+            return [name, type, `${desc}\ndefault: ${fallback}`, required, ...rest]
+        }), reader)
+    },
+}
 
 const nameValueDescEnumScheme: ITableReaderScheme = {
     targets: [
@@ -93,12 +149,13 @@ const nameValueDescEnumScheme: ITableReaderScheme = {
             headers: ['name', 'type', 'description']
         },
     ],
-    read(_region, table) {
-        const values: { asString: string, asNumber: number, display(value: unknown): string | undefined }[] = [];
+    read(_region, _typePrefix, table) {
+        const values: { asString: string, asNumber: number, name: string, display(value: unknown): string | undefined }[] = [];
         for (const [name, value, description = ''] of table) {
             values.push({
                 asString: value,
                 asNumber: parseFloat(value),
+                name,
                 display(value) {
                     if (name === '') {
                         if (description === '')
@@ -123,6 +180,9 @@ const nameValueDescEnumScheme: ITableReaderScheme = {
         return {
             type,
             enum: values.map(selector),
+            ['x-enumNames']: values.map(v => v.name),     // nswag
+            ['x-enum-varnames']: values.map(v => v.name), // openapi
+            ['x-ms-enum']: values.map(v => v.name),       // AutoRest
             description: values.map(v => v.display(selector(v))).filter(v => v !== undefined).join('\n')
         }
     }
@@ -135,8 +195,8 @@ const valueNameDescEnumScheme: ITableReaderScheme = {
         { headers: ['value', 'name', 'description'] },
         { headers: ['locale', 'language name', 'native name'] },
     ],
-    read(region, table, resolver) {
-        return nameValueDescEnumScheme.read(region, table.map(([value, name, ...rest]) => [name, value, ...rest]), resolver)
+    read(region, typePrefix, table, reader) {
+        return nameValueDescEnumScheme.read(region, typePrefix, table.map(([value, name, ...rest]) => [name, value, ...rest]), reader)
     }
 }
 
@@ -146,8 +206,8 @@ const valueDescEnumScheme: ITableReaderScheme = {
         { headers: ['name', 'description'] },
         { headers: ['type', 'description'] },
     ],
-    read(region, table, resolver) {
-        return nameValueDescEnumScheme.read(region, table.map(([value, ...rest]) => ['', value, ...rest]), resolver)
+    read(region, typePrefix, table, reader) {
+        return nameValueDescEnumScheme.read(region, typePrefix, table.map(([value, ...rest]) => ['', value, ...rest]), reader)
     }
 }
 
@@ -156,8 +216,8 @@ const nameValueDescFlagScheme: ITableReaderScheme = {
         { regionId: /-flags$/, headers: ['flag', 'value', 'description'] },
         { regionId: /-flags$/, headers: ['permission', 'value', 'description', 'channel type'] },
     ],
-    read(region, table) {
-        const values: Array<{ asString: string, asNumber: number, display(value: unknown): string | undefined }> = [];
+    read(region, _typePrefix, table) {
+        const values: Array<{ asString: string, asNumber: number, name: string, display(value: unknown): string | undefined }> = [];
         for (const [name, value, description] of table) {
             const match = value.match(/1 << (\d+)/);
             if (match === null) {
@@ -171,6 +231,7 @@ const nameValueDescFlagScheme: ITableReaderScheme = {
             values.push({
                 asString: asString,
                 asNumber: asNumber,
+                name,
                 display(value) {
                     if (name === '') {
                         if (description === '')
@@ -194,6 +255,9 @@ const nameValueDescFlagScheme: ITableReaderScheme = {
             type,
             format: type === 'string' ? 'uint64' : undefined,
             enum: values.map(selector),
+            ['x-enumNames']: values.map(v => v.name),     // nswag
+            ['x-enum-varnames']: values.map(v => v.name), // openapi
+            ['x-ms-enum']: values.map(v => v.name),       // AutoRest
             description: values.map(v => v.display(selector(v))).filter(v => v !== undefined).join('\n')
         }
     },
@@ -203,13 +267,16 @@ const valueNameDescFlagScheme: ITableReaderScheme = {
     targets: [
         { regionId: /-flags$/, headers: ['value', 'name', 'description'] },
     ],
-    read(region, table, typeResolver) {
-        return nameValueDescFlagScheme.read(region, table.map(([value, name, ...rest]) => [name, value, ...rest]), typeResolver);
+    read(region, typePrefix, table, reader) {
+        return nameValueDescFlagScheme.read(region, typePrefix, table.map(([value, name, ...rest]) => [name, value, ...rest]), reader);
     }
 }
 
 const schemes: ITableReaderScheme[] = [
     nameTypeDescObjectScheme,
+    nameTypeDescReqObjectScheme,
+    nameTypeDescDefaultObjectScheme,
+    nameTypeDescRequiredDefaultObjectScheme,
     nameValueDescEnumScheme,
     valueNameDescEnumScheme,
     valueDescEnumScheme,
@@ -222,9 +289,20 @@ const schemes: ITableReaderScheme[] = [
                 headers: ['field', 'type', 'associated action types', 'description'],
             }
         ],
-        read(region, table, resolver) {
-            return nameTypeDescObjectScheme.read(region, table.map(([field, type, desc1, desc2, ...rest]) => [`${field}?`, type, `${desc1} - ${desc2}`, ...rest]), resolver)
+        read(region, typePrefix, table, reader) {
+            return nameTypeDescObjectScheme.read(region, typePrefix, table.map(([field, type, desc1, desc2, ...rest]) => [`${field}?`, type, `${desc1} - ${desc2}`, ...rest]), reader)
         }
+    },
+    {
+        targets: [
+            {
+                regionId: /^DOCS_RESOURCES_AUDIT_LOG\/audit-log-entry-object-audit-log-events$/,
+                headers: ['event', 'value', 'description', 'object changed']
+            }
+        ],
+        read(region, typePrefix, table, reader) {
+            return nameValueDescEnumScheme.read(region, typePrefix, table.map(([event, value, desc, obj, ...rest]) => [event, value, obj === '' ? desc : `${desc} - ${obj}`, ...rest]), reader)
+        },
     }
 ]
 

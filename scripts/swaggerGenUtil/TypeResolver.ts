@@ -3,34 +3,36 @@ import { DocumentationResolver } from "./DocumentationResolver.js";
 import { IFileRegion } from "./File.js";
 import { FileProvider } from "./FileProvider.js";
 import { NotATypeError } from "./NotATypeError.js";
-import { TableReader } from "./TableReader.js";
+import { RegionSchemaReader } from "./RegionSchemaReader.js";
 import { toPascalCase } from "./toPascalCase.js";
-import { TypeReader } from "./TypeReader.js";
 
 export class TypeResolver {
     readonly #files: FileProvider;
     readonly #schemas: Record<string, OpenAPIV3.SchemaObject>;
     readonly #documentation: DocumentationResolver;
-    readonly #tableReader: TableReader;
-    readonly #schemaCache: Map<IFileRegion, () => { id: string, schema: OpenAPIV3.SchemaObject }>;
-    readonly #typeReader: TypeReader;
+    readonly #regionTypeReader: RegionSchemaReader;
+    readonly #schemaCache: Map<string, () => { id: string, schema: OpenAPIV3.SchemaObject }>;
+    readonly #typeIdRemappings: Record<string, string>;
 
     public constructor(
         files: FileProvider,
         schemas: Record<string, OpenAPIV3.SchemaObject>,
         documentationResolver: DocumentationResolver,
-        tableReader: TableReader) {
+        regionTypeReader: RegionSchemaReader,
+        typeIdRemappings: Record<string, string>) {
         this.#files = files;
         this.#schemas = schemas;
         this.#documentation = documentationResolver;
-        this.#tableReader = tableReader;
-        this.#typeReader = new TypeReader(this);
+        this.#regionTypeReader = regionTypeReader;
+        this.#typeIdRemappings = typeIdRemappings;
         this.#schemaCache = new Map();
     }
 
-    public getSchema(schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject | string): OpenAPIV3.SchemaObject {
+    public getSchema(schema: string, typePrefix: string): OpenAPIV3.SchemaObject
+    public getSchema(schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject): OpenAPIV3.SchemaObject
+    public getSchema(schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject | string, typePrefix: string = ''): OpenAPIV3.SchemaObject {
         if (typeof schema === 'string')
-            return this.#getTypeDetails(schema).schema;
+            return this.#getTypeDetails(schema, typePrefix).schema;
 
         if (!('$ref' in schema))
             return schema;
@@ -52,23 +54,24 @@ export class TypeResolver {
         return { $ref: `#/components/schemas/${realId}` };
     }
 
-    public getRef(typeId: string): OpenAPIV3.ReferenceObject {
-        const details = this.#getTypeDetails(typeId);
+    public getRef(typeId: string, typePrefix: string): OpenAPIV3.ReferenceObject {
+        const details = this.#getTypeDetails(typeId, typePrefix);
+        const id = `${this.#toId(typePrefix)}${details.id}`;
 
-        const current = this.#schemas[details.id] ??= details.schema;
+        const current = this.#schemas[id] ??= details.schema;
         if (current !== details.schema)
-            throw new Error(`Duplicate type for id ${details.id}`);
+            throw new Error(`Duplicate type for id ${id}`);
 
-        return { $ref: `#/components/schemas/${details.id}` };
+        return { $ref: `#/components/schemas/${id}` };
     }
 
     #toId(id: string): string {
         return toPascalCase(id).replace(/(struct(ure)?|object|enum)$/i, '');
     }
 
-    #getTypeDetails(typeId: string): { id: string, schema: OpenAPIV3.SchemaObject } {
-        while (typeId in typeIdRemappings)
-            typeId = typeIdRemappings[typeId];
+    #getTypeDetails(typeId: string, typePrefix: string): { id: string, schema: OpenAPIV3.SchemaObject } {
+        while (typeId in this.#typeIdRemappings)
+            typeId = this.#typeIdRemappings[typeId];
 
         if (typeId in typeOverrides) {
             const override = typeOverrides[typeId];
@@ -82,43 +85,48 @@ export class TypeResolver {
         if (region === undefined)
             throw new NotATypeError('Unknown region ' + typeId);
 
-        let result = this.#schemaCache.get(region);
+        const id = `${region.id}|${typePrefix}`;
+        let result = this.#schemaCache.get(id);
         if (result === undefined) {
-            const details = this.#computeTypeDetails(region);
-            this.#schemaCache.set(region, result = details.result);
-            if (!this.#schemaCache.has(details.region))
-                this.#schemaCache.set(details.region, details.result);
+            const details = this.#computeTypeDetails(region, typePrefix);
+            this.#schemaCache.set(id, result = details.result);
+            const detailsId = `${details.region.id}|${typePrefix}`
+            if (!this.#schemaCache.has(detailsId))
+                this.#schemaCache.set(detailsId, details.result);
         }
 
         return result();
     }
 
-    #computeTypeDetails(region: IFileRegion): { region: IFileRegion, result: () => { id: string, schema: OpenAPIV3.SchemaObject } } {
-        const match = this.#findTable(region);
-        if (typeof match === 'function')
-            return { region, result: () => { throw match(); } };
-
-        region = match.region;
-        const table = match.table;
+    #computeTypeDetails(region: IFileRegion, typePrefix: string): { region: IFileRegion, result: () => { id: string, schema: OpenAPIV3.SchemaObject } } {
         const id = this.#toId(region.name);
-        let schema: OpenAPIV3.SchemaObject | undefined;
-        const schemaGetter = () => {
-            if (schema === undefined) {
-                schema = {};
-                Object.assign(schema, this.#tableReader.read(region, table, this.#typeReader));
-                this.#ensureDocumentation(schema, region.id);
-            }
-            return schema;
+        let result: { region: IFileRegion, schema: OpenAPIV3.SchemaObject } | undefined;
+        const getResult = () => {
+            if (result !== undefined)
+                return result;
+            result = this.#regionTypeReader.read(region, typePrefix);
+            this.#ensureDocumentation(result.schema, result.region.id);
+            return result;
         }
+        let schema: undefined | (() => OpenAPIV3.SchemaObject);
         return {
-            region,
+            get region() { return getResult().region },
             result: () => ({
                 id,
                 get schema() {
-                    return schemaGetter()
+                    if (schema === undefined) {
+                        const result: OpenAPIV3.SchemaObject = {};
+                        schema = () => result;
+                        try {
+                            Object.assign(result, getResult().schema)
+                        } catch (err) {
+                            schema = () => { throw err; };
+                        }
+                    }
+                    return schema();
                 }
             })
-        };
+        }
     }
 
     #ensureDocumentation(schema: OpenAPIV3.SchemaObject, id: string): OpenAPIV3.SchemaObject {
@@ -134,29 +142,6 @@ export class TypeResolver {
         return schema;
     }
 
-    #findTable(region: IFileRegion): { region: IFileRegion, table: string[][] } | (() => Error) {
-        for (const searchRegion of getRegionsToSearch(region)) {
-            const tables = [...findTables(searchRegion.content)];
-            if (tables.length === 1)
-                return {
-                    region: searchRegion,
-                    table: tables[0]
-                        .map(row => row.split('|').slice(1, -1).map(cell => cell.trim()))
-                        .filter(row => !row.every(cell => cell.startsWith('-')))
-                };
-        }
-
-        return () => new NotATypeError(`Ambiguous or missing tables in region ${region.id}`);
-    }
-}
-
-const typeIdRemappings: Record<string, string> = {
-    'DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up': 'DOCS_RESOURCES_APPLICATION/application-object',
-    'DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object-interaction-data': 'DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object-application-command-data-structure',
-    'DOCS_TOPICS_PERMISSIONS': 'DOCS_TOPICS_PERMISSIONS/permissions-bitwise-permission-flags'
-}
-const postfixReplacements = {
-    '-object': '-structure'
 }
 
 const typeOverrides: Record<string, { id: string, schema: (self: TypeResolver) => OpenAPIV3.SchemaObject }> = {
@@ -174,6 +159,14 @@ const typeOverrides: Record<string, { id: string, schema: (self: TypeResolver) =
             format: 'date-time'
         })
     },
+    ['DOCS_REFERENCE/image-data']: {
+        id: 'ImageData',
+        schema: () => ({
+            type: 'string',
+            description: 'This should be a valid data uri',
+            example: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=='
+        })
+    },
     ['DOCS_REFERENCE/error-messages']: {
         id: 'DiscordApiError',
         schema: (self) => ({
@@ -182,11 +175,11 @@ const typeOverrides: Record<string, { id: string, schema: (self: TypeResolver) =
                 message: { type: 'string' },
                 code: {
                     oneOf: [
-                        self.getRef('DOCS_TOPICS_OPCODES_AND_STATUS_CODES/json-json-error-codes'),
+                        self.getRef('DOCS_TOPICS_OPCODES_AND_STATUS_CODES/json-json-error-codes', ''),
                         { type: 'number' }
                     ]
                 },
-                errors: self.getRef('DOCS_REFERENCE/error-messages/errors')
+                errors: self.getRef('DOCS_REFERENCE/error-messages/errors', '')
             },
             required: ['message', 'code']
         })
@@ -196,7 +189,7 @@ const typeOverrides: Record<string, { id: string, schema: (self: TypeResolver) =
         schema: (self) => ({
             type: 'object',
             properties: {
-                _errors: self.getRef('DOCS_REFERENCE/error-messages/errors/details')
+                _errors: self.getRef('DOCS_REFERENCE/error-messages/errors/details', '')
             },
             additionalProperties: { $ref: '#/components/schemas/DiscordErrorNode' }
         })
@@ -238,41 +231,13 @@ const typeOverrides: Record<string, { id: string, schema: (self: TypeResolver) =
                     type: 'array',
                     items: {
                         oneOf: [
-                            self.getRef('DOCS_INTERACTIONS_MESSAGE_COMPONENTS/button-object'),
-                            self.getRef('DOCS_INTERACTIONS_MESSAGE_COMPONENTS/select-menu-object'),
-                            self.getRef('DOCS_INTERACTIONS_MESSAGE_COMPONENTS/text-inputs-text-input-structure')
+                            self.getRef('DOCS_INTERACTIONS_MESSAGE_COMPONENTS/button-object', ''),
+                            self.getRef('DOCS_INTERACTIONS_MESSAGE_COMPONENTS/select-menu-object', ''),
+                            self.getRef('DOCS_INTERACTIONS_MESSAGE_COMPONENTS/text-inputs-text-input-structure', '')
                         ]
                     }
                 }
             }
         })
     }
-}
-
-function* getRegionsToSearch(root: IFileRegion): Iterable<IFileRegion> {
-    yield root;
-    for (const [postfix, replacement] of Object.entries(postfixReplacements)) {
-        const [fileId, fragment] = root.id.split('/');
-        if (fragment === undefined || !fragment.endsWith(postfix))
-            continue;
-
-        const newFragment = fragment.slice(0, -postfix.length) + replacement;
-
-        yield* root.children.filter(c => c.id === `${fileId}/${newFragment}` || c.id === `${fileId}/${fragment}-${newFragment}`)
-    }
-}
-
-function* findTables(content: string): Iterable<string[]> {
-    const result: string[] = [];
-    function* yieldTable() {
-        if (result.length > 0)
-            yield result.splice(0, result.length);
-    }
-    for (const line of content.split('\n').map(l => l.trim())) {
-        if (!line.startsWith('|') || !line.endsWith('|'))
-            yield* yieldTable();
-        else
-            result.push(line);
-    }
-    yield* yieldTable();
 }

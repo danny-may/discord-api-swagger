@@ -14,15 +14,14 @@ export class ResponseResolver {
         Object.assign(responses, commonResponses(typeResolver));
     }
 
-    public resolve(content: IFileRegion): OpenAPIV3.ResponsesObject {
-        return {
-            401: { $ref: '#/components/responses/DiscordUnauthorizedError' },
-            403: { $ref: '#/components/responses/DiscordForbiddenError' },
-            404: { $ref: '#/components/responses/DiscordNotFoundError' },
-            429: { $ref: '#/components/responses/DiscordRatelimitError' },
-            500: { $ref: '#/components/responses/DiscordApiError' },
-            502: { $ref: '#/components/responses/DiscordGatewayUnavailableError' }
-        };
+    public apply(content: IFileRegion, operation: OpenAPIV3.OperationObject): void {
+        operation.responses ??= {};
+        operation.responses[401] ??= { $ref: '#/components/responses/DiscordUnauthorizedError' };
+        operation.responses[403] ??= { $ref: '#/components/responses/DiscordForbiddenError' };
+        operation.responses[404] ??= { $ref: '#/components/responses/DiscordNotFoundError' };
+        operation.responses[429] ??= { $ref: '#/components/responses/DiscordRatelimitError' };
+        operation.responses[500] ??= { $ref: '#/components/responses/DiscordApiError' };
+        operation.responses[502] ??= { $ref: '#/components/responses/DiscordGatewayUnavailableError' };
     }
 }
 
@@ -38,27 +37,27 @@ const commonResponses: (typeResolver: TypeResolver) => OpenAPIV3.ResponsesObject
     DiscordUnauthorizedError: {
         description: 'The Authorization header was missing or invalid',
         content: {
-            'application/json': { schema: types.getRef('DOCS_REFERENCE/error-messages') }
+            'application/json': { schema: types.getRef('DOCS_REFERENCE/error-messages', '') }
         }
     },
     DiscordForbiddenError: {
         description: 'The Authorization token you passed did not have permission to the resource',
         content: {
-            'application/json': { schema: types.getRef('DOCS_REFERENCE/error-messages') }
+            'application/json': { schema: types.getRef('DOCS_REFERENCE/error-messages', '') }
         },
         headers: { ...ratelimitHeaders }
     },
     DiscordNotFoundError: {
         description: 'The resource at the location specified doesn\'t exist',
         content: {
-            'application/json': { schema: types.getRef('DOCS_REFERENCE/error-messages') }
+            'application/json': { schema: types.getRef('DOCS_REFERENCE/error-messages', '') }
         },
         headers: { ...ratelimitHeaders }
     },
     DiscordRatelimitError: {
         description: 'You are being rate limited',
         content: {
-            'application/json': { schema: types.getRef('DOCS_TOPICS_RATE_LIMITS/rate-limits') }
+            'application/json': { schema: types.getRef('DOCS_TOPICS_RATE_LIMITS/rate-limits', '') }
         },
         headers: {
             ...ratelimitHeaders,
@@ -72,7 +71,7 @@ const commonResponses: (typeResolver: TypeResolver) => OpenAPIV3.ResponsesObject
     DiscordApiError: {
         description: 'Generic discord error',
         content: {
-            'application/json': { schema: types.getRef('DOCS_REFERENCE/error-messages') }
+            'application/json': { schema: types.getRef('DOCS_REFERENCE/error-messages', '') }
         },
         headers: { ...ratelimitHeaders }
     }

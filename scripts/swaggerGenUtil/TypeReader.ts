@@ -4,15 +4,21 @@ import { NotATypeError } from "./NotATypeError.js";
 import { TypeResolver } from "./TypeResolver.js";
 
 export class TypeReader {
-    readonly #resolver: TypeResolver;
+    #resolverCache: TypeResolver | undefined;
+    #resolverFactory: () => TypeResolver | undefined;
 
-    public constructor(resolver: TypeResolver) {
-        this.#resolver = resolver;
+    get #resolver(): TypeResolver {
+        return this.#resolverCache ??= this.#resolverFactory() ?? (() => { throw new Error('No type resolver available yet'); })();
     }
 
-    public readType(region: IFileRegion, fieldName: string, type: string, description: string): OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject {
+    public constructor(resolverFactory: () => TypeResolver | undefined) {
+        this.#resolverFactory = resolverFactory;
+    }
+
+    public readType(region: IFileRegion, typePrefix: string, fieldName: string, type: string, description: string): OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject {
         const context: ITypeParseContext = {
             region,
+            typePrefix,
             fieldName,
             resolver: this.#resolver,
             description,
@@ -39,7 +45,7 @@ export class TypeReader {
                 return handler.readType(match, ctx);
         }
 
-        console.error(`Failed to parse type ${JSON.stringify(type)}`);
+        console.error(`${ctx.region.id} - Failed to parse type ${JSON.stringify(type)}`);
         return {}
     }
 }
@@ -47,6 +53,7 @@ export class TypeReader {
 
 interface ITypeParseContext {
     readonly region: IFileRegion;
+    readonly typePrefix: string;
     readonly fieldName: string;
     readonly resolver: TypeResolver;
     readonly description: string;
@@ -71,13 +78,13 @@ const typePatterns: ITypePattern[] = [
     {
         filter: /^int64|snowflake$/i,
         readType(_, ctx) {
-            return ctx.resolver.getRef('DOCS_REFERENCE/snowflakes');
+            return ctx.resolver.getRef('DOCS_REFERENCE/snowflakes', ctx.typePrefix);
         }
     },
     {
         filter: /^iso8601 ?timestamp$/i,
         readType(_, ctx) {
-            return ctx.resolver.getRef('DOCS_REFERENCE/iso8601-datetime');
+            return ctx.resolver.getRef('DOCS_REFERENCE/iso8601-datetime', ctx.typePrefix);
         }
     },
     {
@@ -105,7 +112,7 @@ const typePatterns: ITypePattern[] = [
         }
     },
     {
-        filter: /^double|float$/i,
+        filter: /^double|float|number$/i,
         readType(_, ctx) {
             return primitiveToEnum(['integer', 'number'], ctx) ?? { type: 'number' };
         }
@@ -125,25 +132,25 @@ const typePatterns: ITypePattern[] = [
     {
         filter: /^LobbyType$/,
         readType(_, ctx) {
-            return ctx.resolver.getRef('DOCS_GAME_SDK_LOBBIES/data-models-lobbytype-enum');
+            return ctx.resolver.getRef('DOCS_GAME_SDK_LOBBIES/data-models-lobbytype-enum', ctx.typePrefix);
         }
     },
     {
         filter: /^EntitlementType$/,
         readType(_, ctx) {
-            return ctx.resolver.getRef('DOCS_GAME_SDK_STORE/data-models-entitlementtype-enum');
+            return ctx.resolver.getRef('DOCS_GAME_SDK_STORE/data-models-entitlementtype-enum', ctx.typePrefix);
         }
     },
     {
         filter: /^SkuType$/,
         readType(_, ctx) {
-            return ctx.resolver.getRef('DOCS_GAME_SDK_STORE/data-models-skutype-enum');
+            return ctx.resolver.getRef('DOCS_GAME_SDK_STORE/data-models-skutype-enum', ctx.typePrefix);
         }
     },
     {
         filter: /^SkuPrice$/,
         readType(_, ctx) {
-            return ctx.resolver.getRef('DOCS_GAME_SDK_STORE/data-models-skuprice-struct');
+            return ctx.resolver.getRef('DOCS_GAME_SDK_STORE/data-models-skuprice-struct', ctx.typePrefix);
         }
     },
     {
@@ -152,6 +159,15 @@ const typePatterns: ITypePattern[] = [
             return {
                 type: 'number',
                 description: 'integer for `INTEGER` options, double for `NUMBER` options'
+            };
+        }
+    },
+    {
+        filter: /^string; comma-delimited array of snowflakes$/,
+        readType() {
+            return {
+                type: 'string',
+                description: 'comma-delimited array of snowflakes'
             };
         }
     },
@@ -213,10 +229,10 @@ const typePatterns: ITypePattern[] = [
                 ? declaredProperties
                 : declaredProperties.filter(p => filteredProps.has(p[0]));
 
-            const parentType = ctx.resolver.getSchema(ctx.region.id);
+            const parentType = ctx.resolver.getSchema(ctx.region.id, ctx.typePrefix);
             let externDocs: OpenAPIV3.ExternalDocumentationObject | undefined;
 
-            return ctx.resolver.setSchema([ctx.region.name, ctx.fieldName], {
+            return ctx.resolver.setSchema([ctx.typePrefix, ctx.region.name, ctx.fieldName], {
                 ...baseType,
                 properties: Object.fromEntries(properties),
                 required: undefined,
@@ -232,13 +248,13 @@ const typePatterns: ITypePattern[] = [
     {
         filter: /^\[.*?\]\(#(.*?)\)$/,
         readType(match, ctx) {
-            return ctx.resolver.getRef(match[1]);
+            return ctx.resolver.getRef(match[1], '');
         },
     },
     {
         filter: /^\[.*?\]\(#(.*?)\)(?: objects?)? ([\w\[\]]+)$/,
         readType(match, ctx) {
-            const type = ctx.resolver.getSchema(match[1]);
+            const type = ctx.resolver.getSchema(match[1], '');
             return { ...type.properties?.[match[2]] ?? {} };
         },
     }
@@ -247,7 +263,7 @@ const typePatterns: ITypePattern[] = [
 function primitiveToEnum(types: OpenAPIV3.SchemaObject['type'][], ctx: ITypeParseContext): OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject | undefined {
     for (const match of ctx.description.matchAll(/\[.*?\]\(#(.*?)\)/g)) {
         try {
-            const ref = ctx.resolver.getRef(match[1]);
+            const ref = ctx.resolver.getRef(match[1], '');
             const type = ctx.resolver.getSchema(ref);
             if (ref.$ref.endsWith('Flags') && type.type !== 'array' && types.includes(type.type))
                 return { type: type.type, format: type.format };

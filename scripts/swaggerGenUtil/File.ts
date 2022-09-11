@@ -83,22 +83,22 @@ function readContentRegions(source: string, file: File): IFileRegion {
             regionStack.pop();
 
         const name = line.slice(depth).trim();
+        const container = depth <= 5 ? root : (function () {
+            for (let i = regionStack.length - 1; i >= 0; i--) {
+                if (regionStack[i].depth <= 5)
+                    return regionStack[i];
+            }
+            return root;
+        })();
         let fragment = name.split('%')[0]
             .replaceAll(/[^ A-Z0-9]+/gi, '')
             .trim()
             .replaceAll(/ +/g, '-')
             .toLowerCase();
-        if (depth > 5) {
-            let parent: MutableFileRegion | undefined;
-            for (let i = regionStack.length - 1; i >= 0; i--) {
-                if (regionStack[i].depth <= 5) {
-                    parent = regionStack[i];
-                    break;
-                }
-            }
-            if (parent !== undefined)
-                fragment = `${parent.id.split('/')[1]}-${fragment}`;
-        }
+
+        if (container.id.includes('/'))
+            fragment = `${container.id.split('/')[1]}-${fragment}`;
+
         const region = new MutableFileRegion(`${file.id}/${fragment}`, file, depth, name);
         regionStack[regionStack.length - 1].children.push(region);
         regionStack.push(region)

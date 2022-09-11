@@ -10,7 +10,9 @@ import { RequestResolver } from "./swaggerGenUtil/RequestResolver.js";
 import { ResponseResolver } from './swaggerGenUtil/ResponseResolver.js';
 import { DocumentationResolver } from './swaggerGenUtil/DocumentationResolver.js';
 import { FileProvider } from './swaggerGenUtil/FileProvider.js';
-import { TableReader } from './swaggerGenUtil/TableReader.js';
+import { TableSchemaReader } from './swaggerGenUtil/TableSchemaReader.js';
+import { RegionSchemaReader } from './swaggerGenUtil/RegionSchemaReader.js';
+import { TypeReader } from './swaggerGenUtil/TypeReader.js';
 
 const docsZipResponse = await fetch('https://github.com/discord/discord-api-docs/archive/refs/heads/main.zip');
 if (docsZipResponse.status !== 200)
@@ -29,9 +31,16 @@ const files = new FileProvider(zip.getEntries()
     .map(e => ({ name: e.entryName.slice(22), content: e.getData().toString('utf-8') })));
 
 const documentation = new DocumentationResolver(files);
-const tableReader = new TableReader();
-const typeResolver = new TypeResolver(files, schemas, documentation, tableReader);
-const requestResolver = new RequestResolver(typeResolver, requestBodies);
+let tr: TypeResolver | undefined;
+const typeReader = new TypeReader(() => tr);
+const tableReader = new TableSchemaReader(typeReader);
+const regionReader = new RegionSchemaReader(tableReader)
+const typeResolver = tr = new TypeResolver(files, schemas, documentation, regionReader, {
+    'DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up': 'DOCS_RESOURCES_APPLICATION/application-object',
+    'DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object-interaction-data': 'DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object-application-command-data-structure',
+    'DOCS_TOPICS_PERMISSIONS': 'DOCS_TOPICS_PERMISSIONS/permissions-bitwise-permission-flags'
+});
+const requestResolver = new RequestResolver(regionReader, requestBodies);
 const responseResolver = new ResponseResolver(typeResolver, responses);
 const operationResolver = new OperationResolver(typeResolver, requestResolver, responseResolver, documentation);
 

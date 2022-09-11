@@ -29,12 +29,12 @@ export class OperationResolver {
                 parameters: [...route.matchAll(/(?<=\{)(?<name>.*?)(?:#(?<typeRef>.*?))?(?=\})/g)]
                     .map(match => {
                         const { groups: { name, typeRef = 'string' } = {} } = match;
-                        const type = this.#typeResolver.getRef(typeRef);
+                        const type = this.#typeResolver.getRef(typeRef, '');
                         let schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject = type;
                         const path = name.split('.').slice(1);
                         for (const element of path) {
-                            const currentSchema = this.#typeResolver.getSchema(schema)
-                            const nextSchemas = Object.entries(currentSchema.properties ?? {})
+                            const currentSchema: OpenAPIV3.SchemaObject = this.#typeResolver.getSchema(schema);
+                            const nextSchemas: Array<OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject> = Object.entries(currentSchema.properties ?? {})
                                 .filter(e => e[0].toLowerCase() === element.toLowerCase())
                                 .map(e => e[1]);
                             if (nextSchemas.length !== 1)
@@ -72,8 +72,8 @@ export class OperationResolver {
             else
                 operation.operationId += `Or${toCamelCase(name)}`;
 
-            operation.requestBody = this.#requestResolver.resolve(region); // TODO: Should merge not replace
-            Object.assign(operation.responses, this.#responseResolver.resolve(region)); // TODO: Should merge not replace
+            this.#requestResolver.apply(region, operation, method);
+            this.#responseResolver.apply(region, operation); // TODO: Should merge not replace
             operation.description ??= '';
             operation.description += `\n- [${name}](${this.#documentationResolver.getDocumentationUri(`${file.id}/${name}`)})`;
             operation.description += `\n\n  ${region.content.split('\n').map(line => `  ${line}`).join('\n')}`;
