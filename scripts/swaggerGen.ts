@@ -60,7 +60,8 @@ const swagger: OpenAPIV3.Document = {
     paths: (function () {
         let result = {};
         for (const file of files)
-            result = operationResolver.resolve(result, file);
+            if (!file.id.startsWith('DOCS_GAME_SDK'))
+                result = operationResolver.resolve(result, file);
         return result;
     })(),
     security: [

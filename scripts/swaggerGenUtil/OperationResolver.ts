@@ -23,6 +23,11 @@ export class OperationResolver {
         for (const { match, region } of file.findRegions(/^(?<name>.*?) % (?<methodStr>.*?) (?<route>\/.*?)$/)) {
             const { groups: { name, methodStr, route } = {} } = match;
 
+            if (/endpoint has been disabled/i.test(region.content)) {
+                console.warn(`${region.id} - endpoint is disabled`);
+                continue;
+            }
+
             const method = toHttpMethod(methodStr);
             const realRoute = route.replaceAll(/\{(.*?)(?:#.*?)?\}/g, (_, name) => `{${toCamelCase(name)}}`);
             const target: OpenAPIV3.PathItemObject = paths[realRoute] ??= {

@@ -29,8 +29,8 @@ export class RequestResolver {
             default: throw new Error(`${region.id} - Multiple query parameter definitions found`);
         }
 
-        if (unhandledRegions.size > 0)
-            console.warn(`${region.id} - unhandled param regions: ${JSON.stringify([...unhandledRegions].map(r => r.id))}`);
+        // if (unhandledRegions.size > 0)
+        //     console.warn(`${region.id} - unhandled param regions: ${JSON.stringify([...unhandledRegions].map(r => r.id))}`);
         return undefined!;
     }
 }
