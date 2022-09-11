@@ -14,7 +14,7 @@ export class ResponseResolver {
         Object.assign(responses, commonResponses(typeResolver));
     }
 
-    public apply(content: IFileRegion, operation: OpenAPIV3.OperationObject): void {
+    public apply(region: IFileRegion, operation: OpenAPIV3.OperationObject): void {
         operation.responses ??= {};
         operation.responses[401] ??= { $ref: '#/components/responses/DiscordUnauthorizedError' };
         operation.responses[403] ??= { $ref: '#/components/responses/DiscordForbiddenError' };
@@ -22,8 +22,36 @@ export class ResponseResolver {
         operation.responses[429] ??= { $ref: '#/components/responses/DiscordRatelimitError' };
         operation.responses[500] ??= { $ref: '#/components/responses/DiscordApiError' };
         operation.responses[502] ??= { $ref: '#/components/responses/DiscordGatewayUnavailableError' };
+
+        const matches = returnDetailsTests.map(x => [...(region.content.match(x) ?? region.id.match(x)) ?? []].slice(-1)[0])
+            .filter(x => x !== undefined)
+
+        console.warn(`${region.id} -`, matches)
     }
 }
+
+const returnDetailsTests = [
+    /\bfunctions the same as (.*?)\./i, // Need to lookup another region and get its return type
+    /\bsame as above\b/i, // Need to lookup another region and get its return type
+
+    /\breturns (.*?)\./i,
+    // /returns an \[.*?\]\(#([a-z_]+(?:\/[a-z-]+)?)\)/i,
+    // /returns `(\d+)` and an \[.*?\]\(#([a-z_]+(?:\/[a-z-]+)?)\)/i,
+    // /returns `(\d+)` and a list of \[.*?\]\(#([a-z_]+(?:\/[a-z-]+)?)\)/i,
+    // /returns an array of \[.*?\]\(#([a-z_]+(?:\/[a-z-]+)?)\)/i,
+    // /returns `(\d+) [\w ]+` on success/i,
+
+
+    /\bgets the (.*?)\./i,
+    /\bcreates a new (.*?)\./i,
+    /\bupdates the (.*?)\./i,
+
+    /\bdeletes\b/i, // probably a 204, need to check for a -return-object == "// 204 No Content"
+    /^DOCS_RESOURCES_CHANNEL\/group-dm-(add|remove)-recipient$/, // 204, no content
+    /^DOCS_RESOURCES_GUILD\/modify-user-voice-state$/, // 204, no content
+    /^DOCS_RESOURCES_WEBHOOK\/execute-slackcompatible-webhook$/, // 204, no content
+    /^DOCS_RESOURCES_WEBHOOK\/execute-githubcompatible-webhook$/, // 204, no content
+]
 
 const ratelimitHeaders: OpenAPIV3.ResponseObject['headers'] = {
     'X-RateLimit-Limit': { schema: { type: 'number' } },
