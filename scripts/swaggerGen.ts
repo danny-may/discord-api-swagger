@@ -1,4 +1,5 @@
 import * as fs from 'fs/promises';
+import * as YAML from 'yaml';
 import fetch from 'node-fetch';
 import AdmZip from 'adm-zip';
 import { OpenAPIV3 } from 'openapi-types';
@@ -88,5 +89,7 @@ const swagger: OpenAPIV3.Document = {
 }
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-await fs.writeFile(path.join(__dirname, '../swagger.json'), JSON.stringify(swagger, null, 2))
-await fs.writeFile(path.join(__dirname, '../swagger.min.json'), JSON.stringify(swagger))
+const json = JSON.stringify(swagger);
+const yaml = YAML.stringify(swagger, { lineWidth: 0, aliasDuplicateObjects: false });
+await fs.writeFile(path.join(__dirname, '../swagger.json'), json);
+await fs.writeFile(path.join(__dirname, '../swagger.yaml'), yaml);
