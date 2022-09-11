@@ -20,7 +20,7 @@ export class OperationResolver {
     }
 
     public resolve(paths: OpenAPIV3.PathsObject, file: File): OpenAPIV3.PathsObject {
-        for (const { match, region } of file.getRegions(/^(?<name>.*?) % (?<methodStr>.*?) (?<route>\/.*?)$/)) {
+        for (const { match, region } of file.findRegions(/^(?<name>.*?) % (?<methodStr>.*?) (?<route>\/.*?)$/)) {
             const { groups: { name, methodStr, route } = {} } = match;
 
             const method = toHttpMethod(methodStr);

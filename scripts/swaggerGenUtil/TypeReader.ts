@@ -213,7 +213,7 @@ const typePatterns: ITypePattern[] = [
                 ? declaredProperties
                 : declaredProperties.filter(p => filteredProps.has(p[0]));
 
-            const parentType = ctx.resolver.getSchema(`${ctx.region.file.id}/${ctx.region.fragments[0]}`);
+            const parentType = ctx.resolver.getSchema(ctx.region.id);
             let externDocs: OpenAPIV3.ExternalDocumentationObject | undefined;
 
             return ctx.resolver.setSchema([ctx.region.name, ctx.fieldName], {

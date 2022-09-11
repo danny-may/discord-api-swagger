@@ -1,4 +1,4 @@
-export class File {
+export class File implements Iterable<IFileRegion> {
     readonly rootRegion: IFileRegion;
 
     public constructor(
@@ -9,24 +9,29 @@ export class File {
         this.rootRegion = readContentRegions(content, this);
     }
 
-    public getRegions(): Iterable<IFileRegion>;
-    public getRegions(name: string): Iterable<IFileRegion>;
-    public getRegions(filter: (region: IFileRegion) => boolean): Iterable<IFileRegion>;
-    public getRegions(name: RegExp): Iterable<{ match: RegExpMatchArray; region: IFileRegion; }>;
-    public getRegions(name?: string | RegExp | ((region: IFileRegion) => boolean)): Iterable<IFileRegion> | Iterable<{ match: RegExpMatchArray; region: IFileRegion; }>;
-    public *getRegions(name?: string | RegExp | ((region: IFileRegion) => boolean)): Iterable<IFileRegion | { match: RegExpMatchArray; region: IFileRegion; }> {
-        const filter = createFilter(name);
+    public *[Symbol.iterator]() {
+        const regions = [this.rootRegion];
+        let region;
+        while ((region = regions.pop()) !== undefined) {
+            regions.push(...region.children);
+            yield region;
+        }
+    }
+
+    public * findRegions(name: RegExp): Iterable<{ match: RegExpMatchArray; region: IFileRegion; }> {
         const pending: IMutableFileRegion[] = [this.rootRegion as IMutableFileRegion];
         let region;
         while ((region = pending.shift()) !== undefined) {
             pending.push(...region.children);
-            yield* filter(region);
+            const match = region.name.match(name);
+            if (match !== null)
+                yield { match, region };
         }
     }
 }
 
 export interface IFileRegion {
-    readonly fragments: readonly string[];
+    readonly id: string;
     readonly file: File;
     readonly depth: number;
     readonly name: string;
@@ -35,7 +40,7 @@ export interface IFileRegion {
 }
 
 interface IMutableFileRegion {
-    fragments: string[];
+    id: string;
     file: File;
     depth: number;
     name: string;
@@ -46,8 +51,8 @@ interface IMutableFileRegion {
 
 function readContentRegions(source: string, file: File): IFileRegion {
     const root: IMutableFileRegion = {
+        id: file.id,
         file,
-        fragments: [],
         children: [],
         content: '',
         depth: 0,
@@ -71,52 +76,34 @@ function readContentRegions(source: string, file: File): IFileRegion {
             regionStack.pop();
 
         const name = line.slice(depth).trim();
-        const parent = regionStack[regionStack.length - 1];
-        const fragment = name.split('%')[0].trim().replaceAll(/[^a-zA-Z0-9-]+/g, '-').toLowerCase();
+        let fragment = name.split('%')[0]
+            .replaceAll(/[^ A-Z0-9]+/gi, '')
+            .trim()
+            .replaceAll(/ +/g, '-')
+            .toLowerCase();
+        if (depth > 5) {
+            let parent: IMutableFileRegion | undefined;
+            for (let i = regionStack.length - 1; i >= 0; i--) {
+                if (regionStack[i].depth <= 5) {
+                    parent = regionStack[i];
+                    break;
+                }
+            }
+            if (parent !== undefined)
+                fragment = `${parent.id.split('/')[1]}-${fragment}`;
+        }
         const region: IMutableFileRegion = {
+            id: `${file.id}/${fragment}`,
             name,
             depth,
-            fragments: [
-                fragment,
-                ...parent.fragments.map(f => f + '-' + fragment)
-            ],
             file,
             children: [],
             content: ''
         }
 
-        parent.children.push(region);
+        regionStack[regionStack.length - 1].children.push(region);
         regionStack.push(region)
     }
 
-    root.fragments.push('');
     return root;
-}
-
-function createFilter(filter: Parameters<File['getRegions']>[0]): (region: IMutableFileRegion) => Iterable<IFileRegion | { match: RegExpMatchArray; region: IFileRegion; }> {
-    switch (typeof filter) {
-        case 'string': return function* (region) {
-            if (region.name.toLowerCase() === filter)
-                yield region;
-            else if (region.fragments.includes(filter)) {
-                // Each region only has 1 valid id, but I couldnt work out how its computed.
-                // This way, the first time a fragment match is found, the other fragments are removed
-                if (region.fragments.length > 1)
-                    region.fragments = [filter];
-                yield region;
-            }
-        };
-        case 'undefined': return function* (region) {
-            yield region;
-        };
-        case 'object': return function* (region) {
-            const match = region.name.match(filter);
-            if (match !== null)
-                yield { match, region };
-        };
-        case 'function': return function* (region) {
-            if (filter(region))
-                yield region;
-        }
-    }
 }

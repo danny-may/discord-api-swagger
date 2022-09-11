@@ -47,9 +47,9 @@
         "tags": [
           "Achievements"
         ],
-        "summary": "Get Achievements or Get Achievements",
-        "operationId": "getAchievementsOrgetAchievements",
-        "description": "- [Get Achievements](https://discord.com/developers/docs/game-sdk/achievements#get-achievements)\n\n    Returns all achievements for the given application. This endpoint has a rate limit of 5 requests per 5 seconds per application.\n- [Get Achievements](https://discord.com/developers/docs/game-sdk/achievements#get-achievements)\n\n    Returns all achievements for the given application. This endpoint has a rate limit of 5 requests per 5 seconds per application."
+        "summary": "Get Achievements",
+        "operationId": "getAchievements",
+        "description": "- [Get Achievements](https://discord.com/developers/docs/game-sdk/achievements#get-achievements)\n\n    Returns all achievements for the given application. This endpoint has a rate limit of 5 requests per 5 seconds per application."
       },
       "post": {
         "responses": {
@@ -75,9 +75,9 @@
         "tags": [
           "Achievements"
         ],
-        "summary": "Create Achievement or Create Achievement",
-        "operationId": "createAchievementOrcreateAchievement",
-        "description": "- [Create Achievement](https://discord.com/developers/docs/game-sdk/achievements#create-achievement)\n\n    Creates a new achievement for your application. Applications can have a maximum of 1000 achievements. This endpoint has a rate limit of 5 requests per 5 seconds per application.\n- [Create Achievement](https://discord.com/developers/docs/game-sdk/achievements#create-achievement)\n\n    Creates a new achievement for your application. Applications can have a maximum of 1000 achievements. This endpoint has a rate limit of 5 requests per 5 seconds per application."
+        "summary": "Create Achievement",
+        "operationId": "createAchievement",
+        "description": "- [Create Achievement](https://discord.com/developers/docs/game-sdk/achievements#create-achievement)\n\n    Creates a new achievement for your application. Applications can have a maximum of 1000 achievements. This endpoint has a rate limit of 5 requests per 5 seconds per application."
       }
     },
     "/applications/{applicationId}/achievements/{achievementId}": {
@@ -125,9 +125,9 @@
         "tags": [
           "Achievements"
         ],
-        "summary": "Get Achievement or Get Achievement",
-        "operationId": "getAchievementOrgetAchievement",
-        "description": "- [Get Achievement](https://discord.com/developers/docs/game-sdk/achievements#get-achievement)\n\n    Returns the given achievement for the given application. This endpoint has a rate limit of 5 requests per 5 seconds per application.\n- [Get Achievement](https://discord.com/developers/docs/game-sdk/achievements#get-achievement)\n\n    Returns the given achievement for the given application. This endpoint has a rate limit of 5 requests per 5 seconds per application."
+        "summary": "Get Achievement",
+        "operationId": "getAchievement",
+        "description": "- [Get Achievement](https://discord.com/developers/docs/game-sdk/achievements#get-achievement)\n\n    Returns the given achievement for the given application. This endpoint has a rate limit of 5 requests per 5 seconds per application."
       },
       "patch": {
         "responses": {
@@ -153,9 +153,9 @@
         "tags": [
           "Achievements"
         ],
-        "summary": "Update Achievement or Update Achievement",
-        "operationId": "updateAchievementOrupdateAchievement",
-        "description": "- [Update Achievement](https://discord.com/developers/docs/game-sdk/achievements#update-achievement)\n\n    Updates the achievement for **\\_\\_ALL USERS\\_\\_**. This is **NOT** to update a single user's achievement progress; this is to edit the UserAchievement itself. This endpoint has a rate limit of 5 requests per 5 seconds per application.\n- [Update Achievement](https://discord.com/developers/docs/game-sdk/achievements#update-achievement)\n\n    Updates the achievement for **\\_\\_ALL USERS\\_\\_**. This is **NOT** to update a single user's achievement progress; this is to edit the UserAchievement itself. This endpoint has a rate limit of 5 requests per 5 seconds per application."
+        "summary": "Update Achievement",
+        "operationId": "updateAchievement",
+        "description": "- [Update Achievement](https://discord.com/developers/docs/game-sdk/achievements#update-achievement)\n\n    Updates the achievement for **\\_\\_ALL USERS\\_\\_**. This is **NOT** to update a single user's achievement progress; this is to edit the UserAchievement itself. This endpoint has a rate limit of 5 requests per 5 seconds per application."
       },
       "delete": {
         "responses": {
@@ -181,9 +181,9 @@
         "tags": [
           "Achievements"
         ],
-        "summary": "Delete Achievement or Delete Achievement",
-        "operationId": "deleteAchievementOrdeleteAchievement",
-        "description": "- [Delete Achievement](https://discord.com/developers/docs/game-sdk/achievements#delete-achievement)\n\n    Deletes the given achievement from your application. This endpoint has a rate limit of 5 requests per 5 seconds per application.\n- [Delete Achievement](https://discord.com/developers/docs/game-sdk/achievements#delete-achievement)\n\n    Deletes the given achievement from your application. This endpoint has a rate limit of 5 requests per 5 seconds per application."
+        "summary": "Delete Achievement",
+        "operationId": "deleteAchievement",
+        "description": "- [Delete Achievement](https://discord.com/developers/docs/game-sdk/achievements#delete-achievement)\n\n    Deletes the given achievement from your application. This endpoint has a rate limit of 5 requests per 5 seconds per application."
       }
     },
     "/users/{userId}/applications/{applicationId}/achievements/{achievementId}": {
@@ -240,9 +240,9 @@
         "tags": [
           "Achievements"
         ],
-        "summary": "Update User Achievement or Update User Achievement",
-        "operationId": "updateUserAchievementOrupdateUserAchievement",
-        "description": "- [Update User Achievement](https://discord.com/developers/docs/game-sdk/achievements#update-user-achievement)\n\n    Updates the UserAchievement record for a given user. Use this endpoint to update `secure` achievement progress for users. This endpoint has a rate limit of 5 requests per 5 seconds per application.\n- [Update User Achievement](https://discord.com/developers/docs/game-sdk/achievements#update-user-achievement)\n\n    Updates the UserAchievement record for a given user. Use this endpoint to update `secure` achievement progress for users. This endpoint has a rate limit of 5 requests per 5 seconds per application."
+        "summary": "Update User Achievement",
+        "operationId": "updateUserAchievement",
+        "description": "- [Update User Achievement](https://discord.com/developers/docs/game-sdk/achievements#update-user-achievement)\n\n    Updates the UserAchievement record for a given user. Use this endpoint to update `secure` achievement progress for users. This endpoint has a rate limit of 5 requests per 5 seconds per application."
       }
     },
     "/users/@me/applications/{applicationId}/achievements": {
@@ -281,9 +281,9 @@
         "tags": [
           "Achievements"
         ],
-        "summary": "Get User Achievements or Get User Achievements",
-        "operationId": "getUserAchievementsOrgetUserAchievements",
-        "description": "- [Get User Achievements](https://discord.com/developers/docs/game-sdk/achievements#get-user-achievements)\n\n    Returns a list of achievements for the user whose token you're making the request with. This endpoint will **NOT** accept the Bearer token for your application generated via the [Client Credentials Grant](#DOCS_TOPICS_OAUTH2/client-credentials-grant). You will need the _user's_ bearer token, gotten via either the [Authorization Code OAuth2 Grant](#DOCS_TOPICS_OAUTH2/authorization-code-grant) or via the SDK with [GetOAuth2Token](#DOCS_GAME_SDK_APPLICATIONS/getoauth2token). This endpoint has a rate limit of 2 requests per 5 seconds per application per user.\n  > info\n  > This endpoint will _not_ return any achievements marked as `secret` that the user has not yet completed.\n- [Get User Achievements](https://discord.com/developers/docs/game-sdk/achievements#get-user-achievements)\n\n    Returns a list of achievements for the user whose token you're making the request with. This endpoint will **NOT** accept the Bearer token for your application generated via the [Client Credentials Grant](#DOCS_TOPICS_OAUTH2/client-credentials-grant). You will need the _user's_ bearer token, gotten via either the [Authorization Code OAuth2 Grant](#DOCS_TOPICS_OAUTH2/authorization-code-grant) or via the SDK with [GetOAuth2Token](#DOCS_GAME_SDK_APPLICATIONS/getoauth2token). This endpoint has a rate limit of 2 requests per 5 seconds per application per user.\n  > info\n  > This endpoint will _not_ return any achievements marked as `secret` that the user has not yet completed."
+        "summary": "Get User Achievements",
+        "operationId": "getUserAchievements",
+        "description": "- [Get User Achievements](https://discord.com/developers/docs/game-sdk/achievements#get-user-achievements)\n\n    Returns a list of achievements for the user whose token you're making the request with. This endpoint will **NOT** accept the Bearer token for your application generated via the [Client Credentials Grant](#DOCS_TOPICS_OAUTH2/client-credentials-grant). You will need the _user's_ bearer token, gotten via either the [Authorization Code OAuth2 Grant](#DOCS_TOPICS_OAUTH2/authorization-code-grant) or via the SDK with [GetOAuth2Token](#DOCS_GAME_SDK_APPLICATIONS/getoauth2token). This endpoint has a rate limit of 2 requests per 5 seconds per application per user.\n  > info\n  > This endpoint will _not_ return any achievements marked as `secret` that the user has not yet completed."
       }
     },
     "/lobbies": {
@@ -312,9 +312,9 @@
         "tags": [
           "Lobbies"
         ],
-        "summary": "Create Lobby or Create Lobby",
-        "operationId": "createLobbyOrcreateLobby",
-        "description": "- [Create Lobby](https://discord.com/developers/docs/game-sdk/lobbies#create-lobby)\n\n    Creates a new lobby. Returns an object similar to the SDK `Lobby` struct, documented below.\n  To get a list of valid regions, call the [List Voice Regions](https://discord.com/developers/docs/resources/voice#list-voice-regions) endpoint.\n- [Create Lobby](https://discord.com/developers/docs/game-sdk/lobbies#create-lobby)\n\n    Creates a new lobby. Returns an object similar to the SDK `Lobby` struct, documented below.\n  To get a list of valid regions, call the [List Voice Regions](https://discord.com/developers/docs/resources/voice#list-voice-regions) endpoint."
+        "summary": "Create Lobby",
+        "operationId": "createLobby",
+        "description": "- [Create Lobby](https://discord.com/developers/docs/game-sdk/lobbies#create-lobby)\n\n    Creates a new lobby. Returns an object similar to the SDK `Lobby` struct, documented below.\n  To get a list of valid regions, call the [List Voice Regions](https://discord.com/developers/docs/resources/voice#list-voice-regions) endpoint."
       }
     },
     "/lobbies/{lobbyId}": {
@@ -353,9 +353,9 @@
         "tags": [
           "Lobbies"
         ],
-        "summary": "Update Lobby or Update Lobby",
-        "operationId": "updateLobbyOrupdateLobby",
-        "description": "- [Update Lobby](https://discord.com/developers/docs/game-sdk/lobbies#update-lobby)\n\n    Updates a lobby.\n- [Update Lobby](https://discord.com/developers/docs/game-sdk/lobbies#update-lobby)\n\n    Updates a lobby."
+        "summary": "Update Lobby",
+        "operationId": "updateLobby",
+        "description": "- [Update Lobby](https://discord.com/developers/docs/game-sdk/lobbies#update-lobby)\n\n    Updates a lobby."
       },
       "delete": {
         "responses": {
@@ -381,9 +381,9 @@
         "tags": [
           "Lobbies"
         ],
-        "summary": "Delete Lobby or Delete Lobby",
-        "operationId": "deleteLobbyOrdeleteLobby",
-        "description": "- [Delete Lobby](https://discord.com/developers/docs/game-sdk/lobbies#delete-lobby)\n\n    Deletes a lobby.\n- [Delete Lobby](https://discord.com/developers/docs/game-sdk/lobbies#delete-lobby)\n\n    Deletes a lobby."
+        "summary": "Delete Lobby",
+        "operationId": "deleteLobby",
+        "description": "- [Delete Lobby](https://discord.com/developers/docs/game-sdk/lobbies#delete-lobby)\n\n    Deletes a lobby."
       }
     },
     "/lobbies/{lobbyId}/members/{userId}": {
@@ -431,9 +431,9 @@
         "tags": [
           "Lobbies"
         ],
-        "summary": "Update Lobby Member or Update Lobby Member",
-        "operationId": "updateLobbyMemberOrupdateLobbyMember",
-        "description": "- [Update Lobby Member](https://discord.com/developers/docs/game-sdk/lobbies#update-lobby-member)\n\n    Updates the metadata for a lobby member.\n- [Update Lobby Member](https://discord.com/developers/docs/game-sdk/lobbies#update-lobby-member)\n\n    Updates the metadata for a lobby member."
+        "summary": "Update Lobby Member",
+        "operationId": "updateLobbyMember",
+        "description": "- [Update Lobby Member](https://discord.com/developers/docs/game-sdk/lobbies#update-lobby-member)\n\n    Updates the metadata for a lobby member."
       }
     },
     "/lobbies/search": {
@@ -462,9 +462,9 @@
         "tags": [
           "Lobbies"
         ],
-        "summary": "Create Lobby Search or Create Lobby Search",
-        "operationId": "createLobbySearchOrcreateLobbySearch",
-        "description": "- [Create Lobby Search](https://discord.com/developers/docs/game-sdk/lobbies#create-lobby-search)\n\n    Creates a lobby search for matchmaking around given criteria.\n- [Create Lobby Search](https://discord.com/developers/docs/game-sdk/lobbies#create-lobby-search)\n\n    Creates a lobby search for matchmaking around given criteria."
+        "summary": "Create Lobby Search",
+        "operationId": "createLobbySearch",
+        "description": "- [Create Lobby Search](https://discord.com/developers/docs/game-sdk/lobbies#create-lobby-search)\n\n    Creates a lobby search for matchmaking around given criteria."
       }
     },
     "/lobbies/{lobbyId}/send": {
@@ -503,9 +503,9 @@
         "tags": [
           "Lobbies"
         ],
-        "summary": "Send Lobby Data or Send Lobby Data",
-        "operationId": "sendLobbyDataOrsendLobbyData",
-        "description": "- [Send Lobby Data](https://discord.com/developers/docs/game-sdk/lobbies#send-lobby-data)\n\n    Sends a message to the lobby, fanning it out to other lobby members.\n  This endpoints accepts a UTF8 string. If your message is already a string, you're good to go! If you want to send binary, you can send it to this endpoint as a base64 encoded data uri.\n- [Send Lobby Data](https://discord.com/developers/docs/game-sdk/lobbies#send-lobby-data)\n\n    Sends a message to the lobby, fanning it out to other lobby members.\n  This endpoints accepts a UTF8 string. If your message is already a string, you're good to go! If you want to send binary, you can send it to this endpoint as a base64 encoded data uri."
+        "summary": "Send Lobby Data",
+        "operationId": "sendLobbyData",
+        "description": "- [Send Lobby Data](https://discord.com/developers/docs/game-sdk/lobbies#send-lobby-data)\n\n    Sends a message to the lobby, fanning it out to other lobby members.\n  This endpoints accepts a UTF8 string. If your message is already a string, you're good to go! If you want to send binary, you can send it to this endpoint as a base64 encoded data uri."
       }
     },
     "/applications/{applicationId}/entitlements": {
@@ -544,9 +544,9 @@
         "tags": [
           "Store"
         ],
-        "summary": "Get Entitlements or Get Entitlements",
-        "operationId": "getEntitlementsOrgetEntitlements",
-        "description": "- [Get Entitlements](https://discord.com/developers/docs/game-sdk/store#get-entitlements)\n\n    Gets entitlements for a given user. You can use this on your game backend to check entitlements of an arbitrary user, or perhaps in an administrative panel for your support team.\n- [Get Entitlements](https://discord.com/developers/docs/game-sdk/store#get-entitlements)\n\n    Gets entitlements for a given user. You can use this on your game backend to check entitlements of an arbitrary user, or perhaps in an administrative panel for your support team."
+        "summary": "Get Entitlements",
+        "operationId": "getEntitlements",
+        "description": "- [Get Entitlements](https://discord.com/developers/docs/game-sdk/store#get-entitlements)\n\n    Gets entitlements for a given user. You can use this on your game backend to check entitlements of an arbitrary user, or perhaps in an administrative panel for your support team."
       }
     },
     "/applications/{applicationId}/entitlements/{entitlementId}": {
@@ -594,9 +594,9 @@
         "tags": [
           "Store"
         ],
-        "summary": "Get Entitlement or Get Entitlement",
-        "operationId": "getEntitlementOrgetEntitlement",
-        "description": "- [Get Entitlement](https://discord.com/developers/docs/game-sdk/store#get-entitlement)\n\n    Fetch an entitlement by its ID. This may be useful in confirming that a user has a given entitlement that another call or the SDK says they do.\n- [Get Entitlement](https://discord.com/developers/docs/game-sdk/store#get-entitlement)\n\n    Fetch an entitlement by its ID. This may be useful in confirming that a user has a given entitlement that another call or the SDK says they do."
+        "summary": "Get Entitlement",
+        "operationId": "getEntitlement",
+        "description": "- [Get Entitlement](https://discord.com/developers/docs/game-sdk/store#get-entitlement)\n\n    Fetch an entitlement by its ID. This may be useful in confirming that a user has a given entitlement that another call or the SDK says they do."
       },
       "delete": {
         "responses": {
@@ -622,9 +622,9 @@
         "tags": [
           "Store"
         ],
-        "summary": "Delete Test Entitlement or Delete Test Entitlement",
-        "operationId": "deleteTestEntitlementOrdeleteTestEntitlement",
-        "description": "- [Delete Test Entitlement](https://discord.com/developers/docs/game-sdk/store#delete-test-entitlement)\n\n    Deletes a test entitlement for an application. You can only delete entitlements that were \"purchased\" in developer test mode; these are entitlements of `type == TestModePurchase`. You cannot use this route to delete arbitrary entitlements that users actually purchased.\n- [Delete Test Entitlement](https://discord.com/developers/docs/game-sdk/store#delete-test-entitlement)\n\n    Deletes a test entitlement for an application. You can only delete entitlements that were \"purchased\" in developer test mode; these are entitlements of `type == TestModePurchase`. You cannot use this route to delete arbitrary entitlements that users actually purchased."
+        "summary": "Delete Test Entitlement",
+        "operationId": "deleteTestEntitlement",
+        "description": "- [Delete Test Entitlement](https://discord.com/developers/docs/game-sdk/store#delete-test-entitlement)\n\n    Deletes a test entitlement for an application. You can only delete entitlements that were \"purchased\" in developer test mode; these are entitlements of `type == TestModePurchase`. You cannot use this route to delete arbitrary entitlements that users actually purchased."
       }
     },
     "/applications/{applicationId}/skus": {
@@ -663,9 +663,9 @@
         "tags": [
           "Store"
         ],
-        "summary": "Get SKUs or Get SKUs",
-        "operationId": "getSKUsOrgetSKUs",
-        "description": "- [Get SKUs](https://discord.com/developers/docs/game-sdk/store#get-skus)\n\n    Get all SKUs for an application.\n- [Get SKUs](https://discord.com/developers/docs/game-sdk/store#get-skus)\n\n    Get all SKUs for an application."
+        "summary": "Get SKUs",
+        "operationId": "getSKUs",
+        "description": "- [Get SKUs](https://discord.com/developers/docs/game-sdk/store#get-skus)\n\n    Get all SKUs for an application."
       }
     },
     "/applications/{applicationId}/entitlements/{entitlementId}/consume": {
@@ -713,9 +713,9 @@
         "tags": [
           "Store"
         ],
-        "summary": "Consume SKU or Consume SKU",
-        "operationId": "consumeSKUOrconsumeSKU",
-        "description": "- [Consume SKU](https://discord.com/developers/docs/game-sdk/store#consume-sku)\n\n    Marks a given entitlement for the user as consumed, meaning it will no longer be returned in an entitlements check. **Ensure the user was granted whatever items the entitlement was for before consuming it!**\n- [Consume SKU](https://discord.com/developers/docs/game-sdk/store#consume-sku)\n\n    Marks a given entitlement for the user as consumed, meaning it will no longer be returned in an entitlements check. **Ensure the user was granted whatever items the entitlement was for before consuming it!**"
+        "summary": "Consume SKU",
+        "operationId": "consumeSKU",
+        "description": "- [Consume SKU](https://discord.com/developers/docs/game-sdk/store#consume-sku)\n\n    Marks a given entitlement for the user as consumed, meaning it will no longer be returned in an entitlements check. **Ensure the user was granted whatever items the entitlement was for before consuming it!**"
       }
     },
     "/store/skus/{skuId}/discounts/{userId}": {
@@ -763,9 +763,9 @@
         "tags": [
           "Store"
         ],
-        "summary": "Create Purchase Discount or Create Purchase Discount",
-        "operationId": "createPurchaseDiscountOrcreatePurchaseDiscount",
-        "description": "- [Create Purchase Discount](https://discord.com/developers/docs/game-sdk/store#create-purchase-discount)\n\n    Creates a discount for the given user on their next purchase of the given SKU. You should call this endpoint from your backend server just before calling [StartPurchase](#DOCS_GAME_SDK_STORE/startpurchase) for the SKU you wish to discount. The user will then see a discounted price for that SKU at time of payment. The discount is automatically consumed after successful purchase or if the TTL expires.\n- [Create Purchase Discount](https://discord.com/developers/docs/game-sdk/store#create-purchase-discount)\n\n    Creates a discount for the given user on their next purchase of the given SKU. You should call this endpoint from your backend server just before calling [StartPurchase](#DOCS_GAME_SDK_STORE/startpurchase) for the SKU you wish to discount. The user will then see a discounted price for that SKU at time of payment. The discount is automatically consumed after successful purchase or if the TTL expires."
+        "summary": "Create Purchase Discount",
+        "operationId": "createPurchaseDiscount",
+        "description": "- [Create Purchase Discount](https://discord.com/developers/docs/game-sdk/store#create-purchase-discount)\n\n    Creates a discount for the given user on their next purchase of the given SKU. You should call this endpoint from your backend server just before calling [StartPurchase](#DOCS_GAME_SDK_STORE/startpurchase) for the SKU you wish to discount. The user will then see a discounted price for that SKU at time of payment. The discount is automatically consumed after successful purchase or if the TTL expires."
       },
       "delete": {
         "responses": {
@@ -791,9 +791,9 @@
         "tags": [
           "Store"
         ],
-        "summary": "Delete Purchase Discount or Delete Purchase Discount",
-        "operationId": "deletePurchaseDiscountOrdeletePurchaseDiscount",
-        "description": "- [Delete Purchase Discount](https://discord.com/developers/docs/game-sdk/store#delete-purchase-discount)\n\n    Deletes the currently active discount on the given SKU for the given user. You **do not need** to call this after a user has made a discounted purchase; successful discounted purchases will automatically remove the discount for that user for subsequent purchases.\n- [Delete Purchase Discount](https://discord.com/developers/docs/game-sdk/store#delete-purchase-discount)\n\n    Deletes the currently active discount on the given SKU for the given user. You **do not need** to call this after a user has made a discounted purchase; successful discounted purchases will automatically remove the discount for that user for subsequent purchases."
+        "summary": "Delete Purchase Discount",
+        "operationId": "deletePurchaseDiscount",
+        "description": "- [Delete Purchase Discount](https://discord.com/developers/docs/game-sdk/store#delete-purchase-discount)\n\n    Deletes the currently active discount on the given SKU for the given user. You **do not need** to call this after a user has made a discounted purchase; successful discounted purchases will automatically remove the discount for that user for subsequent purchases."
       }
     },
     "/applications/{applicationId}/commands": {
@@ -7805,7 +7805,7 @@
           "avatar"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/user#user-structure"
+          "url": "https://discord.com/developers/docs/resources/user#user-object-user-structure"
         }
       },
       "ApplicationOwner": {
@@ -7889,7 +7889,7 @@
           }
         },
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/application#application-structure"
+          "url": "https://discord.com/developers/docs/resources/application#application-object-application-structure"
         }
       },
       "MembershipState": {
@@ -8150,7 +8150,7 @@
           "permissions"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/application#install-params-structure"
+          "url": "https://discord.com/developers/docs/resources/application#install-params-object-install-params-structure"
         }
       },
       "Application": {
@@ -8286,7 +8286,7 @@
           "team"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/application#application-structure"
+          "url": "https://discord.com/developers/docs/resources/application#application-object-application-structure"
         }
       },
       "Achievement": {
@@ -9454,7 +9454,7 @@
           "version"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/application-commands#application-command-structure"
+          "url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-structure"
         }
       },
       "VoiceRegion": {
@@ -9489,7 +9489,7 @@
           "custom"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/voice#voice-region-structure"
+          "url": "https://discord.com/developers/docs/resources/voice#voice-region-object-voice-region-structure"
         }
       },
       "VerificationLevel": {
@@ -9630,7 +9630,7 @@
           "mentionable"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/topics/permissions#role-structure"
+          "url": "https://discord.com/developers/docs/topics/permissions#role-object-role-structure"
         }
       },
       "Emoji": {
@@ -9692,7 +9692,7 @@
           "name"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/emoji#emoji-structure"
+          "url": "https://discord.com/developers/docs/resources/emoji#emoji-object-emoji-structure"
         }
       },
       "GuildFeatures": {
@@ -9824,7 +9824,7 @@
           "welcome_channels"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/guild#welcome-screen-structure"
+          "url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object-welcome-screen-structure"
         }
       },
       "GuildNSFWLevel": {
@@ -9949,7 +9949,7 @@
           "format_type"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/sticker#sticker-structure"
+          "url": "https://discord.com/developers/docs/resources/sticker#sticker-object-sticker-structure"
         }
       },
       "Guild": {
@@ -10242,7 +10242,7 @@
           "premium_progress_bar_enabled"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/guild#guild-structure"
+          "url": "https://discord.com/developers/docs/resources/guild#guild-object-guild-structure"
         }
       },
       "InteractionType": {
@@ -10344,7 +10344,7 @@
           "mute"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/guild#guild-member-structure"
+          "url": "https://discord.com/developers/docs/resources/guild#guild-member-object-guild-member-structure"
         }
       },
       "Overwrite": {
@@ -10378,7 +10378,7 @@
           "deny"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/channel#overwrite-structure"
+          "url": "https://discord.com/developers/docs/resources/channel#overwrite-object-overwrite-structure"
         }
       },
       "VideoQualityModes": {
@@ -10436,7 +10436,7 @@
           "locked"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/channel#thread-metadata-structure"
+          "url": "https://discord.com/developers/docs/resources/channel#thread-metadata-object-thread-metadata-structure"
         }
       },
       "ThreadMember": {
@@ -10476,7 +10476,7 @@
           "flags"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/channel#thread-member-structure"
+          "url": "https://discord.com/developers/docs/resources/channel#thread-member-object-thread-member-structure"
         }
       },
       "ChannelFlags": {
@@ -10531,7 +10531,7 @@
           "emoji_name"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/channel#forum-tag-structure"
+          "url": "https://discord.com/developers/docs/resources/channel#forum-tag-object-forum-tag-structure"
         }
       },
       "DefaultReaction": {
@@ -10556,7 +10556,7 @@
           "emoji_name"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/channel#default-reaction-structure"
+          "url": "https://discord.com/developers/docs/resources/channel#default-reaction-object-default-reaction-structure"
         }
       },
       "Channel": {
@@ -10764,7 +10764,7 @@
           "type"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/channel#channel-structure"
+          "url": "https://discord.com/developers/docs/resources/channel#channel-object-channel-structure"
         }
       },
       "ChannelMention": {
@@ -10806,7 +10806,7 @@
           "name"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/channel#channel-mention-structure"
+          "url": "https://discord.com/developers/docs/resources/channel#channel-mention-object-channel-mention-structure"
         }
       },
       "Attachment": {
@@ -10867,7 +10867,7 @@
           "proxy_url"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/channel#attachment-structure"
+          "url": "https://discord.com/developers/docs/resources/channel#attachment-object-attachment-structure"
         }
       },
       "EmbedTypes": {
@@ -11148,7 +11148,7 @@
         },
         "required": [],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/channel#embed-structure"
+          "url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-structure"
         }
       },
       "ReactionEmoji": {
@@ -11206,7 +11206,7 @@
           }
         },
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/channel#reaction-structure"
+          "url": "https://discord.com/developers/docs/resources/channel#reaction-object-reaction-structure"
         }
       },
       "Reaction": {
@@ -11235,7 +11235,7 @@
           "emoji"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/channel#reaction-structure"
+          "url": "https://discord.com/developers/docs/resources/channel#reaction-object-reaction-structure"
         }
       },
       "MessageTypes": {
@@ -11429,7 +11429,7 @@
           }
         },
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/channel#message-structure"
+          "url": "https://discord.com/developers/docs/resources/channel#message-object-message-structure"
         }
       },
       "MessageReference": {
@@ -11725,7 +11725,7 @@
           "type"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/channel#message-structure"
+          "url": "https://discord.com/developers/docs/resources/channel#message-object-message-structure"
         }
       },
       "MessageInteraction": {
@@ -11815,7 +11815,7 @@
           }
         },
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/message-components#button-structure"
+          "url": "https://discord.com/developers/docs/interactions/message-components#button-object-button-structure"
         }
       },
       "Button": {
@@ -11863,7 +11863,7 @@
           "style"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/message-components#button-structure"
+          "url": "https://discord.com/developers/docs/interactions/message-components#button-object-button-structure"
         }
       },
       "SelectOptionEmoji": {
@@ -11969,7 +11969,7 @@
           "options"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/message-components#select-menu-structure"
+          "url": "https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-menu-structure"
         }
       },
       "TextInputStyles": {
@@ -12097,7 +12097,7 @@
           "format_type"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/sticker#sticker-item-structure"
+          "url": "https://discord.com/developers/docs/resources/sticker#sticker-item-object-sticker-item-structure"
         }
       },
       "ResolvedData": {
@@ -12368,7 +12368,7 @@
           "version"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-structure"
+          "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-structure"
         }
       },
       "EventTypes": {
@@ -12451,7 +12451,7 @@
           "type"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-structure"
+          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object-auto-moderation-action-structure"
         }
       },
       "AutoModerationRule": {
@@ -12546,7 +12546,7 @@
           "exempt_channels"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-structure"
+          "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-auto-moderation-rule-structure"
         }
       },
       "IntegrationExpireBehaviors": {
@@ -12577,7 +12577,7 @@
           "name"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/guild#integration-account-structure"
+          "url": "https://discord.com/developers/docs/resources/guild#integration-account-object-integration-account-structure"
         }
       },
       "IntegrationApplication": {
@@ -12620,7 +12620,7 @@
           "description"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/guild#integration-application-structure"
+          "url": "https://discord.com/developers/docs/resources/guild#integration-application-object-integration-application-structure"
         }
       },
       "Integration": {
@@ -12729,7 +12729,7 @@
           "account"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/guild#integration-structure"
+          "url": "https://discord.com/developers/docs/resources/guild#integration-object-integration-structure"
         }
       },
       "GuildScheduledEventPrivacyLevel": {
@@ -12917,7 +12917,7 @@
           "entity_metadata"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-structure"
+          "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object-guild-scheduled-event-structure"
         }
       },
       "GuildTemplateSerializedSourceGuild": {
@@ -13181,7 +13181,7 @@
           }
         },
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/guild-template#guild-template-structure"
+          "url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object-guild-template-structure"
         }
       },
       "GuildTemplate": {
@@ -13272,7 +13272,7 @@
           "is_dirty"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/guild-template#guild-template-structure"
+          "url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object-guild-template-structure"
         }
       },
       "InviteGuild": {
@@ -13536,7 +13536,7 @@
           }
         },
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/invite#invite-structure"
+          "url": "https://discord.com/developers/docs/resources/invite#invite-object-invite-structure"
         }
       },
       "InviteChannel": {
@@ -13740,7 +13740,7 @@
           }
         },
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/invite#invite-structure"
+          "url": "https://discord.com/developers/docs/resources/invite#invite-object-invite-structure"
         }
       },
       "InviteTargetTypes": {
@@ -13876,7 +13876,7 @@
           }
         },
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/invite#invite-structure"
+          "url": "https://discord.com/developers/docs/resources/invite#invite-object-invite-structure"
         }
       },
       "InviteStageInstanceMembers": {
@@ -13951,7 +13951,7 @@
           }
         },
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/invite#invite-stage-instance-structure"
+          "url": "https://discord.com/developers/docs/resources/invite#invite-stage-instance-object-invite-stage-instance-structure"
         }
       },
       "InviteStageInstance": {
@@ -13984,7 +13984,7 @@
           "topic"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/invite#invite-stage-instance-structure"
+          "url": "https://discord.com/developers/docs/resources/invite#invite-stage-instance-object-invite-stage-instance-structure"
         }
       },
       "Invite": {
@@ -14083,7 +14083,7 @@
           "channel"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/invite#invite-structure"
+          "url": "https://discord.com/developers/docs/resources/invite#invite-object-invite-structure"
         }
       },
       "WebhookTypes": {
@@ -14359,7 +14359,7 @@
           }
         },
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/webhook#webhook-structure"
+          "url": "https://discord.com/developers/docs/resources/webhook#webhook-object-webhook-structure"
         }
       },
       "WebhookSourceChannel": {
@@ -14563,7 +14563,7 @@
           }
         },
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/webhook#webhook-structure"
+          "url": "https://discord.com/developers/docs/resources/webhook#webhook-object-webhook-structure"
         }
       },
       "Webhook": {
@@ -14664,7 +14664,7 @@
           "application_id"
         ],
         "externalDocs": {
-          "url": "https://discord.com/developers/docs/resources/webhook#webhook-structure"
+          "url": "https://discord.com/developers/docs/resources/webhook#webhook-object-webhook-structure"
         }
       }
     }

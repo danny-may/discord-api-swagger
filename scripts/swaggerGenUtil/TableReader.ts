@@ -5,11 +5,10 @@ import { TypeReader } from "./TypeReader.js";
 
 export class TableReader {
     public read(region: IFileRegion, table: string[][], reader: TypeReader): OpenAPIV3.SchemaObject {
-        const regionIds = region.fragments.map(f => `${region.file.id}/${f}`);
         const headers = table[0];
         let readers = schemes.filter(s => s.targets.some(s =>
             s.regionId !== undefined
-            && regionIds.some(r => s.regionId!.test(r))
+            && s.regionId.test(region.id)
             && s.headers.length === headers.length
             && s.headers.every((h, i) => headers[i].toLowerCase() === h.toLowerCase())
         ));
@@ -23,11 +22,11 @@ export class TableReader {
         }
 
         if (readers.length > 1)
-            throw new Error(`${region.file.id}/${region.fragments[0]} - Multiple readers for headers ${JSON.stringify(headers)}`)
+            throw new Error(`${region.id} - Multiple readers for headers ${JSON.stringify(headers)}`)
 
         if (readers.length === 0) {
-            console.warn(`${region.file.id}/${region.fragments[0]} - No reader for headers ${JSON.stringify(headers)}`);
-            throw new NotATypeError(`${region.file.id}/${region.fragments[0]} - No reader for headers ${JSON.stringify(headers)}`);
+            console.warn(`${region.id} - No reader for headers ${JSON.stringify(headers)}`);
+            throw new NotATypeError(`${region.id} - No reader for headers ${JSON.stringify(headers)}`);
         }
 
         return readers[0].read(region, table.slice(1), reader);
@@ -162,7 +161,7 @@ const nameValueDescFlagScheme: ITableReaderScheme = {
         for (const [name, value, description] of table) {
             const match = value.match(/1 << (\d+)/);
             if (match === null) {
-                console.warn(`${region.file.id}/${region.fragments[0]} - Cannot understand ${JSON.stringify(value)} as a flag value`);
+                console.warn(`${region.id} - Cannot understand ${JSON.stringify(value)} as a flag value`);
                 continue;
             }
             const bitPos = parseInt(match[1]);

@@ -78,13 +78,10 @@ export class TypeResolver {
             };
         }
 
-        const [fileId, fragment = ''] = typeId.split('/');
-        const file = this.#files.getFile(fileId);
-        const regions = [...file.getRegions(fragment)];
-        if (regions.length !== 1)
-            throw new NotATypeError('Ambiguious or unknown fragment ' + fragment);
+        const region = this.#files.getRegion(typeId);
+        if (region === undefined)
+            throw new NotATypeError('Unknown region ' + typeId);
 
-        const region = regions[0];
         let result = this.#schemaCache.get(region);
         if (result === undefined) {
             const details = this.#computeTypeDetails(region);
@@ -109,7 +106,7 @@ export class TypeResolver {
             if (schema === undefined) {
                 schema = {};
                 Object.assign(schema, this.#tableReader.read(region, table, this.#typeReader));
-                this.#ensureDocumentation(schema, `${region.file.id}/${region.fragments[0]}`);
+                this.#ensureDocumentation(schema, region.id);
             }
             return schema;
         }
@@ -149,7 +146,7 @@ export class TypeResolver {
                 };
         }
 
-        return () => new NotATypeError(`Ambiguous or missing tables in region ${region.file.id}/${region.fragments[0]}`);
+        return () => new NotATypeError(`Ambiguous or missing tables in region ${region.id}`);
     }
 }
 
@@ -254,14 +251,14 @@ const typeOverrides: Record<string, { id: string, schema: (self: TypeResolver) =
 
 function* getRegionsToSearch(root: IFileRegion): Iterable<IFileRegion> {
     yield root;
-    for (const fragment of root.fragments) {
-        for (const [postfix, replacement] of Object.entries(postfixReplacements)) {
-            if (!fragment.endsWith(postfix))
-                continue;
+    for (const [postfix, replacement] of Object.entries(postfixReplacements)) {
+        const [fileId, fragment] = root.id.split('/');
+        if (fragment === undefined || !fragment.endsWith(postfix))
+            continue;
 
-            const target = fragment.slice(0, -postfix.length) + replacement;
-            yield* root.children.filter(c => c.fragments.includes(target));
-        }
+        const newFragment = fragment.slice(0, -postfix.length) + replacement;
+
+        yield* root.children.filter(c => c.id === `${fileId}/${newFragment}` || c.id === `${fileId}/${fragment}-${newFragment}`)
     }
 }
 

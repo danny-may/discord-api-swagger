@@ -12,7 +12,10 @@ export class RequestResolver {
         this.#requests = requests;
     }
 
-    public resolve(content: IFileRegion): OpenAPIV3.ReferenceObject | OpenAPIV3.RequestBodyObject {
+    public resolve(region: IFileRegion): OpenAPIV3.ReferenceObject | OpenAPIV3.RequestBodyObject {
+        for (const child of region.children)
+            if (child.name.toLowerCase().includes('form'))
+                console.log(`${region.id} Form paramters:\n${child.content}`);
         return undefined!;
     }
 }
